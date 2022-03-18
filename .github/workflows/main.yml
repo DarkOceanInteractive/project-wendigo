@@ -1,13 +1,14 @@
-name: Build Project
+name: Build the project and publish a release
 
 on:
-  workflow_dispatch: {}
+  push:
+    tags: 'v*'
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
 jobs:
-  checkLicense:
+  check-license:
     name: Check for the Unity license
     runs-on: ubuntu-latest
     steps:
@@ -15,42 +16,62 @@ jobs:
         if: ${{ !startsWith(env.UNITY_LICENSE, '<') }}
         run: exit 1
 
+  create-release-draft:
+    name: Create a release draft
+    runs-on: ubuntu-latest
+    needs: check-license
+    outputs:
+      id: ${{ steps.create_release_draft.outputs.id }}
+      upload_url: ${{ steps.create_release_draft.outputs.upload_url }}
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Get release version
+        run: echo "::set-output name=version::${GITHUB_REF/refs\/tags\//}"
+        id: version
+      - name: Create release draft
+        uses: actions/create-release@v1
+        id: create_release_draft
+        with:
+          draft: true
+          prerelease: false
+          release_name: ${{ steps.version.outputs.version }}
+          tag_name: ${{ github.ref }}
+          body_path: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
   build:
     name: Build project for ${{ matrix.TargetPlatform }}
     runs-on: ubuntu-latest
-    needs: checkLicense
+    needs: [create-release-draft]
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         UnityVersion:
           - 2020.3.29f1
         TargetPlatform:
           - StandaloneWindows64
+          - StandaloneLinux64
           - StandaloneOSX
           - WebGL
     steps:
-      # Checkout (without LFS)
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      # Git LFS
       - name: Create LFS file list
         run: git lfs ls-files -l | cut -d ' ' -f1 | sort > .lfs-assets-id
-
       - name: Restore LFS cache
         uses: actions/cache@v2
         id: lfs-cache
         with:
           path: .git/lfs
           key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}
-
       - name: Git LFS Pull
         run: |
           git lfs pull
           git add .
           git reset --hard
-
-      # Cache
       - uses: actions/cache@v2
         with:
           path: Library
@@ -58,16 +79,48 @@ jobs:
           restore-keys: |
             Library-${{ matrix.TargetPlatform }}-
             Library-
-
-      # Build
+      - name: Generate build name
+        id: build-name
+        run: echo "::set-output name=build_name::${GITHUB_REPOSITORY/\//_}_Build_${{ needs.create-release-draft.outputs.version }}_Unity${{ matrix.UnityVersion }}_${{ matrix.TargetPlatform }}"
       - name: Build project
         uses: game-ci/unity-builder@v2
         with:
+          buildName: ${{ steps.build-name.outputs.build_name }}
           unityVersion: ${{ matrix.UnityVersion }}
           targetPlatform: ${{ matrix.TargetPlatform }}
-
-      # Output
-      - uses: actions/upload-artifact@v2
+      - name: Zip build assets
+        run: |
+          ln -s ./build/${{ matrix.TargetPlatform }} ./${{ steps.build-name.outputs.build_name }}
+          zip -r ./${{ steps.build-name.outputs.build_name }}.zip ./${{ steps.build-name.outputs.build_name }}
+      - name: Upload build assets to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
-          name: Build
-          path: build
+          upload_url: ${{ needs.create-release-draft.outputs.upload_url }}
+          asset_path: ./${{ steps.build-name.outputs.build_name }}.zip
+          asset_name: ${{ steps.build-name.outputs.build_name }}.zip
+          asset_content_type: application/zip
+
+  publish-release:
+    name: Publish release draft
+    runs-on: ubuntu-latest
+    needs: [create-release-draft, build]
+    steps:
+      - uses: eregon/publish-release@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          release_id: ${{ needs.create-release-draft.outputs.id }}
+
+  delete-release-draft-on-error:
+    name: Delete release draft if an error occured
+    runs-on: ubuntu-latest
+    needs: [create-release-draft, build, publish-release]
+    if: ${{ failure() }}
+    steps:
+      - name: Delete release draft and tag
+        uses: larryjoelane/delete-release-action@v1.0.22
+        with:
+          release-name: ${{ needs.create-release-draft.outputs.version }}
+          token: ${{ github.token }}
