@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectWendigo
 {
     public class CameraController : MonoBehaviour
     {
-        public float mouseSensitivity = 1000f;
+        public float mouseSensitivity = 500f;
         private float xRotation = 0f;
         [SerializeField] private Transform playerBodyTransform;
 

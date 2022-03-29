@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657624, g: 0.49641395, b: 0.5748183, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657588, g: 0.496413, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -242,7 +242,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1176
+  m_Name: pb_Mesh-5388
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -406,7 +406,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17372
+  m_Name: pb_Mesh18468
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -570,7 +570,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1244
+  m_Name: pb_Mesh-5456
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -739,7 +739,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1584
+  m_Name: pb_Mesh-5796
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -903,7 +903,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1448
+  m_Name: pb_Mesh-5660
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1072,7 +1072,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1380
+  m_Name: pb_Mesh-5592
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1236,7 +1236,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1312
+  m_Name: pb_Mesh-5524
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5076,7 +5076,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1516
+  m_Name: pb_Mesh-5728
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5818,7 +5818,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17394
+  m_Name: pb_Mesh18490
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6124,6 +6124,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4908435617563147630, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908435617563147630, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4908435617563147631, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6172,6 +6180,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4908435618054939530, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901322122033828417, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5901322122033828417, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
       propertyPath: controller
       value: 
@@ -6179,6 +6195,10 @@ PrefabInstance:
     - target: {fileID: 5901322122033828417, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
       propertyPath: jumpHeight
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901322122033828417, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
+      propertyPath: crouchTransitionDuration
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
