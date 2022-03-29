@@ -68,12 +68,12 @@ public class Inventory {
 
 [System.Serializable]
 public class InventorySlot {
-    public int ID;
+    public int Id;
     public Item item;
     public int amount;
 
-    public InventorySlot(int _ID, Item _item, int _amount) {
-        ID = _ID;
+    public InventorySlot(int _Id, Item _item, int _amount) {
+        Id = _Id;
         item = _item;
         amount = _amount;
     }

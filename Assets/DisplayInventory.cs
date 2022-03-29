@@ -22,8 +22,6 @@ public class DisplayInventory : MonoBehaviour
         CreateDisplay();
     }
 
-   
-
     public void CreateDisplay() {
         for (int i = 0; i < inventory.Container.Items.Count; i++) {
             InventorySlot slot = inventory.Container.Items[i];
