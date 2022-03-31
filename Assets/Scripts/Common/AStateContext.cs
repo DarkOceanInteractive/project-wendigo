@@ -11,10 +11,18 @@ public abstract class AStateContext : MonoBehaviour
 {
     private IState _state;
 
-    protected IState State
+    public IState State
     {
         get { return this._state; }
-        set { this.SetState(value); }
+    }
+
+    /// <summary>
+    /// Returns true if the current state is the given state.
+    /// </summary>
+    public bool IsInState<StateT>()
+      where StateT : IState
+    {
+        return this.State.GetType() == typeof(StateT);
     }
 
     /// <summary>
