@@ -6124,6 +6124,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2835570360041755394, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4880008651744952857, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4908435617563147630, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
       propertyPath: m_Height
       value: 2
@@ -6184,6 +6192,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5793204590933810002, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5901322122033828417, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -6200,5 +6212,6 @@ PrefabInstance:
       propertyPath: crouchTransitionDuration
       value: 0.4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5901322122033828417, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
