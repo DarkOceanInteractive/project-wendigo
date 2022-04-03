@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace ProjectWendigo.PlayerJumpStates
 {
     public class Idle : AState<PlayerJumpStateContext>
@@ -14,7 +12,7 @@ namespace ProjectWendigo.PlayerJumpStates
         {
             if (this.context.IsGrounded)
             {
-                if (Input.GetButtonDown("Jump"))
+                if (Singletons.Main.Input.PlayerJumped)
                     this.context.SetState(new Jumping());
             }
             else

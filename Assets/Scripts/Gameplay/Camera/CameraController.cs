@@ -8,12 +8,12 @@ namespace ProjectWendigo
         private float xRotation = 0f;
         [SerializeField] private Transform playerBodyTransform;
 
-        private void Start()
+        protected void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        void Update()
+        protected void Update()
         {
             float mouseX = Input.GetAxis("Mouse X") * this.mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * this.mouseSensitivity * Time.deltaTime;

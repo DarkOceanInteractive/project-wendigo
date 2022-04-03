@@ -27,15 +27,15 @@ namespace ProjectWendigo
             this.SetState(new PlayerMovementStates.Idle());
         }
 
-        protected override void FixedUpdate()
+        protected override void Update()
         {
             this._smoothSpeedMultiplier = Mathf.Lerp(this._smoothSpeedMultiplier, this.SpeedMultiplier, 4f * Time.deltaTime);
-            base.FixedUpdate();
+            base.Update();
             this.Move();
         }
 
         /// <summary>
-        /// Move the character controller by `motion`
+        /// Move the character controller by `motion`.
         /// </summary>
         /// <param name="motion">Motion to apply</param>
         public void Move(Vector3 motion)
@@ -45,13 +45,11 @@ namespace ProjectWendigo
 
         private void Move()
         {
-            float x = Input.GetAxis("Horizontal");
-            float z = Input.GetAxis("Vertical");
-
+            Vector2 move = Singletons.Main.Input.PlayerMovement;
             Vector3 movement = this.transform.TransformDirection(
-                x * this.MovementSpeed * this._smoothSpeedMultiplier,
+                move.x * this.MovementSpeed * this._smoothSpeedMultiplier,
                 0f,
-                z * this.MovementSpeed * this._smoothSpeedMultiplier
+                move.y * this.MovementSpeed * this._smoothSpeedMultiplier
             );
             this.Move(movement * Time.deltaTime);
         }

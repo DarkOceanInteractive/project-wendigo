@@ -17,9 +17,9 @@ namespace ProjectWendigo
             this.SetState(new PlayerJumpStates.Idle());
         }
 
-        protected override void FixedUpdate()
+        protected override void Update()
         {
-            base.FixedUpdate();
+            base.Update();
             this.Move();
         }
 

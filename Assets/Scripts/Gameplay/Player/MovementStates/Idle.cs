@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace ProjectWendigo.PlayerMovementStates
 {
     public class Idle : AState<PlayerMovementStateContext>
@@ -11,9 +9,9 @@ namespace ProjectWendigo.PlayerMovementStates
 
         public override void Update()
         {
-            if (Input.GetButtonDown("Crouch"))
+            if (Singletons.Main.Input.PlayerStartedCrouching)
                 this.context.SetState(new Crouching());
-            else if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            else if (Singletons.Main.Input.PlayerIsMoving)
                 this.context.SetState(new Moving());
         }
     }

@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace ProjectWendigo.PlayerMovementStates
 {
     public class Sprinting : AState<PlayerMovementStateContext>
@@ -11,12 +9,12 @@ namespace ProjectWendigo.PlayerMovementStates
 
         public override void Update()
         {
-            if (Input.GetButtonDown("Crouch"))
-                context.SetState(new Crouching());
-            else if (!Input.GetKey(KeyCode.LeftShift))
-                context.SetState(new Moving());
-            else if (Input.GetAxis("Horizontal") == 0f && Input.GetAxis("Vertical") == 0f)
-                context.SetState(new Idle());
+            if (Singletons.Main.Input.PlayerStartedCrouching)
+                this.context.SetState(new Crouching());
+            else if (Singletons.Main.Input.PlayerStoppedSprinting)
+                this.context.SetState(new Moving());
+            else if (!Singletons.Main.Input.PlayerIsMoving)
+                this.context.SetState(new Idle());
         }
     }
 }
