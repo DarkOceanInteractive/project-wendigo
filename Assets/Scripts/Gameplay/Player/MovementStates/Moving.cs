@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace ProjectWendigo.PlayerMovementStates
 {
     public class Moving : AState<PlayerMovementStateContext>
@@ -8,16 +6,16 @@ namespace ProjectWendigo.PlayerMovementStates
 
         public override void Enter()
         {
-            this.context.SpeedMultiplier = Moving._speedMultiplier;
+            this.context.SpeedMultiplier = _speedMultiplier;
         }
 
         public override void Update()
         {
-            if (Input.GetButtonDown("Crouch"))
+            if (Singletons.Main.Input.PlayerStartedCrouching)
                 this.context.SetState(new Crouching());
-            else if (Input.GetKey(KeyCode.LeftShift))
+            else if (Singletons.Main.Input.PlayerStartedSprinting)
                 this.context.SetState(new Sprinting());
-            else if (Input.GetAxis("Horizontal") == 0f && Input.GetAxis("Vertical") == 0f)
+            else if (!Singletons.Main.Input.PlayerIsMoving)
                 this.context.SetState(new Idle());
         }
     }

@@ -23,11 +23,11 @@ namespace ProjectWendigo.PlayerMovementStates
             float newHeight = this.context.StartHeight;
             this._elapsedTime = Time.time - this.context.CrouchStartTime;
 
-            if (Input.GetButtonDown("Crouch"))
+            if (Singletons.Main.Input.PlayerStartedCrouching)
                 this.BeginCrouch();
-            if (Input.GetButton("Crouch"))
+            if (Singletons.Main.Input.PlayerIsCrouching)
                 newHeight = this._crouchHeightMultiplier * this.context.StartHeight;
-            if (Input.GetButtonUp("Crouch"))
+            else if (Singletons.Main.Input.PlayerStoppedCrouching)
                 this.EndCrouch();
 
             float t = this._elapsedTime / this._crouchTransitionDuration;
@@ -35,9 +35,9 @@ namespace ProjectWendigo.PlayerMovementStates
             {
                 float lastHeight = this.context.Height;
                 this.context.Height = Mathf.Lerp(this._crouchStartHeight, newHeight, t);
-                this._characterController.Move(new Vector3(0f, (this.context.Height - lastHeight) * 0.5f, 0f));
+                _ = this._characterController.Move(new Vector3(0f, (this.context.Height - lastHeight) * 0.5f, 0f));
             }
-            else if (!Input.GetButton("Crouch"))
+            else if (!Singletons.Main.Input.PlayerIsCrouching)
             {
                 this.context.SetState(new Idle());
                 return;

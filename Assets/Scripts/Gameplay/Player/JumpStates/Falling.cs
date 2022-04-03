@@ -4,7 +4,7 @@ namespace ProjectWendigo.PlayerJumpStates
 {
     public class Falling : AState<PlayerJumpStateContext>
     {
-        public override void Update()
+        public override void FixedUpdate()
         {
             if (this.context.IsGrounded)
             {
