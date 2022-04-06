@@ -16,4 +16,3 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: 5d7010948546ab041b88ecca60016071, type: 3}
   type: 1
   description: A trusty old piece of metal ready for protecting you against anything!
-  amounts: 24
