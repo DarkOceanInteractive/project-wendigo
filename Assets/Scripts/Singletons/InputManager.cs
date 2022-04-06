@@ -7,6 +7,9 @@ namespace ProjectWendigo
     {
         private PlayerInput _playerInput;
 
+        // General helpers
+        public Vector2 MousePosition => Mouse.current.position.ReadValue();
+
         // Player inputs helpers.
         public bool PlayerIsCrouching => this._playerInput.actions["Crouch"].IsPressed();
         public bool PlayerIsMoving => this.PlayerMovement != Vector2.zero;
