@@ -9,20 +9,22 @@ namespace ProjectWendigo
         private Vector3 _motion = Vector3.zero;
         public InventoryObject inventory;
         
-        protected void OnApplicationQuit() {
-            inventory.Container.Items.Clear();
-        }
-
         protected void Awake()
         {
             this._cameraTransform = Camera.main.transform;
+        }
+
+        protected void OnApplicationQuit() {
+            inventory.Container.Items = new InventorySlot[35];
         }
 
         protected void OnTriggerEnter(Collider other) {
             // Makes player add item to inventory when walking over
             var item = other.GetComponent<GroundItem>();
             if (item) {
-                inventory.AddItem(new Item(item.item), 1);
+                Item _item = new Item(item.item);
+                Debug.Log("Grabbed" + _item.Name + _item.Id);
+                inventory.AddItem(_item, 1);
                 Destroy(other.gameObject);
             }
         }
