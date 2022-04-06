@@ -7,14 +7,37 @@ namespace ProjectWendigo
         private Transform _cameraTransform;
         [SerializeField] private CharacterController _characterController;
         private Vector3 _motion = Vector3.zero;
+        public InventoryObject inventory;
+        
+        protected void OnApplicationQuit() {
+            inventory.Container.Items.Clear();
+        }
 
         protected void Awake()
         {
             this._cameraTransform = Camera.main.transform;
         }
 
+        protected void OnTriggerEnter(Collider other) {
+            // Makes player add item to inventory when walking over
+            var item = other.GetComponent<GroundItem>();
+            if (item) {
+                inventory.AddItem(new Item(item.item), 1);
+                Destroy(other.gameObject);
+            }
+        }
+
         protected void Update()
         {
+            //Save Inventory by pressing R
+            if (Singletons.Main.Input.PlayerSavedInventory) {
+                inventory.Save();
+            }
+            //Load Inventory by pressing T
+            if (Singletons.Main.Input.PlayerLoadedInventory) {
+                inventory.Load();
+            }
+
             if (this._motion != Vector3.zero)
             {
                 this._motion = this.TransformToCameraView(this._motion);
