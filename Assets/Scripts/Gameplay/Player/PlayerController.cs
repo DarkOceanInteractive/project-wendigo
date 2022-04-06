@@ -8,6 +8,7 @@ namespace ProjectWendigo
         [SerializeField] private CharacterController _characterController;
         private Vector3 _motion = Vector3.zero;
         public InventoryObject inventory;
+        //public ItemPickup itemPickup;
         
         protected void Awake()
         {
@@ -17,7 +18,7 @@ namespace ProjectWendigo
         protected void OnApplicationQuit() {
             inventory.Container.Items = new InventorySlot[35];
         }
-
+        
         protected void OnTriggerEnter(Collider other) {
             // Makes player add item to inventory when walking over
             var item = other.GetComponent<GroundItem>();
@@ -38,6 +39,10 @@ namespace ProjectWendigo
             //Load Inventory by pressing T
             if (Singletons.Main.Input.PlayerLoadedInventory) {
                 inventory.Load();
+            }
+            //Grab Item by pressing F
+            if (Singletons.Main.Input.PlayerGrabbedItem) {
+                //Not implemented
             }
 
             if (this._motion != Vector3.zero)

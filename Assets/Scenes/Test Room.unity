@@ -7197,12 +7197,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3541deda27d07448bca5bfbc9d0c314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPreFab: {fileID: 3819972686821296131, guid: 4865f878f2554204ba126c68a82b610a, type: 3}
+  inventoryPrefab: {fileID: 3819972686821296131, guid: 4865f878f2554204ba126c68a82b610a, type: 3}
   inventory: {fileID: 11400000, guid: b9b4e9a6db9fedc4886de5e00d0f9aa9, type: 2}
   X_START: -250
   Y_START: 350
-  X_SPACE_BETWEEN_ITEM: 120
-  Y_SPACE_BETWEEN_ITEM: 120
+  X_SPACE_BETWEEN_ITEMS: 0
+  Y_SPACE_BETWEEN_ITEMS: 0
   NUMBER_OF_COLUMNS: 5
 --- !u!114 &1979878988
 MonoBehaviour:

@@ -18,6 +18,7 @@ namespace ProjectWendigo
         public bool PlayerToggledInventory => this._playerInput.actions["Toggle inventory"].WasPressedThisFrame();
         public bool PlayerSavedInventory => this._playerInput.actions["Save inventory"].WasPressedThisFrame();
         public bool PlayerLoadedInventory => this._playerInput.actions["Load inventory"].WasPressedThisFrame();
+        public bool PlayerGrabbedItem => this._playerInput.actions["Grab"].WasPressedThisFrame();
         public Vector2 PlayerLook => this._playerInput.actions["Look"].ReadValue<Vector2>();
         public Vector2 PlayerMovement => this._playerInput.actions["Move"].ReadValue<Vector2>();
 
