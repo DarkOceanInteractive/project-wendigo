@@ -8,7 +8,7 @@
 //     public GameObject gameObject;
 
 //     public void OpenMessagePanel(string text) {
-        
+
 //     }
 
 //     public void CloseMessagePanel(string text) {
