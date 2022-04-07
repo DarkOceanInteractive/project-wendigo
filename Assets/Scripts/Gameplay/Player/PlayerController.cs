@@ -9,39 +9,45 @@ namespace ProjectWendigo
         private Vector3 _motion = Vector3.zero;
         public InventoryObject inventory;
         //public ItemPickup itemPickup;
-        
+
         protected void Awake()
         {
             this._cameraTransform = Camera.main.transform;
         }
 
-        protected void OnApplicationQuit() {
+        protected void OnApplicationQuit()
+        {
             inventory.Container.Items = new InventorySlot[35];
         }
-        
-        protected void OnTriggerEnter(Collider other) {
+
+        protected void OnTriggerEnter(Collider other)
+        {
             // Makes player add item to inventory when walking over
-            var item = other.GetComponent<GroundItem>();
-            if (item) {
-                Item _item = new Item(item.item);
-                Debug.Log("Grabbed" + _item.Name + _item.Id);
-                inventory.AddItem(_item, 1);
-                Destroy(other.gameObject);
+            GroundItem groundItem = other.GetComponent<GroundItem>();
+            if (groundItem)
+            {
+                Item inventoryItem = new Item(groundItem.Item);
+                Debug.Log($"Grabbed {inventoryItem.Name} {inventoryItem.Id}");
+                inventory.AddItem(inventoryItem, 1);
+                groundItem.OnGrab();
             }
         }
 
         protected void Update()
         {
             //Save Inventory by pressing R
-            if (Singletons.Main.Input.PlayerSavedInventory) {
+            if (Singletons.Main.Input.PlayerSavedInventory)
+            {
                 inventory.Save();
             }
             //Load Inventory by pressing T
-            if (Singletons.Main.Input.PlayerLoadedInventory) {
+            if (Singletons.Main.Input.PlayerLoadedInventory)
+            {
                 inventory.Load();
             }
             //Grab Item by pressing F
-            if (Singletons.Main.Input.PlayerGrabbedItem) {
+            if (Singletons.Main.Input.PlayerGrabbedItem)
+            {
                 //Not implemented
             }
 

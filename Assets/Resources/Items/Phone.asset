@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Phone
   m_EditorClassIdentifier: 
   Id: 2
-  uiDisplay: {fileID: 21300000, guid: 5d7010948546ab041b88ecca60016071, type: 3}
-  type: 2
-  description: The best and greatest of technology from 7 years ago.
+  UiDisplay: {fileID: 21300000, guid: 5d7010948546ab041b88ecca60016071, type: 3}
+  Type: 2
+  Description: The best and greatest of technology from 7 years ago.

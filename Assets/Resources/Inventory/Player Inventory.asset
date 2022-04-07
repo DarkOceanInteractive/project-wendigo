@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3dfd2160bba36f40a7c35c117272e1c, type: 3}
+  m_Name: Player Inventory
+  m_EditorClassIdentifier: 
+  SavePath: /Inventory.Save
+  Database: {fileID: 11400000, guid: 0885611fa8b80f247873122d16ee3cec, type: 2}
+  Container:
+    Items:
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
+    - Id: -1
+      Item:
+        Name: 
+        Id: 0
+      Amount: 0
