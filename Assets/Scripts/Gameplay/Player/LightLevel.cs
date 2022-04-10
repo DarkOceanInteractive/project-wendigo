@@ -4,7 +4,7 @@ namespace ProjectWendigo
 {
     public class LightLevel : MonoBehaviour
     {
-        [SerializeField][ReadOnly] private float _intensity;
+        [SerializeField] [ReadOnly] private float _intensity;
         public float Intensity => this._intensity;
         [SerializeField] private Camera _lightCamera;
         private RenderTexture _lightRenderTexture;
@@ -63,6 +63,7 @@ namespace ProjectWendigo
                 // This formula gives the intensity of a light from its color.
                 this._intensity += 0.2126f * colors[i].r + 0.7152f * colors[i].g + 0.0722f * colors[i].b;
             }
+            this._intensity /= colors.Length * 3f;
         }
     }
 }

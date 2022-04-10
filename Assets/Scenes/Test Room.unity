@@ -1328,11 +1328,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 721098851681381965, guid: cd550b6cfbc0a584baa3fd3620251073, type: 3}
   m_PrefabInstance: {fileID: 2101088650}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &382582259 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2426464455762438327, guid: 604f43983d5510b4b8101958f2ed4ec7, type: 3}
-  m_PrefabInstance: {fileID: 2142788100}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &492064633
 Mesh:
   m_ObjectHideFlags: 0
