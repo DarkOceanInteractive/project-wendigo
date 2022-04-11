@@ -12,7 +12,7 @@ namespace ProjectWendigo
         [HideInInspector] public float StartHeight = 1f;
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private PlayerController _playerController;
-        private float _smoothSpeedMultiplier = 1f;
+        public float SmoothSpeedMultiplier { get; private set; } = 1f;
 
         public bool IsGrounded => this._characterController.isGrounded;
         public float Height
@@ -29,7 +29,7 @@ namespace ProjectWendigo
 
         protected override void Update()
         {
-            this._smoothSpeedMultiplier = Mathf.Lerp(this._smoothSpeedMultiplier, this.SpeedMultiplier, 4f * Time.deltaTime);
+            this.SmoothSpeedMultiplier = Mathf.Lerp(this.SmoothSpeedMultiplier, this.SpeedMultiplier, 4f * Time.deltaTime);
             base.Update();
             this.Move();
         }
@@ -47,9 +47,9 @@ namespace ProjectWendigo
         {
             Vector2 move = Singletons.Main.Input.PlayerMovement;
             Vector3 movement = this.transform.TransformDirection(
-                move.x * this.MovementSpeed * this._smoothSpeedMultiplier,
+                move.x * this.MovementSpeed * this.SmoothSpeedMultiplier,
                 0f,
-                move.y * this.MovementSpeed * this._smoothSpeedMultiplier
+                move.y * this.MovementSpeed * this.SmoothSpeedMultiplier
             );
             this.Move(movement * Time.deltaTime);
         }
