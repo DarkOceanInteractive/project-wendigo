@@ -847,6 +847,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Lighting",
+            "id": "25260999-36e2-4e89-9287-6de71bedeced",
+            "actions": [
+                {
+                    "name": "Toggle light",
+                    "type": "Button",
+                    "id": "7c18b043-3fbb-4bd8-b293-97dd5c4a392c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0e274ee4-1be2-4925-992e-1b42f0df7539",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle light",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
