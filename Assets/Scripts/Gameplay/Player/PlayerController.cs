@@ -53,7 +53,6 @@ namespace ProjectWendigo
 
             if (this._motion != Vector3.zero)
             {
-                this._motion = this.TransformToCameraView(this._motion);
                 _ = this._characterController.Move(this._motion);
                 this._motion = Vector3.zero;
             }
