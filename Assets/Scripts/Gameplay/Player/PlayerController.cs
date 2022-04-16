@@ -4,16 +4,10 @@ namespace ProjectWendigo
 {
     public class PlayerController : MonoBehaviour
     {
-        private Transform _cameraTransform;
         [SerializeField] private CharacterController _characterController;
         private Vector3 _motion = Vector3.zero;
         public InventoryObject inventory;
         //public ItemPickup itemPickup;
-
-        protected void Awake()
-        {
-            this._cameraTransform = Camera.main.transform;
-        }
 
         protected void OnApplicationQuit()
         {
