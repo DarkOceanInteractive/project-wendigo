@@ -32,14 +32,15 @@ namespace ProjectWendigo
             Sound sound = this.GetSound(name);
             if (sound == null)
                 return null;
-            var gameObject = new GameObject(name);
-            gameObject.transform.position = position;
-            gameObject.transform.parent = this.transform;
+            var soundHandle = new GameObject(name);
+            soundHandle.transform.position = position;
+            soundHandle.transform.parent = this.transform;
             // Destroying the GameObject after the sound duration assumes
             // the sound will be played directly after this method is called.
             // This impedes some use cases of this method but is generally safer.
-            Destroy(gameObject, sound.FullLength);
-            AudioSource audioSource = this.SpawnAudio(gameObject, sound);
+            if (!sound.IsLooping)
+                Destroy(soundHandle, sound.FullLength);
+            AudioSource audioSource = this.SpawnAudio(soundHandle, sound);
             audioSource.spatialBlend = spatialBlend;
             return audioSource;
         }
@@ -82,7 +83,8 @@ namespace ProjectWendigo
             audioSource.volume = sound.Volume;
             audioSource.pitch = sound.Pitch;
             audioSource.loop = sound.IsLooping;
-            Destroy(audioSource, sound.FullLength);
+            if (!sound.IsLooping)
+                Destroy(audioSource, sound.FullLength);
             return audioSource;
         }
     }
