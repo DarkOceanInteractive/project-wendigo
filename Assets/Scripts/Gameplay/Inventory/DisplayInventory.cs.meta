@@ -4,8 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - inventoryPrefab: {fileID: 4678669340716000558, guid: 667f8b0bba0556341b40af2660a0192d, type: 3}
-  - inventory: {fileID: 11400000, guid: b9b4e9a6db9fedc4886de5e00d0f9aa9, type: 2}
+  - InventoryPrefab: {fileID: 4678669340716000558, guid: 667f8b0bba0556341b40af2660a0192d, type: 3}
+  - Inventory: {fileID: 11400000, guid: b9b4e9a6db9fedc4886de5e00d0f9aa9, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
