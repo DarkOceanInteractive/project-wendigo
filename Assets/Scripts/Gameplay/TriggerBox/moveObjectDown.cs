@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class moveObjectDown : MonoBehaviour
 {
+    [SerializeField]
+    public float amount;
+    private int counter = 0;
+    
     //Move rocks down by 10
     void OnTriggerEnter(Collider other) {
-        Debug.Log("yasss queen!");
-        this.transform.position -= new Vector3(0,10,0);
+        if (other.tag == "Player" && counter == 0)
+        Debug.Log("Rock fell");
+        counter++;
+        transform.position -= new Vector3(0,amount,0);
     }
 }
