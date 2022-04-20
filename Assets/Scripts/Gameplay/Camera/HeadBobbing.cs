@@ -13,7 +13,7 @@ namespace ProjectWendigo
         private Vector3 _cameraOffset = Vector3.zero;
         private float _t = 0f;
 
-        protected void OnDrawGizmos()
+        protected void OnDrawGizmosSelected()
         {
             this._spline.DrawGizmos(this.transform.position + Vector3.up - Vector3.right * 0.5f);
         }

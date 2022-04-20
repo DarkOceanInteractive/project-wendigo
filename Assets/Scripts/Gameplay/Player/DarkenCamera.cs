@@ -3,24 +3,41 @@ using UnityEngine;
 
 namespace ProjectWendigo
 {
-    [RequireComponent(typeof(LightLevel))]
     public class DarkenCamera : MonoBehaviour
     {
         [SerializeField] private PostProcessProfile _profile;
-        [SerializeField] private float _lightIntensityLowerBound;
-        [SerializeField] private float _lightIntensityUpperBound;
         [SerializeField] private float _maxIntensity = 0.7f;
-        private LightLevel _lightLevel;
+        [SerializeField] private float _inLightAnimationSpeedMultiplier = 5f;
+        [SerializeField] private float _elapsedTime;
+        [SerializeField] private float _transitionDuration;
+        private bool _isInLight = true;
+        [SerializeField] private Vector2Spline _animationCurve = new Vector2Spline();
         private AmbientOcclusion _ao;
         private Grain _grain;
         private Vignette _vignette;
+
+        public void OnLightEnter()
+        {
+            this._isInLight = true;
+        }
+
+        public void OnLightExit()
+        {
+            this._isInLight = false;
+        }
+
+        public void OnDrawGizmosSelected()
+        {
+            this._animationCurve.DrawGizmos(this.transform.position + Vector3.up + Vector3.left * 0.5f);
+        }
 
         protected void Awake()
         {
             Debug.Assert(this._profile.TryGetSettings(out this._ao));
             Debug.Assert(this._profile.TryGetSettings(out this._grain));
             Debug.Assert(this._profile.TryGetSettings(out this._vignette));
-            this._lightLevel = this.GetComponent<LightLevel>();
+            if (this._isInLight)
+                this._elapsedTime = this._transitionDuration;
         }
 
         protected void OnEnable()
@@ -39,10 +56,10 @@ namespace ProjectWendigo
 
         protected void Update()
         {
-            float lightIntensity = this._lightLevel.Intensity;
-            float relativeIntensity = (lightIntensity - this._lightIntensityLowerBound) / (this._lightIntensityUpperBound - this._lightIntensityLowerBound);
-            relativeIntensity = 1f - Mathf.Clamp(relativeIntensity, 0f, 1f);
-            this.UpdateProfile(relativeIntensity * this._maxIntensity);
+            float multiplier = this._isInLight ? _inLightAnimationSpeedMultiplier : -1f;
+            this._elapsedTime = Mathf.Clamp(this._elapsedTime + multiplier * Time.deltaTime, 0f, this._transitionDuration);
+            float lightIntensity = this._animationCurve.Interpolate(0f, 1f, this._elapsedTime / this._transitionDuration);
+            this.UpdateProfile((1f - lightIntensity) * this._maxIntensity);
         }
 
         /// <summary>
