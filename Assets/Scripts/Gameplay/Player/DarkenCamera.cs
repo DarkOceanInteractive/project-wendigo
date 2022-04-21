@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace ProjectWendigo
 {
+    [RequireComponent(typeof(SoundsSpawner))]
     public class DarkenCamera : MonoBehaviour
     {
         [SerializeField] private PostProcessProfile _profile;
@@ -15,15 +16,39 @@ namespace ProjectWendigo
         private AmbientOcclusion _ao;
         private Grain _grain;
         private Vignette _vignette;
+        private bool _hasVisitedEntrance = false;
+        private SoundsSpawner _soundsSpawner;
 
-        public void OnLightEnter()
+        public void OnEnterEntrance(Collider collider)
         {
-            this._isInLight = true;
+            if (collider.gameObject == this.gameObject)
+            {
+                if (!this._hasVisitedEntrance)
+                {
+                    this._hasVisitedEntrance = true;
+                    this._soundsSpawner.ActivateAmbience("Entrance");
+                }
+            }
         }
 
-        public void OnLightExit()
+        public void OnLightEnter(Collider collider)
         {
-            this._isInLight = false;
+            if (collider.gameObject == this.gameObject)
+            {
+                this._isInLight = true;
+                this._soundsSpawner.ActivateAmbience("Light");
+                this._soundsSpawner.DeactivateAmbience("Dark");
+            }
+        }
+
+        public void OnLightExit(Collider collider)
+        {
+            if (collider.gameObject == this.gameObject)
+            {
+                this._isInLight = false;
+                this._soundsSpawner.DeactivateAmbience("Light");
+                this._soundsSpawner.ActivateAmbience("Dark");
+            }
         }
 
         public void OnDrawGizmosSelected()
@@ -36,6 +61,7 @@ namespace ProjectWendigo
             Debug.Assert(this._profile.TryGetSettings(out this._ao));
             Debug.Assert(this._profile.TryGetSettings(out this._grain));
             Debug.Assert(this._profile.TryGetSettings(out this._vignette));
+            this._soundsSpawner = this.GetComponent<SoundsSpawner>();
             if (this._isInLight)
                 this._elapsedTime = this._transitionDuration;
         }
