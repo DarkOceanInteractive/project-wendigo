@@ -18,6 +18,8 @@ namespace ProjectWendigo
         private Vignette _vignette;
         private bool _hasVisitedEntrance = false;
         private SoundsSpawner _soundsSpawner;
+        //private SoundsSpawner.SoundAmbience _darkSoundAmbience;
+        [SerializeField] private float _darknessMinimumVolume = 0.5f;
 
         public void OnEnterEntrance(Collider collider)
         {
@@ -62,6 +64,7 @@ namespace ProjectWendigo
             Debug.Assert(this._profile.TryGetSettings(out this._grain));
             Debug.Assert(this._profile.TryGetSettings(out this._vignette));
             this._soundsSpawner = this.GetComponent<SoundsSpawner>();
+            //this._darkSoundAmbience = ref this._soundsSpawner.FindAmbience("Dark");
             if (this._isInLight)
                 this._elapsedTime = this._transitionDuration;
         }
@@ -96,6 +99,7 @@ namespace ProjectWendigo
             this._ao.intensity.value = intensity;
             this._grain.intensity.value = intensity;
             this._vignette.intensity.value = intensity;
+            this._soundsSpawner.FindAmbience("Dark").Volume = Mathf.Max(_darknessMinimumVolume, intensity / this._maxIntensity);
         }
     }
 }

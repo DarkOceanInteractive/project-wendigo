@@ -32,11 +32,24 @@ namespace ProjectWendigo
         {
             public string Name;
             public Vector2 Range;
-            public float SpawnFrequency;
+            public Vector2 SpawnFrequency;
+            [Range(0f, 1f)] public float Volume;
             public string[] AudioFiles;
             public Color DebugColor;
             public bool IsActive;
-            [ReadOnly] public float StartTime;
+            [ReadOnly] [SerializeField] public float CountDown;
+
+            public bool ShouldPlay => this.CountDown <= 0f;
+
+            public void UpdateTimer()
+            {
+                this.CountDown -= Time.deltaTime;
+            }
+
+            public void ResetTimer()
+            {
+                this.CountDown = Random.Range(this.SpawnFrequency.x, this.SpawnFrequency.y * 0.75f);
+            }
 
             public void SpawnRandomAudio(Vector3 offset)
             {
@@ -44,7 +57,10 @@ namespace ProjectWendigo
                 Vector2 pointOnCircle = detail.SoundsSpawnerUtils.GetRandomPointOnCircle(this.Range.x, this.Range.y);
                 Vector3 worldPos = offset + new Vector3(pointOnCircle.x, 1f, pointOnCircle.y);
                 string audioName = this.AudioFiles[Random.Range(0, this.AudioFiles.Length)];
-                Singletons.Main.Sound.PlayAt(audioName, worldPos);
+                AudioSource source = Singletons.Main.Sound.GetAudioAt(audioName, worldPos);
+                source.volume = this.Volume;
+                source.Play();
+                this.ResetTimer();
             }
         };
 
@@ -65,8 +81,6 @@ namespace ProjectWendigo
             try
             {
                 ref SoundAmbience ambience = ref this.FindAmbience(name);
-                if (state && !ambience.IsActive)
-                    ambience.StartTime = Random.Range(0, ambience.SpawnFrequency);
                 ambience.IsActive = state;
                 Debug.Log($"Ambience {name}: {state}");
                 return true;
@@ -102,7 +116,7 @@ namespace ProjectWendigo
         {
             for (int i = 0; i < this._ambiences.Length; ++i)
             {
-                this._ambiences[i].StartTime = Random.Range(0, this._ambiences[i].SpawnFrequency);
+                this._ambiences[i].ResetTimer();
             }
         }
 
@@ -112,10 +126,9 @@ namespace ProjectWendigo
             {
                 if (!this._ambiences[i].IsActive)
                     continue;
-                if (Time.time - this._ambiences[i].StartTime < this._ambiences[i].SpawnFrequency)
-                    continue;
-                this._ambiences[i].StartTime = Time.time - Random.Range(0, this._ambiences[i].SpawnFrequency - Mathf.Min(0.25f, this._ambiences[i].SpawnFrequency));
-                this._ambiences[i].SpawnRandomAudio(this.transform.position + Vector3.up);
+                this._ambiences[i].UpdateTimer();
+                if (this._ambiences[i].ShouldPlay)
+                    this._ambiences[i].SpawnRandomAudio(this.transform.position + Vector3.up);
             }
         }
 
