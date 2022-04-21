@@ -2642,6 +2642,26 @@ PrefabInstance:
       value: General
       objectReference: {fileID: 0}
     - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[0].Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[1].Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[2].Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[3].Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[4].Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
       propertyPath: _ambiences.Array.data[1].Range.y
       value: 7
       objectReference: {fileID: 0}
@@ -2743,6 +2763,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
       propertyPath: _ambiences.Array.data[4].SpawnFrequency
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[0].SpawnFrequency.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[0].SpawnFrequency.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[1].SpawnFrequency.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[1].SpawnFrequency.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[2].SpawnFrequency.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[2].SpawnFrequency.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[3].SpawnFrequency.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[3].SpawnFrequency.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[4].SpawnFrequency.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: _ambiences.Array.data[4].SpawnFrequency.y
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1856853680, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
