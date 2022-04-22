@@ -24,6 +24,7 @@ namespace ProjectWendigo
         public bool PlayerGrabbedItem => this._playerInput.actions["Grab"].WasPressedThisFrame();
         public Vector2 PlayerLook => this._playerInput.actions["Look"].ReadValue<Vector2>();
         public Vector2 PlayerMovement => this._playerInput.actions["Move"].ReadValue<Vector2>();
+        public bool PlayerToggleFade => this._playerInput.actions["Toggle FadeEffect"].WasPressedThisFrame();
 
         // Lighting input helpers
         public bool LightingToggled => this._playerInput.actions["Toggle light"].WasPressedThisFrame();

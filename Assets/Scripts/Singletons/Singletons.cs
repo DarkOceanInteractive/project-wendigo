@@ -8,6 +8,7 @@ namespace ProjectWendigo
 
         public InputManager Input { get; private set; }
         public SoundManager Sound { get; private set; }
+        public FadeManager Fade { get; private set;}
 
         public void Awake()
         {
@@ -22,6 +23,7 @@ namespace ProjectWendigo
 
             Main.Input = this.GetComponentInChildren<InputManager>();
             Main.Sound = this.GetComponentInChildren<SoundManager>();
+            Main.Fade = this.GetComponentInChildren<FadeManager>();
         }
     }
 }
