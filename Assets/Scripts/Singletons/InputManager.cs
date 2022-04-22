@@ -13,18 +13,23 @@ namespace ProjectWendigo
         // Player inputs helpers
         public bool PlayerIsCrouching => this._playerInput.actions["Crouch"].IsPressed();
         public bool PlayerIsMoving => this.PlayerMovement != Vector2.zero;
-        public bool PlayerJumped => this._playerInput.actions["Jump"].WasPressedThisFrame();
+        // public bool PlayerJumped => this._playerInput.actions["Jump"].WasPressedThisFrame();
         public bool PlayerStartedCrouching => this._playerInput.actions["Crouch"].WasPressedThisFrame();
-        public bool PlayerStartedSprinting => this._playerInput.actions["Sprint"].WasPressedThisFrame();
+        // public bool PlayerStartedSprinting => this._playerInput.actions["Sprint"].WasPressedThisFrame();
         public bool PlayerStoppedCrouching => this._playerInput.actions["Crouch"].WasReleasedThisFrame();
-        public bool PlayerStoppedSprinting => this._playerInput.actions["Sprint"].WasReleasedThisFrame();
-        public bool PlayerToggledInventory => this._playerInput.actions["Toggle inventory"].WasPressedThisFrame();
+        // public bool PlayerStoppedSprinting => this._playerInput.actions["Sprint"].WasReleasedThisFrame();
+        // public bool PlayerToggledInventory => this._playerInput.actions["Toggle inventory"].WasPressedThisFrame();
         public bool PlayerSavedInventory => this._playerInput.actions["Save inventory"].WasPressedThisFrame();
         public bool PlayerLoadedInventory => this._playerInput.actions["Load inventory"].WasPressedThisFrame();
         public bool PlayerGrabbedItem => this._playerInput.actions["Grab"].WasPressedThisFrame();
         public Vector2 PlayerLook => this._playerInput.actions["Look"].ReadValue<Vector2>();
         public Vector2 PlayerMovement => this._playerInput.actions["Move"].ReadValue<Vector2>();
         public bool PlayerToggleFade => this._playerInput.actions["Toggle FadeEffect"].WasPressedThisFrame();
+
+        public bool PlayerJumped => false;
+        public bool PlayerStartedSprinting => false;
+        public bool PlayerStoppedSprinting => false;
+        public bool PlayerToggledInventory => false;
 
         // Lighting input helpers
         public bool LightingToggled => this._playerInput.actions["Toggle light"].WasPressedThisFrame();
