@@ -82,7 +82,6 @@ namespace ProjectWendigo
             {
                 ref SoundAmbience ambience = ref this.FindAmbience(name);
                 ambience.IsActive = state;
-                Debug.Log($"Ambience {name}: {state}");
                 return true;
             }
             catch (System.Exception e)
