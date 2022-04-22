@@ -1,14 +1,19 @@
 using UnityEngine;
 
-public class BroadcastEvent : MonoBehaviour
+namespace ProjectWendigo
 {
-    public void OnLightEnter(Collider collider)
+    public class BroadcastEvent : MonoBehaviour
     {
-        collider.gameObject.BroadcastMessage("OnLightEnter", collider, SendMessageOptions.DontRequireReceiver);
-    }
+        public void OnLightEnter(Collider collider)
+        {
+            if (!LevelMineStateContext.Instance.IsInState<LevelMineStates.Earthquake>())
+                collider.gameObject.BroadcastMessage("OnLightEnter", collider, SendMessageOptions.DontRequireReceiver);
+        }
 
-    public void OnLightExit(Collider collider)
-    {
-        collider.gameObject.BroadcastMessage("OnLightExit", collider, SendMessageOptions.DontRequireReceiver);
+        public void OnLightExit(Collider collider)
+        {
+            if (!LevelMineStateContext.Instance.IsInState<LevelMineStates.Earthquake>())
+                collider.gameObject.BroadcastMessage("OnLightExit", collider, SendMessageOptions.DontRequireReceiver);
+        }
     }
 }
