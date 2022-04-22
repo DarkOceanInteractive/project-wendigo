@@ -1,9 +1,10 @@
 using UnityEngine;
+using Cinemachine;
 using System.Collections;
 
 namespace ProjectWendigo
 {
-    public class moveObjectDown : MonoBehaviour
+    public class RockFallAnimation : MonoBehaviour
     {
         [SerializeField] private Vector3 _offset;
         [SerializeField] private float _animationDuration;
@@ -11,6 +12,8 @@ namespace ProjectWendigo
         private Vector3 _startPosition;
         private float _animationStartTime;
         private bool _hasBeenTriggered = false;
+        private GameObject _audioSourceObject;
+        [SerializeField] private string _soundName;
 
         protected void Start()
         {
@@ -28,7 +31,19 @@ namespace ProjectWendigo
                 return;
             this._hasBeenTriggered = true;
             this._animationStartTime = Time.time;
+            this.PlaySound();
+            this.GetComponent<CinemachineImpulseSource>()?.GenerateImpulse();
             this.StartCoroutine("Fall");
+        }
+
+        private void PlaySound()
+        {
+            if (this._soundName != null && this._soundName != "")
+            {
+                AudioSource audioSource = Singletons.Main.Sound.GetAudioAt(this._soundName, this.transform.position);
+                this._audioSourceObject = audioSource.gameObject;
+                audioSource.Play();
+            }
         }
 
         private IEnumerator Fall()
@@ -40,6 +55,8 @@ namespace ProjectWendigo
                 float t = elapsedTime / this._animationDuration;
                 Vector3 currentOffset = this._animationCurve.Interpolate(Vector3.zero, this._offset, t);
                 this.transform.position = this._startPosition + currentOffset;
+                if (this._audioSourceObject != null)
+                    this._audioSourceObject.transform.position = this._startPosition + currentOffset;
                 yield return null;
             }
             this.transform.position = this._startPosition + this._offset;
