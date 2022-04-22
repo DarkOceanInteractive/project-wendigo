@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+// using UnityEditor;
 
 namespace ProjectWendigo
 {
@@ -317,10 +317,10 @@ namespace ProjectWendigo
                         Gizmos.color = Color.yellow;
                         Gizmos.DrawSphere(origin + new Vector3(t, dt.y, 0f), 0.025f);
                     }
-                    if (this.Gizmo.ShowCoordinates)
-                    {
-                        Handles.Label(curr + new Vector3(.1f, 0f, 0f), $"t={t:0.00}: ({pt.x:0.000}; {pt.y:0.000}; {pt.z:0.000})", style);
-                    }
+                    // if (this.Gizmo.ShowCoordinates)
+                    // {
+                    //     Handles.Label(curr + new Vector3(.1f, 0f, 0f), $"t={t:0.00}: ({pt.x:0.000}; {pt.y:0.000}; {pt.z:0.000})", style);
+                    // }
                     prev = curr;
                 }
                 Gizmos.color = Color.green;
