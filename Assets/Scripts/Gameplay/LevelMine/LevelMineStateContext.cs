@@ -30,5 +30,18 @@ namespace ProjectWendigo
             if (!this.IsInState<LevelMineStates.Earthquake>())
                 this.SetState(new LevelMineStates.Earthquake());
         }
+
+        public void EnterLanternEvent()
+        {
+            if (!this.IsInState<LevelMineStates.Lantern>())
+            {
+                this.SetState(new LevelMineStates.Lantern());
+                GameObject playerBody = GameObject.Find("Player Body");
+                DarkenCamera darkenCameraScript = playerBody.GetComponent<DarkenCamera>();
+
+                // Disable the darkness effect
+                Object.Destroy(darkenCameraScript);
+            }
+        }
     }
 }

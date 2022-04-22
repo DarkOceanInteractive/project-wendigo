@@ -25,10 +25,13 @@ namespace ProjectWendigo
         {
             if (collider.gameObject == this.gameObject)
             {
-                if (!this._hasVisitedEntrance)
+                if (LevelMineStateContext.Instance.IsInState<LevelMineStates.Default>())
                 {
-                    this._hasVisitedEntrance = true;
-                    this._soundsSpawner.ActivateAmbience("Entrance");
+                    if (!this._hasVisitedEntrance)
+                    {
+                        this._hasVisitedEntrance = true;
+                        this._soundsSpawner.ActivateAmbience("Entrance");
+                    }
                 }
             }
         }

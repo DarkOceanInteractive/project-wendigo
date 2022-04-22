@@ -8,6 +8,9 @@ namespace ProjectWendigo
         private Vector3 _motion = Vector3.zero;
         public InventoryObject inventory;
         //public ItemPickup itemPickup;
+        [SerializeField] private GameObject _lantern;
+        [SerializeField] private GameObject _lanternProp;
+        [SerializeField] private GameObject _exitRocks;
 
         protected void OnApplicationQuit()
         {
@@ -27,8 +30,38 @@ namespace ProjectWendigo
             }
         }
 
+        public void OnExitEntrance(Collider collider)
+        {
+            if (collider.gameObject == this.gameObject)
+            {
+                if (LevelMineStateContext.Instance.IsInState<LevelMineStates.Lantern>())
+                {
+                    LevelMineStateContext.Instance.EnterEarthquakeEvent();
+                    this._exitRocks.SetActive(false);
+                }
+            }
+        }
+
+        public void OnPickupLantern(Collider collider)
+        {
+            if (collider.gameObject == this.gameObject)
+            {
+                if (LevelMineStateContext.Instance.IsInState<LevelMineStates.Default>())
+                {
+                    this._lantern.SetActive(true);
+                    this._lanternProp.SetActive(false);
+                    LevelMineStateContext.Instance.EnterLanternEvent();
+                }
+            }
+        }
+
         protected void Update()
         {
+            if (Singletons.Main.Input.PlayerStartedCrouching)
+            {
+                LevelMineStateContext.Instance.EnterEarthquakeEvent();
+                this._exitRocks.SetActive(false);
+            }
             //Save Inventory by pressing R
             if (Singletons.Main.Input.PlayerSavedInventory)
             {
