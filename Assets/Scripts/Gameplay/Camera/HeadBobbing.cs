@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Cinemachine;
 
@@ -27,7 +28,7 @@ namespace ProjectWendigo
             if (Singletons.Main == null)
                 return;
             float bobbingSpeed = this._bobbingSpeed * this._playerMovementStateContext.SmoothSpeedMultiplier;
-            if (Singletons.Main.Input.PlayerIsMoving)
+            if (Singletons.Main.Input.PlayerIsMoving && Singletons.Main.Option.Headbobbing)
             {
                 this._t = (this._t + bobbingSpeed * Time.deltaTime) % 1f;
                 this._cameraOffset = new Vector3(
