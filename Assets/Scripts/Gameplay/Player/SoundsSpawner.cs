@@ -58,7 +58,7 @@ namespace ProjectWendigo
                 Vector3 worldPos = offset + new Vector3(pointOnCircle.x, 1f, pointOnCircle.y);
                 string audioName = this.AudioFiles[Random.Range(0, this.AudioFiles.Length)];
                 AudioSource source = Singletons.Main.Sound.GetAudioAt(audioName, worldPos);
-                source.volume = this.Volume;
+                source.volume *= this.Volume;
                 source.Play();
                 this.ResetTimer();
             }

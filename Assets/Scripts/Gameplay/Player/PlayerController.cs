@@ -57,11 +57,6 @@ namespace ProjectWendigo
 
         protected void Update()
         {
-            if (Singletons.Main.Input.PlayerStartedCrouching)
-            {
-                LevelMineStateContext.Instance.EnterEarthquakeEvent();
-                this._exitRocks.SetActive(false);
-            }
             //Save Inventory by pressing R
             if (Singletons.Main.Input.PlayerSavedInventory)
             {

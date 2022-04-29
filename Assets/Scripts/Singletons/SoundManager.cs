@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace ProjectWendigo
 {
     public class SoundManager : MonoBehaviour
     {
         [SerializeField] private Sound[] Sounds;
+        [SerializeField] private SoundSettingViewModel _soundSettingViewModel;
 
         /// <summary>
         /// Get an AudioSource for the corresponding sound clip.
@@ -80,7 +82,7 @@ namespace ProjectWendigo
         {
             var audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.clip = sound.Clip;
-            audioSource.volume = sound.Volume;
+            audioSource.volume = sound.Volume * Singletons.Main.Option.Volume;
             audioSource.pitch = sound.Pitch;
             audioSource.loop = sound.IsLooping;
             if (!sound.IsLooping)
