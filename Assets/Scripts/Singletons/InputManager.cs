@@ -33,6 +33,8 @@ namespace ProjectWendigo
         public bool PlayerToggledNotebookArchive => this._input.Player.ToggleNotebookFindings.WasPressedThisFrame();
         public bool PlayerExittedUI => this._input.Player.ExitUI.WasPressedThisFrame();
 
+        public bool PlayerPaused => this._input.UI.Pause.WasPressedThisFrame();
+
         public bool PlayerJumped => false;
         public bool PlayerStartedSprinting => false;
         public bool PlayerStoppedSprinting => false;
@@ -59,7 +61,7 @@ namespace ProjectWendigo
             Cursor.SetCursor(cursor.texture, cursor.hotspot, CursorMode.Auto);
             this._cursor = cursor;
         }
-        
+
         public void HideCursor()
         {
             Cursor.lockState = CursorLockMode.Locked;
