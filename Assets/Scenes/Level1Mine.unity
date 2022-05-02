@@ -3374,6 +3374,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -127
       objectReference: {fileID: 0}
+    - target: {fileID: 4173448152657044667, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
+      propertyPath: m_Lens.NearClipPlane
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5073512679404822579, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5189,7 +5193,7 @@ Transform:
   - {fileID: 790723790}
   - {fileID: 375298343}
   m_Father: {fileID: 1755817065}
-  m_RootOrder: 52
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1419669229 stripped
 Transform:
@@ -6179,6 +6183,7 @@ Transform:
   m_Children:
   - {fileID: 1937856459}
   - {fileID: 1025949294}
+  - {fileID: 1414298451}
   - {fileID: 1310440216}
   - {fileID: 894644344}
   - {fileID: 1033700170}
@@ -6229,7 +6234,6 @@ Transform:
   - {fileID: 1779269470}
   - {fileID: 480703474}
   - {fileID: 396699061}
-  - {fileID: 1414298451}
   - {fileID: 1330212084}
   - {fileID: 1927001077}
   - {fileID: 399950535}
@@ -7542,16 +7546,16 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
+  m_SensorSize: {x: 70.41, y: 52.63}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 14.3010435
+  m_FocalLength: 31.360998
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 80
   orthographic: 0
