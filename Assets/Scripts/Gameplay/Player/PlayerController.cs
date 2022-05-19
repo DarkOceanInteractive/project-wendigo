@@ -7,28 +7,49 @@ namespace ProjectWendigo
         [SerializeField] private CharacterController _characterController;
         private Vector3 _motion = Vector3.zero;
         public InventoryObject inventory;
-        //public ItemPickup itemPickup;
         [SerializeField] private GameObject _lantern;
-        [SerializeField] private GameObject _lanternProp;
         [SerializeField] private GameObject _exitRocks;
+        private bool _hasEquipped;
 
         protected void OnApplicationQuit()
         {
             inventory.Container.Items = new InventorySlot[35];
         }
 
-        protected void OnTriggerEnter(Collider other)
-        {
-            // Makes player add item to inventory when walking over
-            GroundItem groundItem = other.GetComponent<GroundItem>();
-            if (groundItem)
-            {
-                Item inventoryItem = new Item(groundItem.Item);
-                Debug.Log($"Grabbed {inventoryItem.Name} {inventoryItem.Id}");
-                inventory.AddItem(inventoryItem, 1);
-                groundItem.OnGrab();
-            }
-        }
+        // protected void OnTriggerEnter(Collider other)
+        // {
+        //     // Makes player add item to inventory when walking over
+        //     GroundItem groundItem = other.GetComponent<GroundItem>();
+        //     if (groundItem)
+        //     {
+        //         Item inventoryItem = new Item(groundItem.Item);
+        //         Debug.Log($"Grabbed {inventoryItem.Name} {inventoryItem.Id}");
+        //         inventory.AddItem(inventoryItem, 1);
+        //         groundItem.OnGrab();
+        //     }
+        //     if (other.tag == "Equipment") {
+        //         Singletons.Main.Interface.OpenMessagePanel();
+        //     }
+        // }
+
+        // protected void OnTriggerStay(Collider other)
+        // {
+        //     if (other.tag == "Equipment") {
+        //         if (LevelMineStateContext.Instance.IsInState<LevelMineStates.Default>() && this._hasEquipped) {
+        //             Singletons.Main.Interface.CloseMessagePanel();
+        //             this._lantern.SetActive(true); // Implement Item-Type specific behavior
+        //             other.gameObject.SetActive(false);
+        //             LevelMineStateContext.Instance.EnterLanternEvent();
+        //         }
+        //     }
+        // }
+
+        // protected void OnTriggerExit(Collider other)
+        // {
+        //     if (other.tag == "Equipment") {
+        //         Singletons.Main.Interface.CloseMessagePanel();
+        //     }
+        // }
 
         public void OnExitEntrance(Collider collider)
         {
@@ -38,19 +59,6 @@ namespace ProjectWendigo
                 {
                     LevelMineStateContext.Instance.EnterEarthquakeEvent();
                     this._exitRocks.SetActive(false);
-                }
-            }
-        }
-
-        public void OnPickupLantern(Collider collider)
-        {
-            if (collider.gameObject == this.gameObject)
-            {
-                if (LevelMineStateContext.Instance.IsInState<LevelMineStates.Default>())
-                {
-                    this._lantern.SetActive(true);
-                    this._lanternProp.SetActive(false);
-                    LevelMineStateContext.Instance.EnterLanternEvent();
                 }
             }
         }
