@@ -152,6 +152,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pick up item"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e080dda-2412-4ab3-9955-29b796b62c69"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -449,6 +458,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Exit UI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60209265-559a-4015-a0f7-1dd75c43c9e5"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Pick up item"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1098,6 +1118,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_ToggleNotebookJournal = m_Player.FindAction("Toggle Notebook Journal", throwIfNotFound: true);
         m_Player_ToggleNotebookFindings = m_Player.FindAction("Toggle Notebook Findings", throwIfNotFound: true);
         m_Player_ExitUI = m_Player.FindAction("Exit UI", throwIfNotFound: true);
+        m_Player_Pickupitem = m_Player.FindAction("Pick up item", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1187,6 +1208,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ToggleNotebookJournal;
     private readonly InputAction m_Player_ToggleNotebookFindings;
     private readonly InputAction m_Player_ExitUI;
+    private readonly InputAction m_Player_Pickupitem;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -1205,6 +1227,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @ToggleNotebookJournal => m_Wrapper.m_Player_ToggleNotebookJournal;
         public InputAction @ToggleNotebookFindings => m_Wrapper.m_Player_ToggleNotebookFindings;
         public InputAction @ExitUI => m_Wrapper.m_Player_ExitUI;
+        public InputAction @Pickupitem => m_Wrapper.m_Player_Pickupitem;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1256,6 +1279,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ExitUI.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExitUI;
                 @ExitUI.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExitUI;
                 @ExitUI.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExitUI;
+                @Pickupitem.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickupitem;
+                @Pickupitem.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickupitem;
+                @Pickupitem.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickupitem;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1302,6 +1328,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ExitUI.started += instance.OnExitUI;
                 @ExitUI.performed += instance.OnExitUI;
                 @ExitUI.canceled += instance.OnExitUI;
+                @Pickupitem.started += instance.OnPickupitem;
+                @Pickupitem.performed += instance.OnPickupitem;
+                @Pickupitem.canceled += instance.OnPickupitem;
             }
         }
     }
@@ -1513,6 +1542,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnToggleNotebookJournal(InputAction.CallbackContext context);
         void OnToggleNotebookFindings(InputAction.CallbackContext context);
         void OnExitUI(InputAction.CallbackContext context);
+        void OnPickupitem(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
