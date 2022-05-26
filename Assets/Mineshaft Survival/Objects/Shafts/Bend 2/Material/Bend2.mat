@@ -113,7 +113,7 @@ Material:
     - Boolean_193028D2: 0
     - Boolean_3F1A8DAB: 1
     - Boolean_43476D73: 1
-    - Boolean_7165A49C: 1
+    - Boolean_7165A49C: 0
     - Boolean_85059BBE: 1
     - Boolean_8BBF99CD: 1
     - Boolean_D258FF8E: 1
@@ -196,6 +196,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_2E5415DE: {r: 1, g: 1, b: 1, a: 0}
+    - Color_dbc409ea9d144deebad9198f51e26d6b: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_8044833E: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -203,3 +204,16 @@ Material:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &270656245595484372
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 11
