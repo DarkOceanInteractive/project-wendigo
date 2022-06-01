@@ -28,10 +28,8 @@ namespace ProjectWendigo
         public void OnTriggerBoxEnter(Collider other)
         {
             // This only applies when in the earthquake event
-            Debug.Log(LevelMineStateContext.Instance.IsInState<LevelMineStates.Earthquake>());
             if (!LevelMineStateContext.Instance.IsInState<LevelMineStates.Earthquake>())
                 return;
-            Debug.Log("Triggering");
             if (this._hasBeenTriggered || other.tag != "Player")
                 return;
             this._hasBeenTriggered = true;
