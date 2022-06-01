@@ -22,6 +22,14 @@ namespace ProjectWendigo
             {
                 this._script.AddElement(this._elementContent);
             }
+            if (GUILayout.Button("Previous page"))
+            {
+                this._script.SetCurrentPageGroup(this._script.CurrentPageGroup - 1);
+            }
+            if (GUILayout.Button("Next page"))
+            {
+                this._script.SetCurrentPageGroup(this._script.CurrentPageGroup + 1);
+            }
             if (GUILayout.Button("Clear"))
             {
                 this._script.Clear();
