@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37adadcfaba22144492645b11743fae0, type: 3}
-  m_Name: ArchiveEntryAdapterOptions
+  m_Script: {fileID: 11500000, guid: da942b9e063c07b4a8e2ddf0f89fb4bd, type: 3}
+  m_Name: JournalEntryAdapter
   m_EditorClassIdentifier: 
-  TextElementPrefab: {fileID: 8747528179510196842, guid: 2df27762e2d6d834f8bd75e8064046cc, type: 3}

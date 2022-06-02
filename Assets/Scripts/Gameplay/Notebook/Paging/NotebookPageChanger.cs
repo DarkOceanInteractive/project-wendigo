@@ -4,11 +4,11 @@ using UnityEngine.UI;
 namespace ProjectWendigo
 {
     [ExecuteAlways]
-    public class PageChanger : MonoBehaviour
+    public class NotebookPageChanger : MonoBehaviour
     {
         [SerializeField] private GameObject _previousButton;
         [SerializeField] private GameObject _nextButton;
-        private Paging _pagingScript;
+        private NotebookPaging _pagingScript;
 
         private void Awake()
         {

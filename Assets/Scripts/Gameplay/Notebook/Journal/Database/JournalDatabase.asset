@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ae846345cfdd74080bf18961b6e432, type: 3}
+  m_Name: JournalDatabase
+  m_EditorClassIdentifier: 
+  _savePath: /Journal.Save
+  _entries:
+  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla neque
+      ex, commodo eget laoreet in, venenatis quis augue. Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit.
+  - content: Donec venenatis felis quis rutrum faucibus. Mauris ac consectetur neque.
+      Quisque nec elementum nisi. Nunc a felis id sem viverra efficitur eget non
+      lectus. Ut pharetra ante dolor, ac tincidunt turpis auctor quis. Donec pharetra
+      lorem ac felis tempus aliquam quis vitae urna.

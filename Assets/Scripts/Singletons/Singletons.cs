@@ -6,6 +6,7 @@ namespace ProjectWendigo
     {
         public static Singletons Main { get; private set; }
 
+        public SaveManager Save { get; private set; }
         public InputManager Input { get; private set; }
         public SoundManager Sound { get; private set; }
         public FadeManager Fade { get; private set; }
@@ -22,6 +23,7 @@ namespace ProjectWendigo
 
             DontDestroyOnLoad(this.gameObject);
 
+            Main.Save = this.GetComponentInChildren<SaveManager>();
             Main.Input = this.GetComponentInChildren<InputManager>();
             Main.Sound = this.GetComponentInChildren<SoundManager>();
             Main.Fade = this.GetComponentInChildren<FadeManager>();

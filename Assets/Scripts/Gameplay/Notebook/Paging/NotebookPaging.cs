@@ -4,9 +4,9 @@ using UnityEngine.Events;
 
 namespace ProjectWendigo
 {
-    public class Paging : MonoBehaviour
+    public class NotebookPaging : MonoBehaviour
     {
-        public UnityEvent OnAddElement;
+        public UnityEvent OnAddPage;
 
         [SerializeField] private GameObject[] _pagesPrefabs;
         private int _lastPagePrefabIndex = 0;
@@ -14,8 +14,15 @@ namespace ProjectWendigo
         public int TotalPageGroups => this._pageGroups.Count;
         public INotebookElementAdapter Adapter;
         public NotebookElementAdapterOptions AdapterOptions;
-        public List<GameObject> _elements = new List<GameObject>();
-        public List<List<GameObject>> _pageGroups = new List<List<GameObject>>();
+        private List<GameObject> _elements = new List<GameObject>();
+        private List<List<GameObject>> _pageGroups = new List<List<GameObject>>();
+
+        public void SetElements(List<object> values)
+        {
+            this.Clear();
+            for (int i = 0; i < values.Count; ++i)
+                this.AddElement(values[i]);
+        }
 
         public void AddElement(object value)
         {
@@ -29,7 +36,6 @@ namespace ProjectWendigo
             element.transform.SetParent(lastPage.transform, false);
             if (!this.Adapter.ElementFits(element, lastPage))
                 element.transform.SetParent(this.CreateNewPage().transform);
-            this.OnAddElement?.Invoke();
         }
 
         public void SetCurrentPageGroup(int index)
@@ -80,6 +86,7 @@ namespace ProjectWendigo
             // Add new page to the last pages container
             this._pageGroups[this._pageGroups.Count - 1].Add(newPage);
             this._lastPagePrefabIndex = (this._lastPagePrefabIndex + 1) % this._pagesPrefabs.Length;
+            this.OnAddPage?.Invoke();
             this.UpdatePageDisplay();
             return newPage;
         }
