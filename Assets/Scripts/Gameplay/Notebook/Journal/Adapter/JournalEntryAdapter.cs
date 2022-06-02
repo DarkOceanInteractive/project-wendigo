@@ -3,14 +3,15 @@ using UnityEngine.UI;
 
 namespace ProjectWendigo
 {
-    [CreateAssetMenu(fileName = "NewArchiveEntryAdapterOptions", menuName = "Notebook/Adapters/Archive Entry Adapter")]
-    public class ArchiveEntryAdapter : INotebookElementAdapter
+    [CreateAssetMenu(fileName = "NewJournalEntryAdapter", menuName = "Notebook/Journal/Adapter")]
+    public class JournalEntryAdapter : INotebookElementAdapter
     {
         public override GameObject CreateElement(object value, NotebookElementAdapterOptions options)
         {
-            var adapterOptions = (ArchiveEntryAdapterOptions)options;
+            var entry = (JournalEntry)value;
+            var adapterOptions = (JournalEntryAdapterOptions)options;
             GameObject element = Instantiate(adapterOptions.TextElementPrefab);
-            element.GetComponentInChildren<Text>().text = (string)value;
+            element.GetComponentInChildren<Text>().text = entry.content;
             return element;
         }
 

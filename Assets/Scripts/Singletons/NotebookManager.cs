@@ -5,9 +5,12 @@ namespace ProjectWendigo
     public class NotebookManager : MonoBehaviour
     {
         [SerializeField] private GameObject _notebook;
+        public NotebookSection Journal;
 
         private void Awake()
         {
+            Debug.Assert(this._notebook != null);
+            this.Journal = this._notebook.transform.Find("Journal")?.GetComponentInChildren<NotebookSection>();
             this._notebook.SetActive(false);
         }
 
@@ -20,6 +23,11 @@ namespace ProjectWendigo
                 else
                     this.OpenNotebook();
             }
+        }
+
+        public void Save()
+        {
+            this.Journal.Save();
         }
 
         private void OpenNotebook()
