@@ -1,7 +1,7 @@
 namespace ProjectWendigo
 {
     [System.Serializable]
-    public class JournalEntry : INotebookEntry
+    public class ArchiveEntry : INotebookEntry
     {
         public string content;
     }

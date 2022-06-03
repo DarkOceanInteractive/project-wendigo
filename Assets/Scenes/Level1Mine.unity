@@ -25956,6 +25956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Journal
       objectReference: {fileID: 0}
+    - target: {fileID: 6206174369024503103, guid: 239155e38b0b0af3f904dbac82b547aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7614200731000009108, guid: 239155e38b0b0af3f904dbac82b547aa, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 0
