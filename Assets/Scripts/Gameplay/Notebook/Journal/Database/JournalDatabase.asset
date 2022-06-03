@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _savePath: /Journal.Save
   _entries:
-  - content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla neque
-      ex, commodo eget laoreet in, venenatis quis augue. Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit.
-  - content: Donec venenatis felis quis rutrum faucibus. Mauris ac consectetur neque.
-      Quisque nec elementum nisi. Nunc a felis id sem viverra efficitur eget non
-      lectus. Ut pharetra ante dolor, ac tincidunt turpis auctor quis. Donec pharetra
-      lorem ac felis tempus aliquam quis vitae urna.
+  - Title: Flashlight broke
+    Id: 0
+    Content: My flashlight broke when I went in the mine. I need to find a replacement.
+  - Title: Crystal lantern
+    Id: 0
+    Content: This lantern reveals hidden messages on the wall. I should explore the
+      mine for more.
+  - Title: Leave the mine
+    Id: 0
+    Content: After seeing all the hidden messages, I feel uncomfortable. I should
+      leave the mine.

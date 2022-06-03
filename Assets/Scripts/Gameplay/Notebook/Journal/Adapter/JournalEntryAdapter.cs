@@ -11,7 +11,7 @@ namespace ProjectWendigo
             var entry = (JournalEntry)value;
             var adapterOptions = (JournalEntryAdapterOptions)options;
             GameObject element = Instantiate(adapterOptions.TextElementPrefab);
-            element.GetComponentInChildren<Text>().text = entry.content;
+            element.GetComponentInChildren<Text>().text = entry.Content;
             return element;
         }
 

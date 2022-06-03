@@ -10,9 +10,9 @@ namespace ProjectWendigo
         {
             var entry = (ArchiveEntry)value;
             var adapterOptions = (ArchiveEntryAdapterOptions)options;
-            GameObject element = Instantiate(adapterOptions.TextElementPrefab);
-            element.GetComponentInChildren<Text>().text = entry.content;
-            return element;
+            //GameObject element = Instantiate(adapterOptions.TextElementPrefab);
+            //element.GetComponentInChildren<Text>().text = entry.content;
+            return new GameObject();
         }
 
         public override bool ElementFits(GameObject element, GameObject page)

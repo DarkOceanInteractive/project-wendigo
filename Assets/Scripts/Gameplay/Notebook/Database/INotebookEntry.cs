@@ -1,6 +1,9 @@
 namespace ProjectWendigo
 {
-    public interface INotebookEntry
+    [System.Serializable]
+    public abstract class INotebookEntry
     {
+        public string Title;
+        [ReadOnly] public int Id;
     }
 }
