@@ -10,7 +10,7 @@ namespace ProjectWendigo
         public UnityEvent OnSave;
         public UnityEvent<object> OnAddElement;
 
-        [SerializeField] private INotebookDatabase _database;
+        [SerializeField] private ANotebookDatabase _database;
 
         private void Start()
         {

@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ProjectWendigo
 {
-    public abstract class INotebookDatabase : ScriptableObject
+    public abstract class ANotebookDatabase : ScriptableObject
     {
         public abstract List<object> Entries { get; }
         [SerializeField] private string _savePath;
-        private string _fullSavePath => string.Concat(Application.persistentDataPath, this._savePath);
+        private string _fullSavePath => Singletons.Main.Save.GetSavePath(this._savePath);
 
         public abstract void AddEntry(object entry);
 
@@ -35,6 +36,34 @@ namespace ProjectWendigo
                 this.SetEntries(entries);
                 stream.Close();
             }
+        }
+    }
+
+    public abstract class ANotebookDatabase<EntryType> : ANotebookDatabase
+        where EntryType : INotebookEntry
+    {
+        [HideInInspector]
+        public override List<object> Entries => this._entries.ToList<object>();
+
+        [SerializeField]
+        protected List<EntryType> _entries;
+
+        protected virtual void OnValidate()
+        {
+            for (int i = 0; i < this._entries.Count; ++i)
+            {
+                this._entries[i].Id = i;
+            }
+        }
+
+        public override void AddEntry(object entry)
+        {
+            this._entries.Add(entry as EntryType);
+        }
+
+        public override void SetEntries(List<object> entries)
+        {
+            this._entries = entries.Cast<EntryType>().ToList();
         }
     }
 }
