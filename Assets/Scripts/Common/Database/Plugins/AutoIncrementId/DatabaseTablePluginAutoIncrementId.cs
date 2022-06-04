@@ -6,22 +6,22 @@ namespace ProjectWendigo
     {
         [SerializeField] [ReadOnly] private int _lastId = 0;
 
-        public override void OnInsert<EntryType>(DatabaseTable<EntryType> table, EntryType entry)
+        public override void OnInsert<EntryType>(ADatabaseTable<EntryType> table, EntryType entry)
         {
-            ((IDatabaseTableEntryAutoIncrementId)entry).Id = this._lastId++;
+            ((IDatabaseEntryAutoIncrementId)entry).Id = this._lastId++;
         }
 
-        public override void OnBeforeClear<EntryType>(DatabaseTable<EntryType> table)
+        public override void OnBeforeClear<EntryType>(ADatabaseTable<EntryType> table)
         {
             this._lastId = 0;
         }
 
-        public override void OnInspectorUpdate<EntryType>(DatabaseTable<EntryType> table)
+        public override void OnInspectorUpdate<EntryType>(ADatabaseTable<EntryType> table)
         {
             this._lastId = 0;
             table.UpdateMany(
                 _ => true,
-                entry => ((IDatabaseTableEntryAutoIncrementId)entry).Id = this._lastId++
+                entry => ((IDatabaseEntryAutoIncrementId)entry).Id = this._lastId++
             );
         }
     }

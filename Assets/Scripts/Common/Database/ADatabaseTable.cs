@@ -1,11 +1,12 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectWendigo
 {
-    public class DatabaseTable<EntryType> : ScriptableObject
-        where EntryType : class, IDatabaseTableEntry
+    public abstract class ADatabaseTable<EntryType> : ScriptableObject
+        where EntryType : class, IDatabaseEntry
     {
         protected List<EntryType> Entries = new List<EntryType>();
         [SerializeField] protected List<ADatabaseTablePlugin> Plugins = new List<ADatabaseTablePlugin>();
@@ -48,17 +49,15 @@ namespace ProjectWendigo
 
         public bool RemoveOne(Func<EntryType, bool> query)
         {
-            int index = 0;
             foreach (EntryType entry in this.Entries)
             {
                 if (query(entry))
                 {
                     foreach (ADatabaseTablePlugin plugin in this.Plugins)
                         plugin.OnBeforeRemove(this, entry);
-                    this.Entries.RemoveAt(index);
+                    this.Entries.Remove(entry);
                     return true;
                 }
-                ++index;
             }
             return false;
         }
@@ -66,17 +65,15 @@ namespace ProjectWendigo
         public int RemoveMany(Func<EntryType, bool> query)
         {
             int removedCount = 0;
-            int index = 0;
-            foreach (EntryType entry in this.Entries)
+            foreach (EntryType entry in this.Entries.ToList())
             {
                 if (query(entry))
                 {
                     foreach (ADatabaseTablePlugin plugin in this.Plugins)
                         plugin.OnBeforeRemove(this, entry);
-                    this.Entries.RemoveAt(index);
+                    this.Entries.Remove(entry);
                     ++removedCount;
                 }
-                ++index;
             }
             return removedCount;
         }
