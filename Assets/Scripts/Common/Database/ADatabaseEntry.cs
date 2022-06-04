@@ -1,6 +1,6 @@
 namespace ProjectWendigo
 {
-    public interface IDatabaseTableEntry
+    public interface IDatabaseEntry
     {
     }
 }

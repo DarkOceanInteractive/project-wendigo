@@ -6,8 +6,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ProjectWendigo
 {
-    public class ASavedDatabaseTable<EntryType> : DatabaseTable<EntryType>
-        where EntryType : class, IDatabaseTableEntry
+    public abstract class ASavedDatabaseTable<EntryType> : ADatabaseTable<EntryType>
+        where EntryType : class, IDatabaseEntry
     {
         private string _savePath => Singletons.Main.Save.GetSavePath(this.name);
 
