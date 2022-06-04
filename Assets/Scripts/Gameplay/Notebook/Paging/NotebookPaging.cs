@@ -17,13 +17,6 @@ namespace ProjectWendigo
         private List<GameObject> _elements = new List<GameObject>();
         private List<List<GameObject>> _pageGroups = new List<List<GameObject>>();
 
-        public void SetElements(List<object> values)
-        {
-            this.Clear();
-            for (int i = 0; i < values.Count; ++i)
-                this.AddElement(values[i]);
-        }
-
         public void AddElement(object value)
         {
             this.AddElement(this.Adapter.CreateElement(value, this.AdapterOptions));

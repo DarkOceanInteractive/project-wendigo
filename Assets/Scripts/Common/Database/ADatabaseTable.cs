@@ -1,119 +1,31 @@
 using System;
-using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectWendigo
 {
-    public abstract class ADatabaseTable<EntryType> : ScriptableObject
-        where EntryType : class, IDatabaseEntry
+    public abstract class ADatabaseTable : ScriptableObject
     {
-        protected List<EntryType> Entries = new List<EntryType>();
-        [SerializeField] protected List<ADatabaseTablePlugin> Plugins = new List<ADatabaseTablePlugin>();
+        protected abstract IList Entries { get; set; }
+        protected abstract List<ADatabaseTablePlugin> Plugins { get; set; }
+        public abstract int Count { get; }
 
-        public int Count => this.Entries.Count;
+        public abstract void Insert(object value);
 
-        private void OnValidate()
-        {
-            foreach (ADatabaseTablePlugin plugin in this.Plugins)
-                plugin.OnInspectorUpdate(this);
-        }
+        public abstract List<object> GetAll();
+        public abstract object FindOne(Func<object, bool> query);
 
-        public void Insert(EntryType value)
-        {
-            this.Entries.Add(value);
-            foreach (ADatabaseTablePlugin plugin in this.Plugins)
-                plugin.OnInsert(this, value);
-        }
+        public abstract List<object> FindMany(Func<object, bool> query);
 
-        public EntryType FindOne(Func<EntryType, bool> query)
-        {
-            foreach (EntryType entry in this.Entries)
-            {
-                if (query(entry))
-                    return entry;
-            }
-            return null;
-        }
+        public abstract bool RemoveOne(Func<object, bool> query);
 
-        public List<EntryType> FindMany(Func<EntryType, bool> query)
-        {
-            var result = new List<EntryType>();
-            foreach (EntryType entry in this.Entries)
-            {
-                if (query(entry))
-                    result.Add(entry);
-            }
-            return result;
-        }
+        public abstract int RemoveMany(Func<object, bool> query);
 
-        public bool RemoveOne(Func<EntryType, bool> query)
-        {
-            foreach (EntryType entry in this.Entries)
-            {
-                if (query(entry))
-                {
-                    foreach (ADatabaseTablePlugin plugin in this.Plugins)
-                        plugin.OnBeforeRemove(this, entry);
-                    this.Entries.Remove(entry);
-                    return true;
-                }
-            }
-            return false;
-        }
+        public abstract void Clear();
 
-        public int RemoveMany(Func<EntryType, bool> query)
-        {
-            int removedCount = 0;
-            foreach (EntryType entry in this.Entries.ToList())
-            {
-                if (query(entry))
-                {
-                    foreach (ADatabaseTablePlugin plugin in this.Plugins)
-                        plugin.OnBeforeRemove(this, entry);
-                    this.Entries.Remove(entry);
-                    ++removedCount;
-                }
-            }
-            return removedCount;
-        }
+        public abstract bool UpdateOne(Func<object, bool> query, Action<object> update);
 
-        public void Clear()
-        {
-            foreach (ADatabaseTablePlugin plugin in this.Plugins)
-                plugin.OnBeforeClear(this);
-            this.Entries = new List<EntryType>();
-        }
-
-        public bool UpdateOne(Func<EntryType, bool> query, Action<EntryType> update)
-        {
-            foreach (EntryType entry in this.Entries)
-            {
-                if (query(entry))
-                {
-                    foreach (ADatabaseTablePlugin plugin in this.Plugins)
-                        plugin.OnBeforeUpdate(this, entry);
-                    update(entry);
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public int UpdateMany(Func<EntryType, bool> query, Action<EntryType> update)
-        {
-            int updatedCount = 0;
-            foreach (EntryType entry in this.Entries)
-            {
-                if (query(entry))
-                {
-                    foreach (ADatabaseTablePlugin plugin in this.Plugins)
-                        plugin.OnBeforeUpdate(this, entry);
-                    update(entry);
-                    ++updatedCount;
-                }
-            }
-            return updatedCount;
-        }
+        public abstract int UpdateMany(Func<object, bool> query, Action<object> update);
     }
 }

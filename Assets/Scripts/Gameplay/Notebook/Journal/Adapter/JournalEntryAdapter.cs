@@ -8,7 +8,7 @@ namespace ProjectWendigo
     {
         public override GameObject CreateElement(object value, NotebookElementAdapterOptions options)
         {
-            var entry = (JournalEntry)value;
+            var entry = (JournalCollectionEntry)value;
             var adapterOptions = (JournalEntryAdapterOptions)options;
             GameObject element = Instantiate(adapterOptions.TextElementPrefab);
             element.GetComponentInChildren<Text>().text = entry.Content;

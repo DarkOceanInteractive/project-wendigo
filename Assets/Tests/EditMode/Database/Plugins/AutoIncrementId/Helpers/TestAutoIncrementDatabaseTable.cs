@@ -11,6 +11,6 @@ public class TestAutoIncrementDatabaseTable : ATestDatabaseTable<TestAutoIncreme
 {
     public void OnEnable()
     {
-        base.Plugins.Add(ScriptableObject.CreateInstance<DatabasePluginAutoIncrementId>());
+        base.Plugins.Add(ScriptableObject.CreateInstance<DatabaseTablePluginAutoIncrementId>());
     }
 }
