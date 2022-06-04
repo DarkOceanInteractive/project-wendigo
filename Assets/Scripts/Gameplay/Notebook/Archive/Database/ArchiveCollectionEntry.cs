@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ProjectWendigo
 {
     [System.Serializable]
-    public class ArchiveEntry : INotebookEntry
+    public class ArchiveCollectionEntry : ANotebookCollectionEntry
     {
         public string Category;
         public Sprite Image;

@@ -4,24 +4,19 @@ namespace ProjectWendigo
 {
     public abstract class ADatabaseTablePlugin : ScriptableObject
     {
-        public virtual void OnInsert<EntryType>(ADatabaseTable<EntryType> table, EntryType entry)
-            where EntryType : class, IDatabaseEntry
+        public virtual void OnInsert(ADatabaseTable table, object entry)
         { }
 
-        public virtual void OnBeforeRemove<EntryType>(ADatabaseTable<EntryType> table, EntryType entry)
-            where EntryType : class, IDatabaseEntry
+        public virtual void OnBeforeRemove(ADatabaseTable table, object entry)
         { }
 
-        public virtual void OnBeforeClear<EntryType>(ADatabaseTable<EntryType> table)
-            where EntryType : class, IDatabaseEntry
+        public virtual void OnBeforeClear(ADatabaseTable table)
         { }
 
-        public virtual void OnBeforeUpdate<EntryType>(ADatabaseTable<EntryType> table, EntryType entry)
-            where EntryType : class, IDatabaseEntry
+        public virtual void OnBeforeUpdate(ADatabaseTable table, object entry)
         { }
 
-        public virtual void OnInspectorUpdate<EntryType>(ADatabaseTable<EntryType> table)
-            where EntryType : class, IDatabaseEntry
+        public virtual void OnInspectorUpdate(ADatabaseTable table)
         { }
     }
 }

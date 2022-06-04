@@ -2,21 +2,22 @@ using UnityEngine;
 
 namespace ProjectWendigo
 {
-    public class DatabasePluginAutoIncrementId : ADatabaseTablePlugin
+    [CreateAssetMenu(fileName = "NewDatabasePluginAutoIncrementId", menuName = "Database/Plugins/AutoIncrementId")]
+    public class DatabaseTablePluginAutoIncrementId : ADatabaseTablePlugin
     {
         [SerializeField] [ReadOnly] private int _lastId = 0;
 
-        public override void OnInsert<EntryType>(ADatabaseTable<EntryType> table, EntryType entry)
+        public override void OnInsert(ADatabaseTable table, object entry)
         {
             ((IDatabaseEntryAutoIncrementId)entry).Id = this._lastId++;
         }
 
-        public override void OnBeforeClear<EntryType>(ADatabaseTable<EntryType> table)
+        public override void OnBeforeClear(ADatabaseTable table)
         {
             this._lastId = 0;
         }
 
-        public override void OnInspectorUpdate<EntryType>(ADatabaseTable<EntryType> table)
+        public override void OnInspectorUpdate(ADatabaseTable table)
         {
             this._lastId = 0;
             table.UpdateMany(
