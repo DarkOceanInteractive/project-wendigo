@@ -10,7 +10,7 @@ namespace ProjectWendigo
     {
         public UnityEvent OnSave;
         public UnityEvent OnClear;
-        public UnityEvent<object> OnAddElement;
+        public UnityEvent<ANotebookCollectionEntry> OnAddElement;
 
         [SerializeField] private DatabaseTable _collection;
         [SerializeField] private DatabaseTable _collected;
@@ -19,7 +19,7 @@ namespace ProjectWendigo
         {
             this.Clear();
             this._collected.Load();
-            foreach (object element in this._collected.GetAll())
+            foreach (ANotebookCollectedEntry element in this._collected.GetAll())
                 this.OnAddElement?.Invoke(this.GetCollectedElement(element));
         }
 
@@ -35,21 +35,21 @@ namespace ProjectWendigo
             this.OnClear?.Invoke();
         }
 
-        private object GetCollectedElement(object element)
+        private ANotebookCollectionEntry GetCollectedElement(IDatabaseEntry element)
         {
-            object collectionEntry = this._collected.ResolveReference(new ReferenceToOne
+            ANotebookCollectionEntry collectionEntry = element.ResolveReference<ANotebookCollectionEntry>(new ReferenceToOne
             {
                 KeyName = "CollectionEntryId",
                 ForeignKeyName = "Id",
                 ForeignTable = this._collection
-            }, element);
+            });
             Debug.Assert(collectionEntry != null, $"No collection entry found matching given id");
             return collectionEntry;
         }
 
-        public void AddElement(object element)
+        public void AddElement(ANotebookCollectedEntry element)
         {
-            object collectionEntry = this.GetCollectedElement(element);
+            ANotebookCollectionEntry collectionEntry = this.GetCollectedElement(element);
             this._collected.Insert(element);
             this.OnAddElement?.Invoke(collectionEntry);
         }

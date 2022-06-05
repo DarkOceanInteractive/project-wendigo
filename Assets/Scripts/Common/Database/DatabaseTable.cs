@@ -18,21 +18,21 @@ namespace ProjectWendigo
                 plugin.OnInspectorUpdate(this);
         }
 
-        public override void Insert(object value)
+        public override void Insert(IDatabaseEntry value)
         {
             this.Entries.Add(value);
             foreach (ADatabaseTablePlugin plugin in this.Plugins)
                 plugin.OnInsert(this, value);
         }
 
-        public override List<object> GetAll()
+        public override List<IDatabaseEntry> GetAll()
         {
-            return this.Entries.Cast<object>().ToList();
+            return this.Entries.Cast<IDatabaseEntry>().ToList();
         }
 
-        public override object FindOne(Func<object, bool> query)
+        public override IDatabaseEntry FindOne(Func<IDatabaseEntry, bool> query)
         {
-            foreach (object entry in this.Entries)
+            foreach (IDatabaseEntry entry in this.Entries)
             {
                 if (query(entry))
                     return entry;
@@ -40,10 +40,10 @@ namespace ProjectWendigo
             return null;
         }
 
-        public override List<object> FindMany(Func<object, bool> query)
+        public override List<IDatabaseEntry> FindMany(Func<IDatabaseEntry, bool> query)
         {
-            var result = new List<object>();
-            foreach (object entry in this.Entries)
+            var result = new List<IDatabaseEntry>();
+            foreach (IDatabaseEntry entry in this.Entries)
             {
                 if (query(entry))
                     result.Add(entry);
@@ -51,9 +51,9 @@ namespace ProjectWendigo
             return result;
         }
 
-        public override bool RemoveOne(Func<object, bool> query)
+        public override bool RemoveOne(Func<IDatabaseEntry, bool> query)
         {
-            foreach (object entry in this.Entries)
+            foreach (IDatabaseEntry entry in this.Entries)
             {
                 if (query(entry))
                 {
@@ -66,10 +66,10 @@ namespace ProjectWendigo
             return false;
         }
 
-        public override int RemoveMany(Func<object, bool> query)
+        public override int RemoveMany(Func<IDatabaseEntry, bool> query)
         {
             int removedCount = 0;
-            foreach (object entry in this.Entries.Cast<object>().ToList())
+            foreach (IDatabaseEntry entry in this.Entries.Cast<IDatabaseEntry>().ToList())
             {
                 if (query(entry))
                 {
@@ -86,12 +86,12 @@ namespace ProjectWendigo
         {
             foreach (ADatabaseTablePlugin plugin in this.Plugins)
                 plugin.OnBeforeClear(this);
-            this.Entries = new List<object>();
+            this.Entries = new List<IDatabaseEntry>();
         }
 
-        public override bool UpdateOne(Func<object, bool> query, Action<object> update)
+        public override bool UpdateOne(Func<IDatabaseEntry, bool> query, Action<IDatabaseEntry> update)
         {
-            foreach (object entry in this.Entries)
+            foreach (IDatabaseEntry entry in this.Entries)
             {
                 if (query(entry))
                 {
@@ -104,10 +104,10 @@ namespace ProjectWendigo
             return false;
         }
 
-        public override int UpdateMany(Func<object, bool> query, Action<object> update)
+        public override int UpdateMany(Func<IDatabaseEntry, bool> query, Action<IDatabaseEntry> update)
         {
             int updatedCount = 0;
-            foreach (object entry in this.Entries)
+            foreach (IDatabaseEntry entry in this.Entries)
             {
                 if (query(entry))
                 {

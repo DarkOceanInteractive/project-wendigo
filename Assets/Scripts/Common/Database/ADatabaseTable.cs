@@ -11,21 +11,21 @@ namespace ProjectWendigo
         protected abstract List<ADatabaseTablePlugin> Plugins { get; set; }
         public abstract int Count { get; }
 
-        public abstract void Insert(object value);
+        public abstract void Insert(IDatabaseEntry value);
 
-        public abstract List<object> GetAll();
-        public abstract object FindOne(Func<object, bool> query);
+        public abstract List<IDatabaseEntry> GetAll();
+        public abstract IDatabaseEntry FindOne(Func<IDatabaseEntry, bool> query);
 
-        public abstract List<object> FindMany(Func<object, bool> query);
+        public abstract List<IDatabaseEntry> FindMany(Func<IDatabaseEntry, bool> query);
 
-        public abstract bool RemoveOne(Func<object, bool> query);
+        public abstract bool RemoveOne(Func<IDatabaseEntry, bool> query);
 
-        public abstract int RemoveMany(Func<object, bool> query);
+        public abstract int RemoveMany(Func<IDatabaseEntry, bool> query);
 
         public abstract void Clear();
 
-        public abstract bool UpdateOne(Func<object, bool> query, Action<object> update);
+        public abstract bool UpdateOne(Func<IDatabaseEntry, bool> query, Action<IDatabaseEntry> update);
 
-        public abstract int UpdateMany(Func<object, bool> query, Action<object> update);
+        public abstract int UpdateMany(Func<IDatabaseEntry, bool> query, Action<IDatabaseEntry> update);
     }
 }

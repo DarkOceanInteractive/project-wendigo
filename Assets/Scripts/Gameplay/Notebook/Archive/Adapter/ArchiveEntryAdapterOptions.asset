@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a7e1671f27f964a8caebbfcfa3986d, type: 3}
   m_Name: ArchiveEntryAdapterOptions
   m_EditorClassIdentifier: 
-  TextElementPrefab: {fileID: 8747528179510196842, guid: 2df27762e2d6d834f8bd75e8064046cc, type: 3}
+  Categories: {fileID: 11400000, guid: e3ed226ca1dee41459a7560012584b7a, type: 2}
