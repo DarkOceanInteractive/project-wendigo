@@ -13,8 +13,6 @@ public class CameraSwitcher : MonoBehaviour {
     private CinemachineVirtualCamera target;
     [SerializeField]
     private float seconds;
-
-    private Animator animator;
     private bool playerCamera = true;
 
     public void OnEnable() {
