@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd2668fa261d44468d30714a7f74457, type: 3}
-  m_Name: JournalCollectedTable
+  m_Script: {fileID: 11500000, guid: 6e21f819520e97d438a9f3af525a457a, type: 3}
+  m_Name: ArchiveCategoryTable
   m_EditorClassIdentifier: 
   _entries:
-  - CollectionEntryId: 0
-  - CollectionEntryId: 1
-  - CollectionEntryId: 2
+  - Title: The Village
+    <Id>k__BackingField: 0
+  - Title: The Mine
+    <Id>k__BackingField: 1

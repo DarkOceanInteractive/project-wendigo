@@ -13,7 +13,7 @@ namespace ProjectWendigo.Database.Extensions.Save
             string path = Singletons.Main.Save.GetSavePath(table.name);
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(path, FileMode.Create, FileAccess.Write);
-            formatter.Serialize(stream, table.FindMany(_ => true));
+            formatter.Serialize(stream, table.GetAll());
             stream.Close();
         }
 
@@ -24,10 +24,10 @@ namespace ProjectWendigo.Database.Extensions.Save
             {
                 IFormatter formatter = new BinaryFormatter();
                 Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read);
-                List<object> entries = formatter.Deserialize(stream) as List<object>;
+                List<IDatabaseEntry> entries = formatter.Deserialize(stream) as List<IDatabaseEntry>;
                 table.Clear();
                 foreach (object entry in entries)
-                    table.Insert(entry);
+                    table.Insert(entry as IDatabaseEntry);
                 stream.Close();
             }
         }

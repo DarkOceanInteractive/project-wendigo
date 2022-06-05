@@ -41,7 +41,7 @@ namespace ProjectWendigo.Database.Extensions.Reference
             return false;
         }
 
-        private static bool GetReferenceResolverQuery(AReference reference, object entry, out Func<object, bool> query)
+        private static bool GetReferenceResolverQuery(AReference reference, IDatabaseEntry entry, out Func<IDatabaseEntry, bool> query)
         {
             query = null;
             if (!ReferenceDatabaseExtension.TryGetMemberValue(entry, reference.KeyName, out object key))
@@ -55,30 +55,30 @@ namespace ProjectWendigo.Database.Extensions.Reference
             return true;
         }
 
-        public static object ResolveReference(this DatabaseTable table, ReferenceToOne reference, object entry)
+        public static IDatabaseEntry ResolveReference(this IDatabaseEntry entry, ReferenceToOne reference)
         {
-            if (!ReferenceDatabaseExtension.GetReferenceResolverQuery(reference, entry, out Func<object, bool> query))
+            if (!ReferenceDatabaseExtension.GetReferenceResolverQuery(reference, entry, out Func<IDatabaseEntry, bool> query))
                 return null;
             return reference.ForeignTable.FindOne(query);
         }
 
-        public static List<object> ResolveReference(this DatabaseTable table, ReferenceToMany reference, object entry)
+        public static List<IDatabaseEntry> ResolveReference(this IDatabaseEntry entry, ReferenceToMany reference)
         {
-            if (!ReferenceDatabaseExtension.GetReferenceResolverQuery(reference, entry, out Func<object, bool> query))
+            if (!ReferenceDatabaseExtension.GetReferenceResolverQuery(reference, entry, out Func<IDatabaseEntry, bool> query))
                 return default;
             return reference.ForeignTable.FindMany(query);
         }
 
-        public static EntryType ResolveReference<EntryType>(this DatabaseTable table, ReferenceToOne reference, EntryType entry)
+        public static EntryType ResolveReference<EntryType>(this IDatabaseEntry entry, ReferenceToOne reference)
             where EntryType : class, IDatabaseEntry
         {
-            return table.ResolveReference(reference, entry as object) as EntryType;
+            return (entry as IDatabaseEntry).ResolveReference(reference) as EntryType;
         }
 
-        public static List<EntryType> ResolveReference<EntryType>(this DatabaseTable table, ReferenceToMany reference, EntryType entry)
+        public static List<EntryType> ResolveReference<EntryType>(this IDatabaseEntry entry, ReferenceToMany reference)
             where EntryType : class, IDatabaseEntry
         {
-            return table.ResolveReference(reference, entry as object).Cast<EntryType>().ToList();
+            return (entry as IDatabaseEntry).ResolveReference(reference).Cast<EntryType>().ToList();
         }
     }
 }

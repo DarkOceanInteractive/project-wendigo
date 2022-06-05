@@ -13,63 +13,58 @@ MonoBehaviour:
   m_Name: ArchiveCollectionTable
   m_EditorClassIdentifier: 
   _entries:
-  - Title: Kids Drawing
-    <Id>k__BackingField: 0
-    Category: The Village
-    Image: {fileID: 0}
-    Description: Looks like this kid drew a glowing woman. Why is she glowing?
   - Title: Religious Shrine
-    <Id>k__BackingField: 1
-    Category: The Village
+    <Id>k__BackingField: 0
+    CategoryTitle: The Village
     Image: {fileID: 0}
     Description: This statue reminds me of the statues used in religion. It looks
       like they have offered some of their harvests to her, I can't make out what
       it is exactly.
+  - Title: Kids Drawing
+    <Id>k__BackingField: 1
+    CategoryTitle: The Village
+    Image: {fileID: 0}
+    Description: Looks like this kid drew a glowing woman. Why is she glowing?
   - Title: Villager Diary
     <Id>k__BackingField: 2
-    Category: The Village
+    CategoryTitle: The Village
     Image: {fileID: 0}
     Description: A folktale about the Samodiva
   - Title: Cave Art 1/6
     <Id>k__BackingField: 3
-    Category: The Mine
+    CategoryTitle: The Mine
     Image: {fileID: 21300000, guid: 0d1e1e279456a6a4490c4e9243511086, type: 3}
     Description: It looks as if a group of people are praising this woman as a higher
       being... And looking at the usage of red, it seems that the woman has gifted
       these crystals to them.
   - Title: Cave Art 2/6
     <Id>k__BackingField: 4
-    Category: The Mine
+    CategoryTitle: The Mine
     Image: {fileID: 21300000, guid: 0104d50ddc05a45409453fadcf4853a3, type: 3}
     Description: So... these people starting using the crystals? But for what?
   - Title: Cave Art 3/6
     <Id>k__BackingField: 5
-    Category: The Mine
+    CategoryTitle: The Mine
     Image: {fileID: 21300000, guid: 71e9d65a4d75f8540bb7761b1f340fcc, type: 3}
     Description: Looks like they used the crystals as a light source by hanging it
       up like a lantern. The person on the left looks injured, and the person on
       the right looks healthty.
   - Title: Cave Art 4/6
     <Id>k__BackingField: 6
-    Category: The Mine
+    CategoryTitle: The Mine
     Image: {fileID: 21300000, guid: 0a29c37e60fd4924b8b0c13446ae1bdf, type: 3}
     Description: Oh wow! They are using this red crystal to make tools! I wonder
       what other tools they could make.
   - Title: Cave Art 5/6
     <Id>k__BackingField: 7
-    Category: The Mine
+    CategoryTitle: The Mine
     Image: {fileID: 21300000, guid: 69a35de8daf6c08459a7493b0bd62b1c, type: 3}
     Description: There she is again, woman painted in red. She looks displeased by
       the people. Did they take more of the crystal then they were allowed?
   - Title: Cave Art 6/6
     <Id>k__BackingField: 8
-    Category: The Mine
+    CategoryTitle: The Mine
     Image: {fileID: 21300000, guid: 81d53ee0a6f113c43ab4b2651571a8ab, type: 3}
     Description: It looks like the woman in red decided to punish and kill all those
       people. I think I should leave this place. I am starting to feel uncomfortable.
-  - Title: Cave Art 6/6
-    <Id>k__BackingField: 9
-    Category: The Mine
-    Image: {fileID: 21300000, guid: 81d53ee0a6f113c43ab4b2651571a8ab, type: 3}
-    Description: It looks like the woman in red decided to punish and kill all those
-      people. I think I should leave this place. I am starting to feel uncomfortable.
+  Categories: {fileID: 11400000, guid: e3ed226ca1dee41459a7560012584b7a, type: 2}
