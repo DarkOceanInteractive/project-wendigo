@@ -6,16 +6,20 @@ using UnityEngine.InputSystem;
 public class LockMovement : MonoBehaviour {
     [SerializeField]
     public PlayerInput playerInput;
-    public bool movementUnlocked = true;
+    [SerializeField]
+    private float seconds;
+
+    public bool locked = false;
 
     public void ToggleMovementLock() {
       
-        if (movementUnlocked) {
-        playerInput.SwitchCurrentActionMap("PlayerLockMovement");
-        movementUnlocked = false;
+        if (!locked) {
+            playerInput.SwitchCurrentActionMap("PlayerLockMovement");
+            locked = true;
         } else {
             playerInput.SwitchCurrentActionMap("Player");
-            movementUnlocked = true;
+            locked = false;
         }
+        Invoke("ToggleMovementLock", seconds);
     }
 }
