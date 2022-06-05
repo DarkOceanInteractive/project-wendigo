@@ -6,26 +6,12 @@ using Cinemachine;
 
 public class CameraSwitcher : MonoBehaviour {
     [SerializeField]
-    private InputAction action;
-    [SerializeField]
     private CinemachineVirtualCamera player;
     [SerializeField]
     private CinemachineVirtualCamera target;
     [SerializeField]
     private float seconds;
     private bool playerCamera = true;
-
-    public void OnEnable() {
-        action.Enable();
-    }
-
-    public void OnDisable() {
-        action.Disable();
-    }
-
-    public void Start() {
-        action.performed += _ => SwitchCamera();
-    }
 
     public void SwitchCamera() {
         if (playerCamera) {
