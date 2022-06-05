@@ -11,6 +11,8 @@ public class CameraSwitcher : MonoBehaviour {
     private CinemachineVirtualCamera player;
     [SerializeField]
     private CinemachineVirtualCamera target;
+    [SerializeField]
+    private float seconds;
 
     private Animator animator;
     private bool playerCamera = true;
@@ -31,6 +33,7 @@ public class CameraSwitcher : MonoBehaviour {
         if (playerCamera) {
             player.Priority = 0;
             target.Priority = 1;
+            Invoke("SwitchCamera", seconds);
         } else {
             player.Priority = 1;
             target.Priority = 0;
