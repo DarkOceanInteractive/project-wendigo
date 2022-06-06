@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46a7e1671f27f964a8caebbfcfa3986d, type: 3}
-  m_Name: ArchiveEntryAdapterOptions
+  m_Script: {fileID: 11500000, guid: 8d606d83fe5cdc8499519e1e9b453b9b, type: 3}
+  m_Name: ArchiveCategoryAdapterOptions
   m_EditorClassIdentifier: 
-  EntryPrefab: {fileID: 5297862587026113672, guid: 14468979c0356764f9e056105203beeb, type: 3}
+  CategoryPrefab: {fileID: 1361562848001190051, guid: 07a9d9e00cdb3434e8ba2b432f925c83, type: 3}

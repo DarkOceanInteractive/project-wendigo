@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec7b084f541f9843a1cb4056a2a00b1, type: 3}
+  m_Name: ArchivePageAdapterOptions
+  m_EditorClassIdentifier: 
+  PagePrefab: {fileID: 6296083303400222214, guid: 2a9198db7a6cc604daf4036b39d6379f, type: 3}
+  Categories: {fileID: 11400000, guid: e3ed226ca1dee41459a7560012584b7a, type: 2}
+  CategoryAdapter: {fileID: 11400000, guid: f300631f52161d44ba31034cebb709b6, type: 2}
+  CategoryAdapterOptions: {fileID: 11400000, guid: 19e88893ec2e54542b3e4f1247c5db88, type: 2}
+  CategoryTabPrefab: {fileID: 6154384485240627165, guid: 52f360d3bb9b58b44aa1a85c082e482b, type: 3}
