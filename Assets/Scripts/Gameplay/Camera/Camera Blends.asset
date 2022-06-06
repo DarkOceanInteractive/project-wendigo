@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CustomBlends:
   - m_From: Player Camera
-    m_To: Focus Camera
+    m_To: '**ANY CAMERA**'
     m_Blend:
       m_Style: 2
       m_Time: 2
@@ -24,7 +24,7 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: Focus Camera
+  - m_From: '**ANY CAMERA**'
     m_To: Player Camera
     m_Blend:
       m_Style: 3
