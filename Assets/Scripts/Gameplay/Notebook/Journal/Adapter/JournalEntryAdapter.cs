@@ -10,7 +10,7 @@ namespace ProjectWendigo
         {
             var entry = (JournalCollectionEntry)value;
             var adapterOptions = (JournalEntryAdapterOptions)options;
-            GameObject element = Instantiate(adapterOptions.TextElementPrefab);
+            GameObject element = Instantiate(adapterOptions.EntryPrefab);
             element.GetComponentInChildren<Text>().text = entry.Content;
             return element;
         }

@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46a7e1671f27f964a8caebbfcfa3986d, type: 3}
-  m_Name: ArchiveEntryAdapterOptions
+  m_Script: {fileID: 11500000, guid: 4294f928082f8d34299dada8cc24b928, type: 3}
+  m_Name: ArchivePageAdapter
   m_EditorClassIdentifier: 
-  EntryPrefab: {fileID: 5297862587026113672, guid: 14468979c0356764f9e056105203beeb, type: 3}

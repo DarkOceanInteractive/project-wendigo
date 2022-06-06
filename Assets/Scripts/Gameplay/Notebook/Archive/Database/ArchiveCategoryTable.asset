@@ -15,5 +15,7 @@ MonoBehaviour:
   _entries:
   - Title: The Village
     <Id>k__BackingField: 0
+    Image: {fileID: 21300000, guid: 0d1e1e279456a6a4490c4e9243511086, type: 3}
   - Title: The Mine
     <Id>k__BackingField: 1
+    Image: {fileID: 21300000, guid: 0104d50ddc05a45409453fadcf4853a3, type: 3}

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37adadcfaba22144492645b11743fae0, type: 3}
   m_Name: JournalEntryAdapterOptions
   m_EditorClassIdentifier: 
-  TextElementPrefab: {fileID: 8747528179510196842, guid: 2df27762e2d6d834f8bd75e8064046cc, type: 3}
+  EntryPrefab: {fileID: 8747528179510196842, guid: 2df27762e2d6d834f8bd75e8064046cc, type: 3}

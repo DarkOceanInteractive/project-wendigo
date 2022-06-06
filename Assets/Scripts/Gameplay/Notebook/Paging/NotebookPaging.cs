@@ -8,27 +8,40 @@ namespace ProjectWendigo
     {
         public UnityEvent OnAddPage;
 
-        [SerializeField] private GameObject[] _pagesPrefabs;
-        private int _lastPagePrefabIndex = 0;
+        [System.Serializable]
+        public struct PageAdapterInfo
+        {
+            public INotebookPageAdapter adapter;
+            public INotebookPageAdapterOptions options;
+        }
+        [SerializeField] private PageAdapterInfo[] _pagesAdapters;
+        private int _currentPageAdapterIndex = -1;
+        private int _nextPageAdapterIndex = 0;
         public int CurrentPageGroup { get; private set; } = 0;
         public int TotalPageGroups => this._pageGroups.Count;
-        public INotebookElementAdapter Adapter;
-        public NotebookElementAdapterOptions AdapterOptions;
+        public INotebookElementAdapter ElementAdapter;
+        public NotebookElementAdapterOptions ElementAdapterOptions;
         private List<GameObject> _elements = new List<GameObject>();
         private List<List<GameObject>> _pageGroups = new List<List<GameObject>>();
 
         public void AddElement(object value)
         {
-            this.AddElement(this.Adapter.CreateElement(value, this.AdapterOptions));
+            this.AddElement(this.ElementAdapter.CreateElement(value, this.ElementAdapterOptions), value);
         }
 
-        private void AddElement(GameObject element)
+        private void AddElement(GameObject element, object value)
         {
             this._elements.Add(element);
             GameObject lastPage = this.QueryLastPage();
-            element.transform.SetParent(lastPage.transform, false);
-            if (!this.Adapter.ElementFits(element, lastPage))
-                element.transform.SetParent(this.CreateNewPage().transform);
+            PageAdapterInfo pageAdapterInfo = this._pagesAdapters[this._currentPageAdapterIndex];
+            pageAdapterInfo.adapter.AddChild(lastPage, element, value, pageAdapterInfo.options);
+            if (!this.ElementAdapter.ElementFits(element, lastPage))
+            {
+                lastPage = this.CreateNewPage();
+                pageAdapterInfo.adapter.AddChild(lastPage, element, value, pageAdapterInfo.options);
+            }
+            this.ElementAdapter.OnAfterInsert(element, value, lastPage, this.ElementAdapterOptions);
+
         }
 
         public void SetCurrentPageGroup(int index)
@@ -51,7 +64,8 @@ namespace ProjectWendigo
 
         public void Clear()
         {
-            this._lastPagePrefabIndex = 0;
+            this._currentPageAdapterIndex = -1;
+            this._nextPageAdapterIndex = 0;
             this.CurrentPageGroup = 0;
             this._elements = new List<GameObject>();
             this._pageGroups = new List<List<GameObject>>();
@@ -71,14 +85,17 @@ namespace ProjectWendigo
 
         private GameObject CreateNewPage()
         {
-            Debug.Assert(this._pagesPrefabs.Length > 0);
-            GameObject newPage = Instantiate(this._pagesPrefabs[this._lastPagePrefabIndex], this.transform);
+            Debug.Assert(this._pagesAdapters.Length > 0);
+            this._currentPageAdapterIndex = (this._currentPageAdapterIndex + 1) % this._pagesAdapters.Length;
+            PageAdapterInfo pageAdapterInfo = this._pagesAdapters[this._nextPageAdapterIndex];
+            GameObject newPage = pageAdapterInfo.adapter.CreatePage(pageAdapterInfo.options);
+            newPage.transform.SetParent(this.transform, false);
             // Create new pages container
-            if (this._lastPagePrefabIndex == 0)
+            if (this._nextPageAdapterIndex == 0)
                 this._pageGroups.Add(new List<GameObject>());
             // Add new page to the last pages container
             this._pageGroups[this._pageGroups.Count - 1].Add(newPage);
-            this._lastPagePrefabIndex = (this._lastPagePrefabIndex + 1) % this._pagesPrefabs.Length;
+            this._nextPageAdapterIndex = (this._nextPageAdapterIndex + 1) % this._pagesAdapters.Length;
             this.OnAddPage?.Invoke();
             this.UpdatePageDisplay();
             return newPage;

@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a2bd6ea04b27a4cb7d8085f843c9a4, type: 3}
   m_Name: ArchiveCollectedTable
   m_EditorClassIdentifier: 
-  _entries: []
+  _entries:
+  - CollectionEntryId: 0
+  - CollectionEntryId: 1
+  - CollectionEntryId: 2
+  - CollectionEntryId: 3
+  - CollectionEntryId: 4
+  - CollectionEntryId: 5
+  - CollectionEntryId: 6
+  - CollectionEntryId: 7
+  - CollectionEntryId: 8

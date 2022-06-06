@@ -19,9 +19,9 @@ namespace ProjectWendigo
             if (Singletons.Main.Input.PlayerToggledNotebook)
             {
                 if (this._notebook.activeSelf)
-                    this.CloseNotebook();
+                    this.Close();
                 else
-                    this.OpenNotebook();
+                    this.Open();
             }
         }
 
@@ -30,13 +30,13 @@ namespace ProjectWendigo
             this.Journal.Save();
         }
 
-        private void OpenNotebook()
+        public void Open()
         {
             this._notebook.SetActive(true);
             Singletons.Main.Input.ShowCursor();
         }
 
-        private void CloseNotebook()
+        public void Close()
         {
             this._notebook.SetActive(false);
             Singletons.Main.Input.HideCursor();
