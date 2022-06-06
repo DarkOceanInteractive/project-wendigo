@@ -8,19 +8,22 @@ public class CameraSwitcher : MonoBehaviour {
     [SerializeField]
     private CinemachineVirtualCamera player;
     [SerializeField]
-    private CinemachineVirtualCamera target;
+    private CinemachineVirtualCamera focus;
     [SerializeField]
     private float seconds;
+    [SerializeField]
+    public GameObject target;
     private bool playerCamera = true;
 
     public void SwitchCamera() {
         if (playerCamera) {
+            focus.transform.LookAt(target.transform);
             player.Priority = 0;
-            target.Priority = 1;
+            focus.Priority = 1;
             Invoke("SwitchCamera", seconds);
         } else {
             player.Priority = 1;
-            target.Priority = 0;
+            focus.Priority = 0;
         }
         playerCamera = !playerCamera;
     }
