@@ -6,11 +6,15 @@ namespace ProjectWendigo
     {
         [SerializeField] private GameObject _notebook;
         public NotebookSection Journal;
+        public NotebookSection Maps;
+        public NotebookSection Archive;
 
         private void Awake()
         {
             Debug.Assert(this._notebook != null);
             this.Journal = this._notebook.transform.Find("Journal")?.GetComponentInChildren<NotebookSection>();
+            this.Maps = this._notebook.transform.Find("Maps")?.GetComponentInChildren<NotebookSection>();
+            this.Archive = this._notebook.transform.Find("Archive")?.GetComponentInChildren<NotebookSection>();
             this._notebook.SetActive(false);
         }
 
