@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using ProjectWendigo.Database.Extensions.Save;
@@ -19,8 +18,8 @@ namespace ProjectWendigo
         {
             this.Clear();
             this._collected.Load();
-            foreach (ANotebookCollectedEntry element in this._collected.GetAll())
-                this.OnAddElement?.Invoke(this.GetCollectedElement(element));
+            foreach (ANotebookCollectedEntry entry in this._collected.GetAll())
+                this.OnAddElement?.Invoke(this.GetCollectedEntries(entry));
         }
 
         public void Save()
@@ -35,9 +34,9 @@ namespace ProjectWendigo
             this.OnClear?.Invoke();
         }
 
-        private ANotebookCollectionEntry GetCollectedElement(IDatabaseEntry element)
+        private ANotebookCollectionEntry GetCollectedEntries(IDatabaseEntry entry)
         {
-            ANotebookCollectionEntry collectionEntry = element.ResolveReference<ANotebookCollectionEntry>(new ReferenceToOne
+            ANotebookCollectionEntry collectionEntry = entry.ResolveReference<ANotebookCollectionEntry>(new ReferenceToOne
             {
                 KeyName = "CollectionEntryId",
                 ForeignKeyName = "Id",
@@ -47,10 +46,10 @@ namespace ProjectWendigo
             return collectionEntry;
         }
 
-        public void AddElement(ANotebookCollectedEntry element)
+        public void AddEntry(ANotebookCollectedEntry entry)
         {
-            ANotebookCollectionEntry collectionEntry = this.GetCollectedElement(element);
-            this._collected.Insert(element);
+            ANotebookCollectionEntry collectionEntry = this.GetCollectedEntries(entry);
+            this._collected.Insert(entry);
             this.OnAddElement?.Invoke(collectionEntry);
         }
     }
