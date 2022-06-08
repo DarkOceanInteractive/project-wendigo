@@ -7,6 +7,5 @@ namespace ProjectWendigo
     {
         public string Title;
         [field: ReadOnly, SerializeField] public int Id { get; set; }
-        public Sprite Image;
     }
 }

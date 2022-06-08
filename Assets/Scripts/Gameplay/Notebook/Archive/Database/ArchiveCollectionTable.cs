@@ -9,9 +9,6 @@ namespace ProjectWendigo
         protected new void OnValidate()
         {
             base.OnValidate();
-            //var list = this.Entries.Cast<object>().ToList();
-            //list.Sort((lhs, rhs) => string.Compare((lhs as ArchiveCollectionEntry).CategoryTitle, (rhs as ArchiveCollectionEntry).CategoryTitle));
-            //this.Entries = list;
         }
     }
 }

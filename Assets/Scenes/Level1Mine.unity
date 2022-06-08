@@ -9064,17 +9064,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4608388270821452, guid: da5030341097dd74caa0137b0b47e22d, type: 3}
   m_PrefabInstance: {fileID: 656135130}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &656436349 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8356091385244985966, guid: 239155e38b0b0af3f904dbac82b547aa, type: 3}
-  m_PrefabInstance: {fileID: 1761296876}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c02fb3b5db7ee4e40bf25474f088ffe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &659016565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13821,7 +13810,7 @@ PrefabInstance:
     - target: {fileID: 4173448152657044666, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
       propertyPath: XYAxis
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4100484191379548407, guid: 90512e9497088a22ab9c2d9b96eab62c, type: 3}
     - target: {fileID: 4173448152657044666, guid: a0a9c7d7a065cf7488812ff27f9acf07, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -21442,17 +21431,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4608388270821452, guid: da5030341097dd74caa0137b0b47e22d, type: 3}
   m_PrefabInstance: {fileID: 1496566494}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1498975606 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7565071062422510657, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
-  m_PrefabInstance: {fileID: 1820808162}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1cb10e765a6ff4d86f0d911f91cf27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1501161931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27204,41 +27182,21 @@ PrefabInstance:
       value: Singletons
       objectReference: {fileID: 0}
     - target: {fileID: 7565071062422510657, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
+      propertyPath: Maps
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565071062422510657, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
+      propertyPath: Archive
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565071062422510657, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
       propertyPath: Journal
       value: 
-      objectReference: {fileID: 656436349}
+      objectReference: {fileID: 0}
     - target: {fileID: 7565071062422510657, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
       propertyPath: _notebook
       value: 
       objectReference: {fileID: 1412813142}
-    - target: {fileID: 7687339424004700513, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
-      propertyPath: OnSave.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7687339424004700513, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
-      propertyPath: OnSave.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7687339424004700513, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
-      propertyPath: OnSave.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1498975606}
-    - target: {fileID: 7687339424004700513, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
-      propertyPath: OnSave.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7687339424004700513, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
-      propertyPath: OnSave.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Save
-      objectReference: {fileID: 0}
-    - target: {fileID: 7687339424004700513, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
-      propertyPath: OnSave.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProjectWendigo.NotebookManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7687339424004700513, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
-      propertyPath: OnSave.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8996631163598430568, guid: 57be9a99b082434ae9ae1a0457fe952c, type: 3}
       propertyPath: animator
       value: 
