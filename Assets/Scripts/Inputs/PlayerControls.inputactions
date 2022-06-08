@@ -96,9 +96,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Toggle Notebook",
+                    "name": "Toggle Notebook Maps",
                     "type": "Button",
                     "id": "b6ded877-b58a-4196-b675-7fedb8e54b8c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Toggle Notebook Journal",
+                    "type": "Button",
+                    "id": "c6d7fec0-f6a1-4a03-b00e-5f3c3123f234",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Toggle Notebook Findings",
+                    "type": "Button",
+                    "id": "5916e201-206e-4583-aa31-53fcd9bdc726",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Exit UI",
+                    "type": "Button",
+                    "id": "490591f5-4ba3-459d-b448-5d0b3e2df28b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -366,7 +393,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Toggle Notebook",
+                    "action": "Toggle Notebook Maps",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "413c9f91-c71e-4a61-b73d-540f766ebf06",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Notebook Journal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b3286ca-e0ed-4dc7-ad1e-736209e5a4ed",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Notebook Findings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f03c56b-7676-4eb9-af25-b492e4475837",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Exit UI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

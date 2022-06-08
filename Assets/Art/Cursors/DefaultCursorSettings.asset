@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e21f819520e97d438a9f3af525a457a, type: 3}
-  m_Name: ArchiveCategoryTable
+  m_Script: {fileID: 11500000, guid: b1569069a8329694db77568ba52f3930, type: 3}
+  m_Name: DefaultCursorSettings
   m_EditorClassIdentifier: 
-  _entries:
-  - Title: The Village
-    <Id>k__BackingField: 0
-    Image: {fileID: 0}
-  - Title: The Mine
-    <Id>k__BackingField: 1
-    Image: {fileID: 0}
+  texture: {fileID: 2800000, guid: 86c1cd11915b5fe40984c1fcb00520bf, type: 3}
+  hotspot: {x: 7, y: 4}

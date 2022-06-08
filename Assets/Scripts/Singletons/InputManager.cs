@@ -25,7 +25,10 @@ namespace ProjectWendigo
         public Vector2 PlayerLook => this._playerInput.actions["Look"].ReadValue<Vector2>();
         public Vector2 PlayerMovement => this._playerInput.actions["Move"].ReadValue<Vector2>();
         public bool PlayerToggleFade => this._playerInput.actions["Toggle FadeEffect"].WasPressedThisFrame();
-        public bool PlayerToggledNotebook => this._playerInput.actions["Toggle Notebook"].WasPressedThisFrame();
+        public bool PlayerToggledNotebookJournal => this._playerInput.actions["Toggle Notebook Journal"].WasPressedThisFrame();
+        public bool PlayerToggledNotebookMaps => this._playerInput.actions["Toggle Notebook Maps"].WasPressedThisFrame();
+        public bool PlayerToggledNotebookArchive => this._playerInput.actions["Toggle Notebook Findings"].WasPressedThisFrame();
+        public bool PlayerExittedUI => this._playerInput.actions["Exit UI"].WasPressedThisFrame();
 
         public bool PlayerJumped => false;
         public bool PlayerStartedSprinting => false;
@@ -34,6 +37,25 @@ namespace ProjectWendigo
 
         // Lighting input helpers
         public bool LightingToggled => this._playerInput.actions["Toggle light"].WasPressedThisFrame();
+
+        [SerializeField] private CursorSettings _defaultCursor;
+        private CursorSettings _cursor;
+
+        public CursorSettings GetCursor()
+        {
+            return this._cursor;
+        }
+
+        public void SetDefaultCursor()
+        {
+            this.SetCursor(this._defaultCursor);
+        }
+
+        public void SetCursor(CursorSettings cursor)
+        {
+            Cursor.SetCursor(cursor.texture, cursor.hotspot, CursorMode.Auto);
+            this._cursor = cursor;
+        }
 
         public void HideCursor()
         {
@@ -54,6 +76,7 @@ namespace ProjectWendigo
             this._playerInput.actions.FindActionMap("UI").Enable();
             this._playerInput.actions.FindActionMap("Lighting").Enable();
 
+            this.SetDefaultCursor();
             this.HideCursor();
         }
     }
