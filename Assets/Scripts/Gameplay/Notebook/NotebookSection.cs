@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using ProjectWendigo.Database.Extensions.Save;
@@ -34,6 +35,11 @@ namespace ProjectWendigo
             this.OnClear?.Invoke();
         }
 
+        public ANotebookCollectionEntry GetCollectionEntryByTitle(string title)
+        {
+            return this._collection.FindOne(entry => ((ANotebookCollectionEntry)entry).Title == title) as ANotebookCollectionEntry;
+        }
+
         private ANotebookCollectionEntry GetCollectionEntry(ANotebookCollectedEntry entry)
         {
             ANotebookCollectionEntry collectionEntry = entry.ResolveReference<ANotebookCollectionEntry>(new ReferenceToOne
@@ -46,11 +52,30 @@ namespace ProjectWendigo
             return collectionEntry;
         }
 
-        public void AddEntry(ANotebookCollectedEntry entry)
+        public bool AddEntry(ANotebookCollectedEntry entry)
         {
             ANotebookCollectionEntry collectionEntry = this.GetCollectionEntry(entry);
             if (this._collected.Insert(entry))
+            {
                 this.OnAddElement?.Invoke(collectionEntry);
+                return true;
+            }
+            return false;
+        }
+
+        public bool AddEntryByTitle(string title)
+        {
+            ANotebookCollectionEntry collectionEntry = this.GetCollectionEntryByTitle(title);
+            if (collectionEntry == null)
+                return false;
+            ANotebookCollectedEntry entry = (ANotebookCollectedEntry)Activator.CreateInstance(this._collected.EntryType);
+            entry.CollectionEntryId = collectionEntry.Id;
+            if (this._collected.Insert(entry))
+            {
+                this.OnAddElement?.Invoke(collectionEntry);
+                return true;
+            }
+            return false;
         }
     }
 }

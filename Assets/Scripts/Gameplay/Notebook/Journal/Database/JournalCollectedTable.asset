@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entries:
   - CollectionEntryId: 0
+  - CollectionEntryId: 1
