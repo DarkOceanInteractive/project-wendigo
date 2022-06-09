@@ -19,7 +19,7 @@ namespace ProjectWendigo
             this.Clear();
             this._collected.Load();
             foreach (ANotebookCollectedEntry entry in this._collected.GetAll())
-                this.OnAddElement?.Invoke(this.GetCollectedEntries(entry));
+                this.OnAddElement?.Invoke(this.GetCollectionEntry(entry));
         }
 
         public void Save()
@@ -34,7 +34,7 @@ namespace ProjectWendigo
             this.OnClear?.Invoke();
         }
 
-        private ANotebookCollectionEntry GetCollectedEntries(IDatabaseEntry entry)
+        private ANotebookCollectionEntry GetCollectionEntry(ANotebookCollectedEntry entry)
         {
             ANotebookCollectionEntry collectionEntry = entry.ResolveReference<ANotebookCollectionEntry>(new ReferenceToOne
             {
@@ -48,9 +48,9 @@ namespace ProjectWendigo
 
         public void AddEntry(ANotebookCollectedEntry entry)
         {
-            ANotebookCollectionEntry collectionEntry = this.GetCollectedEntries(entry);
-            this._collected.Insert(entry);
-            this.OnAddElement?.Invoke(collectionEntry);
+            ANotebookCollectionEntry collectionEntry = this.GetCollectionEntry(entry);
+            if (this._collected.Insert(entry))
+                this.OnAddElement?.Invoke(collectionEntry);
         }
     }
 }

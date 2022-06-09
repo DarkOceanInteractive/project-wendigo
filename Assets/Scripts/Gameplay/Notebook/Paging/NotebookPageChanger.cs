@@ -8,11 +8,11 @@ namespace ProjectWendigo
     {
         [SerializeField] private GameObject _previousButton;
         [SerializeField] private GameObject _nextButton;
-        private NotebookPaging _pagingScript;
+        [SerializeField] private NotebookPaging _pagingScript;
 
         private void Awake()
         {
-            Debug.Assert(this.TryGetComponent(out this._pagingScript));
+            Debug.Assert(this._pagingScript != null || this.TryGetComponent(out this._pagingScript));
             this.UpdateControlsDisplay();
         }
 

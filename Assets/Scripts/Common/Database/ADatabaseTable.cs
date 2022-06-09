@@ -11,7 +11,7 @@ namespace ProjectWendigo
         protected abstract List<ADatabaseTablePlugin> Plugins { get; set; }
         public abstract int Count { get; }
 
-        public abstract void Insert(IDatabaseEntry value);
+        public abstract bool Insert(IDatabaseEntry value);
 
         public abstract List<IDatabaseEntry> GetAll();
         public abstract IDatabaseEntry FindOne(Func<IDatabaseEntry, bool> query);

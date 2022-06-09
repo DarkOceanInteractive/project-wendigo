@@ -72,5 +72,20 @@ namespace ProjectWendigo
         {
             this._notebookController.Close();
         }
+
+        public void AddArchiveEntryById(int id)
+        {
+            this.Archive.AddEntry(new ArchiveCollectedEntry { CollectionEntryId = id });
+        }
+
+        public void AddJournalEntryById(int id)
+        {
+            this.Journal.AddEntry(new JournalCollectedEntry { CollectionEntryId = id });
+        }
+
+        public void AddMapsEntryById(int id)
+        {
+            this.Maps.AddEntry(new MapsCollectedEntry { CollectionEntryId = id });
+        }
     }
 }
