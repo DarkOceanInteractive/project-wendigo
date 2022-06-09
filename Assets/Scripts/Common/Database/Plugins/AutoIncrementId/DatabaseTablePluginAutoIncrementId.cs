@@ -22,7 +22,12 @@ namespace ProjectWendigo
             this._lastId = 0;
             table.UpdateMany(
                 _ => true,
-                entry => ((IDatabaseEntryAutoIncrementId)entry).Id = this._lastId++
+                entry =>
+                {
+                    IDatabaseEntryAutoIncrementId autoIncrementIdEntry = entry as IDatabaseEntryAutoIncrementId;
+                    if (autoIncrementIdEntry != null)
+                        autoIncrementIdEntry.Id = this._lastId++;
+                }
             );
         }
     }

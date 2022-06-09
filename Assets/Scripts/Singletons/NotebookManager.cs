@@ -7,38 +7,38 @@ namespace ProjectWendigo
         [SerializeField] private GameObject _notebook;
         private NotebookController _notebookController;
         private NotebookNavigation _notebookNavigation;
-        [HideInInspector] public NotebookSection Journal;
-        [HideInInspector] public NotebookSection Maps;
-        [HideInInspector] public NotebookSection Archive;
+        private NotebookSection _journal;
+        private NotebookSection _maps;
+        private NotebookSection archive;
 
         private void Awake()
         {
             Debug.Assert(this._notebook != null);
             Debug.Assert(this._notebook.TryGetComponent(out this._notebookController));
             Debug.Assert(this._notebook.TryGetComponent(out this._notebookNavigation));
-            this.Journal = this._notebook.transform.Find("Sections/Journal")?.GetComponentInChildren<NotebookSection>();
-            this.Maps = this._notebook.transform.Find("Sections/Maps")?.GetComponentInChildren<NotebookSection>();
-            this.Archive = this._notebook.transform.Find("Sections/Archive")?.GetComponentInChildren<NotebookSection>();
+            this._journal = this._notebook.transform.Find("Sections/Journal")?.GetComponentInChildren<NotebookSection>();
+            this._maps = this._notebook.transform.Find("Sections/Maps")?.GetComponentInChildren<NotebookSection>();
+            this.archive = this._notebook.transform.Find("Sections/Archive")?.GetComponentInChildren<NotebookSection>();
             this._notebook.SetActive(false);
         }
 
         private void Update()
         {
             if (Singletons.Main.Input.PlayerToggledNotebookJournal)
-                this.ToggleSection(this.Journal);
+                this.ToggleSection(this._journal);
             if (Singletons.Main.Input.PlayerToggledNotebookMaps)
-                this.ToggleSection(this.Maps);
+                this.ToggleSection(this._maps);
             if (Singletons.Main.Input.PlayerToggledNotebookArchive)
-                this.ToggleSection(this.Archive);
+                this.ToggleSection(this.archive);
             if (this._notebook.activeSelf && Singletons.Main.Input.PlayerExittedUI)
                 this.Close();
         }
 
         public void Save()
         {
-            this.Journal.Save();
-            this.Maps.Save();
-            this.Archive.Save();
+            this._journal.Save();
+            this._maps.Save();
+            this.archive.Save();
         }
 
         public void ToggleSection(NotebookSection section)
@@ -75,17 +75,29 @@ namespace ProjectWendigo
 
         public void AddArchiveEntryById(int id)
         {
-            this.Archive.AddEntry(new ArchiveCollectedEntry { CollectionEntryId = id });
+            this.archive.AddEntry(new ArchiveCollectedEntry { CollectionEntryId = id });
+        }
+        public void AddArchiveEntryByTitle(string title)
+        {
+            this.archive.AddEntryByTitle(title);
         }
 
         public void AddJournalEntryById(int id)
         {
-            this.Journal.AddEntry(new JournalCollectedEntry { CollectionEntryId = id });
+            this._journal.AddEntry(new JournalCollectedEntry { CollectionEntryId = id });
+        }
+        public void AddJournalEntryByTitle(string title)
+        {
+            this._journal.AddEntryByTitle(title);
         }
 
         public void AddMapsEntryById(int id)
         {
-            this.Maps.AddEntry(new MapsCollectedEntry { CollectionEntryId = id });
+            this._maps.AddEntry(new MapsCollectedEntry { CollectionEntryId = id });
+        }
+        public void AddMapsEntryByTitle(string title)
+        {
+            this._maps.AddEntryByTitle(title);
         }
     }
 }

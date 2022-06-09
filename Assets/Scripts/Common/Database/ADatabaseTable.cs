@@ -8,6 +8,7 @@ namespace ProjectWendigo
     public abstract class ADatabaseTable : ScriptableObject
     {
         protected abstract IList Entries { get; set; }
+        public Type EntryType => this.Entries.GetType().GetGenericArguments()[0];
         protected abstract List<ADatabaseTablePlugin> Plugins { get; set; }
         public abstract int Count { get; }
 
