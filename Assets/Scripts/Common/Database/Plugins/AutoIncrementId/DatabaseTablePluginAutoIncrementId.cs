@@ -7,7 +7,7 @@ namespace ProjectWendigo
     {
         [SerializeField] [ReadOnly] private int _lastId = 0;
 
-        public override void OnInsert(ADatabaseTable table, object entry)
+        public override void OnInsert(ADatabaseTable table, IDatabaseEntry entry)
         {
             ((IDatabaseEntryAutoIncrementId)entry).Id = this._lastId++;
         }

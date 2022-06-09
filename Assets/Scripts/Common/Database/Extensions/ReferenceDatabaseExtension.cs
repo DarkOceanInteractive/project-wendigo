@@ -1,8 +1,7 @@
 using System;
 using System.Linq;
-using System.Reflection;
 using System.Collections.Generic;
-using UnityEngine;
+using ProjectWendigo.Database.Extensions.Reflection;
 
 namespace ProjectWendigo.Database.Extensions.Reference
 {
@@ -20,35 +19,14 @@ namespace ProjectWendigo.Database.Extensions.Reference
 
     public static class ReferenceDatabaseExtension
     {
-        private static bool TryGetMemberValue(object entry, string member, out object value)
-        {
-            value = null;
-            MemberInfo[] membersInfo = entry.GetType().GetMember(member);
-            foreach (MemberInfo memberInfo in membersInfo)
-            {
-                switch (memberInfo.MemberType)
-                {
-                    case MemberTypes.Field:
-                        value = ((FieldInfo)memberInfo).GetValue(entry);
-                        return true;
-                    case MemberTypes.Property:
-                        value = ((PropertyInfo)memberInfo).GetValue(entry);
-                        return true;
-                    default:
-                        continue;
-                }
-            }
-            return false;
-        }
-
         private static bool GetReferenceResolverQuery(AReference reference, IDatabaseEntry entry, out Func<IDatabaseEntry, bool> query)
         {
             query = null;
-            if (!ReferenceDatabaseExtension.TryGetMemberValue(entry, reference.KeyName, out object key))
+            if (!entry.TryGetMemberValue(reference.KeyName, out object key))
                 return false;
             query = foreignEntry =>
             {
-                if (!ReferenceDatabaseExtension.TryGetMemberValue(foreignEntry, reference.ForeignKeyName, out object foreignKey))
+                if (!foreignEntry.TryGetMemberValue(reference.ForeignKeyName, out object foreignKey))
                     return false;
                 return key.Equals(foreignKey);
             };

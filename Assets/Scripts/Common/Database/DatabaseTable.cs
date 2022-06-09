@@ -18,11 +18,15 @@ namespace ProjectWendigo
                 plugin.OnInspectorUpdate(this);
         }
 
-        public override void Insert(IDatabaseEntry value)
+        public override bool Insert(IDatabaseEntry value)
         {
+            foreach (ADatabaseTablePlugin plugin in this.Plugins)
+                if (plugin.ValidateInsert(this, value) == false)
+                    return false;
             this.Entries.Add(value);
             foreach (ADatabaseTablePlugin plugin in this.Plugins)
                 plugin.OnInsert(this, value);
+            return true;
         }
 
         public override List<IDatabaseEntry> GetAll()
