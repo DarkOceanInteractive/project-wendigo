@@ -1,34 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
-using UnityEngine.InputSystem;
 
-public class LockMovementForward : MonoBehaviour {
-   [SerializeField]
-    public PlayerInput playerInput;
-   [SerializeField]
-    public GameObject target;
-   [SerializeField]
-    private CinemachineVirtualCamera player;
-   [SerializeField]
-    private CinemachineVirtualCamera focus;
+namespace ProjectWendigo
+{
+    public class LockMovementForward : MonoBehaviour
+    {
+        public void LockMovementDirection(GameObject target)
+        {
+            Singletons.Main.Camera.FocusOnTarget(target);
+            Singletons.Main.Camera.LockCamera();
+            Singletons.Main.Input.SetPlayerMovementFilter(movement => new Vector2(0, Mathf.Max(0, movement.y)));
+        }
 
-    public bool locked = false;
-
-    public void ToggleCameraAndMovementLock() {
-      
-        if (!locked) {
-            playerInput.SwitchCurrentActionMap("PlayerMoveForward");
-            focus.transform.LookAt(target.transform);
-            focus.Priority = 10;
-            player.Priority = 0;
-            locked = true;
-        } else {
-            playerInput.SwitchCurrentActionMap("Player");
-            player.Priority = 10;
-            focus.Priority = 0;
-            locked = false;
+        public void UnlockMovementDirection()
+        {
+            Singletons.Main.Camera.UnlockCamera();
+            Singletons.Main.Input.ResetPlayerMovementFilter();
         }
     }
 }
