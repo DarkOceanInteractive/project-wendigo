@@ -223,7 +223,7 @@ namespace ProjectWendigo
                 [SerializeField] public bool DrawDerivativeXAxis = false;
                 [SerializeField] public bool DrawDerivativeYAxis = false;
             }
-            [SerializeField] public GizmoOptions Gizmo;
+            [SerializeField] public GizmoOptions Gizmo = new GizmoOptions();
 
             private TypeProxy Proxy => ASpline<T, TypeProxy>._proxy;
             [SerializeField] private SplineCache<T, TypeProxy> _cache;
