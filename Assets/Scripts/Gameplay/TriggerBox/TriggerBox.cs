@@ -16,7 +16,7 @@ namespace ProjectWendigo
             this.OnTriggerBoxEnter?.Invoke(other);
             if (this.OnTriggerBoxEnterOnce.GetPersistentEventCount() > 0)
             {
-                this.OnTriggerBoxEnter.Invoke(other);
+                this.OnTriggerBoxEnterOnce.Invoke(other);
                 Destroy(this.gameObject);
             }
         }
