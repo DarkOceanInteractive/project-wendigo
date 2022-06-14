@@ -17,6 +17,7 @@ namespace ProjectWendigo
         public SceneSwitcher Scene { get; private set; }
         public InterfaceManager Interface { get; private set; }
         public QuestManager Quest { get; private set; }
+        public EventManager Event { get; private set; }
 
         public void Awake()
         {
@@ -38,6 +39,7 @@ namespace ProjectWendigo
             Main.Scene = this.GetComponentInChildren<SceneSwitcher>();
             Main.Interface = this.GetComponentInChildren<InterfaceManager>();
             Main.Quest = this.GetComponentInChildren<QuestManager>();
+            Main.Event = this.GetComponentInChildren<EventManager>();
         }
     }
 }
