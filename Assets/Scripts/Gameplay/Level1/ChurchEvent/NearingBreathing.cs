@@ -23,7 +23,7 @@ namespace ProjectWendigo
 
         public void Trigger()
         {
-            Vector3 cameraDirection = Singletons.Main.Camera.PlayerCamera.transform.forward;
+            Vector3 cameraDirection = Camera.main.transform.forward;
             this._startPosition = Singletons.Main.Player.PlayerBody.transform.position - cameraDirection * this._spawnDistance;
             this._startTime = Time.time;
             this._audioHandle = new GameObject("NearingBreathing");
