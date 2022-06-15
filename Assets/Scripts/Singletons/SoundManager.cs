@@ -7,7 +7,27 @@ namespace ProjectWendigo
     public class SoundManager : MonoBehaviour
     {
         [SerializeField] private Sound[] Sounds;
-        [SerializeField] private SoundSettingViewModel _soundSettingViewModel;
+        [SerializeField] private AudioMixer _mixer;
+        [SerializeField] private AudioMixerGroup _masterMixerGroup;
+
+        /// <summary>
+        /// Get the master volume value from the attached audio mixer group.
+        /// </summary>
+        /// <returns>Master volume (in dB)</returns>
+        public float GetMasterVolume()
+        {
+            this._mixer.GetFloat("MasterVolume", out float volume);
+            return volume;
+        }
+
+        /// <summary>
+        /// Set the master volume in the attached audio mixer group.
+        /// </summary>
+        /// <param name="value">Volume value (in dB)</param>
+        public void SetMasterVolume(float value)
+        {
+            this._mixer.SetFloat("MasterVolume", value);
+        }
 
         /// <summary>
         /// Get an AudioSource for the corresponding sound clip.
@@ -48,6 +68,24 @@ namespace ProjectWendigo
         }
 
         /// <summary>
+        /// Spawn and attach a new AudioSource on the given object.
+        /// </summary>
+        /// <param name="handle">GameObject to attach the AudioSource onto</param>
+        /// <param name="name">Sound clip name from the SoundManager sounds array</param>
+        /// <returns>New AudioSource with the corresponding sound clip if found</returns>
+        public AudioSource AttachAudio(GameObject handle, string name, float spatialBlend = 1f)
+        {
+            Sound sound = this.GetSound(name);
+            if (sound == null)
+                return null;
+            AudioSource audioSource = this.SpawnAudio(handle, sound);
+            audioSource.spatialBlend = spatialBlend;
+            if (!sound.IsLooping)
+                Destroy(audioSource, sound.FullLength);
+            return audioSource;
+        }
+
+        /// <summary>
         /// Play the corresponding sound in 2D.
         /// </summary>
         /// <param name="name">Sound clip name from the SoundManager sounds array</param>
@@ -81,8 +119,9 @@ namespace ProjectWendigo
         private AudioSource SpawnAudio(GameObject gameObject, Sound sound)
         {
             var audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.outputAudioMixerGroup = this._masterMixerGroup;
             audioSource.clip = sound.Clip;
-            audioSource.volume = sound.Volume * Singletons.Main.Option.Volume;
+            audioSource.volume = sound.Volume;
             audioSource.pitch = sound.Pitch;
             audioSource.loop = sound.IsLooping;
             if (!sound.IsLooping)

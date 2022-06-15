@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityWeld.Binding;
 
 namespace ProjectWendigo
@@ -5,7 +6,6 @@ namespace ProjectWendigo
     [Binding]
     public class SoundSettingViewModel : ViewModel
     {
-        
         private float _volumeSetting = 0.5f;
         [Binding]
         public float VolumeSetting
