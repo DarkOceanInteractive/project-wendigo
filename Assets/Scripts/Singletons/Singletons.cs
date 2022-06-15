@@ -6,6 +6,7 @@ namespace ProjectWendigo
     {
         public static Singletons Main { get; private set; }
 
+        public PlayerManager Player { get; private set; }
         public SaveManager Save { get; private set; }
         public InputManager Input { get; private set; }
         public SoundManager Sound { get; private set; }
@@ -32,6 +33,7 @@ namespace ProjectWendigo
             Main.Camera = this.GetComponentInChildren<CameraManager>();
             Main.Option = this.GetComponentInChildren<OptionsManager>();
             Main.Scene = this.GetComponentInChildren<SceneSwitcher>();
+            Main.Player = this.GetComponentInChildren<PlayerManager>();
         }
     }
 }
