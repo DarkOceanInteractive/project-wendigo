@@ -78,10 +78,8 @@ namespace ProjectWendigo
             Sound sound = this.GetSound(name);
             if (sound == null)
                 return null;
-            AudioSource audioSource = this.SpawnAudio(handle, sound);
+            AudioSource audioSource = this.SpawnAudio(handle, sound, false);
             audioSource.spatialBlend = spatialBlend;
-            if (!sound.IsLooping)
-                Destroy(audioSource, sound.FullLength);
             return audioSource;
         }
 
@@ -116,7 +114,7 @@ namespace ProjectWendigo
             return sound;
         }
 
-        private AudioSource SpawnAudio(GameObject gameObject, Sound sound)
+        private AudioSource SpawnAudio(GameObject gameObject, Sound sound, bool autoDestroy = true)
         {
             var audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.outputAudioMixerGroup = this._masterMixerGroup;
@@ -124,7 +122,7 @@ namespace ProjectWendigo
             audioSource.volume = sound.Volume;
             audioSource.pitch = sound.Pitch;
             audioSource.loop = sound.IsLooping;
-            if (!sound.IsLooping)
+            if (autoDestroy && !sound.IsLooping)
                 Destroy(audioSource, sound.FullLength);
             return audioSource;
         }
