@@ -32,7 +32,7 @@ namespace ProjectWendigo
         public bool PlayerToggledNotebookMaps => this._input.Player.ToggleNotebookMaps.WasPressedThisFrame();
         public bool PlayerToggledNotebookArchive => this._input.Player.ToggleNotebookFindings.WasPressedThisFrame();
         public bool PlayerExittedUI => this._input.Player.ExitUI.WasPressedThisFrame();
-        public bool PlayerItemPickedUp => this._input.Player.Pickupitem.WasPressedThisFrame();
+        public bool PlayerInteracted => this._input.Player.Interact.WasPressedThisFrame();
 
         public bool PlayerPaused => this._input.UI.Pause.WasPressedThisFrame();
 

@@ -6,7 +6,6 @@ TagManager:
   tags:
   - LampControl
   - Bars
-  - Equipment
   - Lantern
   layers:
   - Default
@@ -17,7 +16,7 @@ TagManager:
   - UI
   - Player
   - Empty
-  - Equipment
+  - Interactable
   - PostProcessing
   - 
   - 

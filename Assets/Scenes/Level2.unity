@@ -21375,8 +21375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55dc1618376ea7348870879d11fef452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inWorldLantern: {fileID: 1502250613}
-  _inHandLantern: {fileID: 1580831294}
+  _inWorldItme: {fileID: 1502250613}
+  _inHandItem: {fileID: 1580831294}
 --- !u!65 &1502250615
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22342,6 +22342,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -36.83
       objectReference: {fileID: 0}
+    - target: {fileID: 2359642140095831284, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359642140095831284, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4945399433060747546, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_Name
       value: PersistentObjects
@@ -22357,6 +22365,14 @@ PrefabInstance:
     - target: {fileID: 6862516180390451327, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_LocalPosition.z
       value: -36.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368450479511580957, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368450479511580957, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432130726345181273, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: LayerMask.m_Bits
