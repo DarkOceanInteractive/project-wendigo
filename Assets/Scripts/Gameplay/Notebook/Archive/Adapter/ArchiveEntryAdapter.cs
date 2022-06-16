@@ -34,10 +34,10 @@ namespace ProjectWendigo
             {
                 var entryView = page.transform.parent.parent.Find("ArchiveEntryView", true);
                 entryView.gameObject.SetActive(true);
-                var photoFrame = entryView.Find("PhotoFrame", true);
+                var photoFrame = entryView.Find("View/PhotoFrame", true);
                 var entryViewImage = photoFrame.transform.Find("Mask/Image", true).GetComponentInChildren<Image>();
-                var entryViewTitle = entryView.Find("Title").GetComponentInChildren<Text>();
-                var entryViewDescription = entryView.Find("Description").GetComponentInChildren<Text>();
+                var entryViewTitle = entryView.Find("View/Title").GetComponentInChildren<Text>();
+                var entryViewDescription = entryView.Find("View/Description").GetComponentInChildren<Text>();
                 if (entry.Image)
                 {
                     photoFrame.gameObject.SetActive(true);

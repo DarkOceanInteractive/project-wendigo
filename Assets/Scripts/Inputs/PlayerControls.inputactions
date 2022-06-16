@@ -132,7 +132,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pick up item",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "1e080dda-2412-4ab3-9955-29b796b62c69",
                     "expectedControlType": "Button",
@@ -446,7 +446,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Pick up item",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -77,5 +77,18 @@ namespace ProjectWendigo
             }
             return false;
         }
+
+        public bool HasEntry(int id)
+        {
+            return this._collected.FindOne(it => ((ANotebookCollectedEntry)it).CollectionEntryId == id) != null;
+        }
+
+        public bool HasEntry(string title)
+        {
+            ANotebookCollectionEntry collectionEntry = this.GetCollectionEntryByTitle(title);
+            if (collectionEntry == null)
+                return false;
+            return this.HasEntry(collectionEntry.Id);
+        }
     }
 }

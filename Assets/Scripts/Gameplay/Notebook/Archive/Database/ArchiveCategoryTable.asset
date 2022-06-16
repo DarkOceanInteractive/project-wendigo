@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ArchiveCategoryTable
   m_EditorClassIdentifier: 
   _entries:
-  - Title: The Village
+  - Title: The Cabin
     <Id>k__BackingField: 0
-    Image: {fileID: 0}
-  - Title: The Mine
+  - Title: The Village
     <Id>k__BackingField: 1
-    Image: {fileID: 0}
+  - Title: The Mine
+    <Id>k__BackingField: 2
