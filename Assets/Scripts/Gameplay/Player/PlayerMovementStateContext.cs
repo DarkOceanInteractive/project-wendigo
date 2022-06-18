@@ -32,6 +32,14 @@ namespace ProjectWendigo
             this.SmoothSpeedMultiplier = Mathf.Lerp(this.SmoothSpeedMultiplier, this.SpeedMultiplier, 4f * Time.deltaTime);
             base.Update();
             this.Move();
+
+            Vector3 moveVector = Vector3.zero;
+
+            if (this.IsGrounded == false) {
+                moveVector += Physics.gravity;
+            }
+
+            _characterController.Move(moveVector * Time.deltaTime);
         }
 
         /// <summary>
