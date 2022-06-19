@@ -21375,7 +21375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55dc1618376ea7348870879d11fef452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inWorldItme: {fileID: 1502250613}
+  _inWorldItem: {fileID: 1502250613}
   _inHandItem: {fileID: 1580831294}
 --- !u!65 &1502250615
 BoxCollider:
