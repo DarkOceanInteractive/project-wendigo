@@ -2,8 +2,6 @@ namespace ProjectWendigo
 {
     public class PhoneStateContext : AStateContext
     {
-        public float RingDelay = 45f;
-
         private void Start()
         {
             this.SetState(new PhoneStates.Idle());

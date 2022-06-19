@@ -5,6 +5,7 @@ namespace ProjectWendigo
     public class InteractableLoreItem : AInteractable
     {
         public string ArchiveEntryTitle;
+        public string RelatedQuestName;
 
         public override void OnLookAt(GameObject target)
         {
@@ -26,6 +27,8 @@ namespace ProjectWendigo
         {
             if (!Singletons.Main.Notebook.ArchiveHasEntry(this.ArchiveEntryTitle))
             {
+                if (this.RelatedQuestName != "")
+                    Singletons.Main.Quest.TryUpdateQuestProgress(this.RelatedQuestName, 1);
                 Singletons.Main.Notebook.AddArchiveEntryByTitle(this.ArchiveEntryTitle);
                 Singletons.Main.Interface.CloseMessagePanel();
                 Singletons.Main.Save.Save();
