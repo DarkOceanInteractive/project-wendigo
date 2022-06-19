@@ -15,7 +15,8 @@ namespace ProjectWendigo
         public CameraManager Camera { get; private set; }
         public OptionsManager Option { get; private set; }
         public SceneSwitcher Scene { get; private set; }
-        public InterfaceManager Interface { get; private set;}
+        public InterfaceManager Interface { get; private set; }
+        public QuestManager Quest { get; private set; }
 
         public void Awake()
         {
@@ -36,6 +37,7 @@ namespace ProjectWendigo
             Main.Option = this.GetComponentInChildren<OptionsManager>();
             Main.Scene = this.GetComponentInChildren<SceneSwitcher>();
             Main.Interface = this.GetComponentInChildren<InterfaceManager>();
+            Main.Quest = this.GetComponentInChildren<QuestManager>();
         }
     }
 }

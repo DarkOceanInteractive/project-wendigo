@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// State context abstract base class. A state context is responsible for
@@ -9,6 +10,8 @@ using UnityEngine;
 /// </summary>
 public abstract class AStateContext : MonoBehaviour
 {
+    public UnityEvent<AStateContext, IState> OnChangeState;
+
     private IState _state;
 
     public IState State
@@ -35,6 +38,7 @@ public abstract class AStateContext : MonoBehaviour
         this._state = value;
         value.SetContext(this);
         this._state.Enter();
+        this.OnChangeState?.Invoke(this, this._state);
     }
 
     protected virtual void FixedUpdate()
