@@ -69,7 +69,6 @@ namespace ProjectWendigo
                 {
                     this.OnInteract(lookAt.gameObject);
                 }
-                //Debug.DrawRay(this._playerHead.transform.position, this._playerHead.transform.forward * Reach, Color.red);
             }
             else
             {
@@ -78,7 +77,6 @@ namespace ProjectWendigo
                     this.OnLookAway(this._lastHit.gameObject);
                     this._lastHit = null;
                 }
-                //Debug.DrawRay(this._playerHead.transform.position, this._playerHead.transform.forward * Reach, Color.green);
             }
         }
     }
