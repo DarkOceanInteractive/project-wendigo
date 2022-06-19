@@ -2,10 +2,12 @@ using UnityEngine;
 
 namespace ProjectWendigo
 {
-    public class InteractableLoreItem : AInteractable
+    public class Examinable : AInteractable
     {
         public string ArchiveEntryTitle;
         public string RelatedQuestName;
+
+        [SerializeField] private bool _openArchive;
 
         public override void OnLookAt(GameObject target)
         {
@@ -32,6 +34,10 @@ namespace ProjectWendigo
                 Singletons.Main.Notebook.AddArchiveEntryByTitle(this.ArchiveEntryTitle);
                 Singletons.Main.Interface.CloseMessagePanel();
                 Singletons.Main.Save.Save();
+                if (_openArchive)
+                {
+                    Singletons.Main.Notebook.ToggleSection("Sections/Archive");
+                }
             }
         }
     }

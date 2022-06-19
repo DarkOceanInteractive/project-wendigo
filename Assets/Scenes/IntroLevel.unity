@@ -309,11 +309,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 103505268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770d36771f07c9a4b9dff1980b2a54e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 714a07138a9e7a24bb243328b8f72893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: An old doll
-  RelatedQuestName: Intro_CollectLoreItems
+  RelatedQuestName: 
+  _openArchive: 1
 --- !u!4 &156916228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1564658314008724390, guid: fac30e8159a9e2543817818bf6d8bb17, type: 3}
@@ -529,6 +530,10 @@ PrefabInstance:
     - target: {fileID: 4945399433060747546, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_Name
       value: PersistentObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078214969341641289, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Reach
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5383349999933918338, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -757,7 +762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7790998383309081236, guid: 8ae6c01e5dd08f24983aa9e6fea4d0a6, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae6c01e5dd08f24983aa9e6fea4d0a6, type: 3}
@@ -932,7 +937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4388476003200201844, guid: 5d7dff6f818914b4397692416a57738c, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d7dff6f818914b4397692416a57738c, type: 3}
@@ -6639,7 +6644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2941313240270121520, guid: 67c4d68b20a99204aac1ed89f460d1ab, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4019557841505830020, guid: 67c4d68b20a99204aac1ed89f460d1ab, type: 3}
       propertyPath: m_Convex
@@ -6670,11 +6675,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1644778259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770d36771f07c9a4b9dff1980b2a54e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 714a07138a9e7a24bb243328b8f72893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Trophy
-  RelatedQuestName: Intro_CollectLoreItems
+  RelatedQuestName: 
+  _openArchive: 1
 --- !u!1 &1655138249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4388476003200201844, guid: 5d7dff6f818914b4397692416a57738c, type: 3}
@@ -7276,11 +7282,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1979431209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770d36771f07c9a4b9dff1980b2a54e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 714a07138a9e7a24bb243328b8f72893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Framed Picture
-  RelatedQuestName: Intro_CollectLoreItems
+  RelatedQuestName: 
+  _openArchive: 0
 --- !u!1 &2040008918
 GameObject:
   m_ObjectHideFlags: 0
