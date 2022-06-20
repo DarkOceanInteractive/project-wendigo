@@ -36,7 +36,7 @@ namespace ProjectWendigo
         {
             for(int i = 0; i < crystals.Length; i++)
             {
-                if(crystals[i].active)
+                if(crystals[i].activeSelf == true)
                 {
                     crystalDestroyed = false;
                     break;
