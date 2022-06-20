@@ -467,6 +467,10 @@ PrefabInstance:
       propertyPath: _volume
       value: 
       objectReference: {fileID: 1812873530}
+    - target: {fileID: 1825139813449878400, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: _cinemachineVirtualCamera
+      value: 
+      objectReference: {fileID: 276917888}
     - target: {fileID: 3040920608181718938, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -709,6 +713,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+--- !u!1 &276917888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2359642140095831289, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+  m_PrefabInstance: {fileID: 276917887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &311512755
 PrefabInstance:
   m_ObjectHideFlags: 0

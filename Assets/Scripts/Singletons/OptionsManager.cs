@@ -17,6 +17,8 @@ namespace ProjectWendigo
         [SerializeField] private HeadbobbingSettingViewModel _headbobbingSettingViewModel;
         [SerializeField] private InvertYSettingViewModel _invertYSettingViewModel;
 
+        [SerializeField] private GameObject _cinemachineVirtualCamera;
+
         public float Volume
         {
             get => this._soundSettingViewModel.VolumeSetting;
@@ -59,6 +61,12 @@ namespace ProjectWendigo
         public void EnablePauseMenu(bool enabled = true)
         {
             this.GetComponent<PauseMenu>().enabled = enabled;
+        }
+
+        public void ChangeSensitivity(float VerticalAxis, float HorizontalAxis)
+        {
+            Singletons.Main.Camera.PlayerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = VerticalAxis;
+            Singletons.Main.Camera.PlayerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = HorizontalAxis;
         }
     }
 }
