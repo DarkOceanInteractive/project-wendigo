@@ -6,7 +6,7 @@ namespace ProjectWendigo
     {
         public virtual void OnLookAt(GameObject target)
         {
-            Singletons.Main.Interface.OpenMessagePanel("- Press F to interact -");
+            Singletons.Main.Interface.OpenMessagePanel($"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to interact -");
         }
 
         public virtual void OnLookAway(GameObject target)

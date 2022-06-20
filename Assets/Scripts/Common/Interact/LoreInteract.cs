@@ -13,7 +13,7 @@ namespace ProjectWendigo
         {
             if (!Singletons.Main.Notebook.ArchiveHasEntry(this.ArchiveEntryTitle))
             {
-                Singletons.Main.Interface.OpenMessagePanel("- Press F to examine -");
+                Singletons.Main.Interface.OpenMessagePanel($"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to examine -");
             }
         }
 
