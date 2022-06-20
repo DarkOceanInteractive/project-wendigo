@@ -309,12 +309,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 103505268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714a07138a9e7a24bb243328b8f72893, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e8b891f6d15414fb9b50288ab0cc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: An old doll
   RelatedQuestName: 
-  _openArchive: 1
+  _openArchive: 0
 --- !u!4 &156916228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1564658314008724390, guid: fac30e8159a9e2543817818bf6d8bb17, type: 3}
@@ -6699,12 +6699,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1644778259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714a07138a9e7a24bb243328b8f72893, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e8b891f6d15414fb9b50288ab0cc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Trophy
   RelatedQuestName: 
-  _openArchive: 1
+  _openArchive: 0
 --- !u!1 &1655138249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4388476003200201844, guid: 5d7dff6f818914b4397692416a57738c, type: 3}
@@ -7328,7 +7328,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1979431209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714a07138a9e7a24bb243328b8f72893, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e8b891f6d15414fb9b50288ab0cc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Framed Picture

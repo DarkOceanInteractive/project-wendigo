@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ProjectWendigo
 {
-    public class Examinable : AInteractable
+    public class LoreInteract : AInteractable
     {
         public string ArchiveEntryTitle;
         public string RelatedQuestName;
