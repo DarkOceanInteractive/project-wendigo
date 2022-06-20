@@ -1,7 +1,8 @@
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 using Cinemachine;
 
 namespace ProjectWendigo
@@ -10,7 +11,7 @@ namespace ProjectWendigo
     {
         public UnityEvent<float> OnVolumeChanged;
         public UnityEvent<float> OnBrightnessChanged;
-
+        [SerializeField] private Volume _volume;
         [SerializeField] private SoundSettingViewModel _soundSettingViewModel;
         [SerializeField] private BrightnessSettingViewModel _brightnessSettingViewModel;
         [SerializeField] private HeadbobbingSettingViewModel _headbobbingSettingViewModel;
@@ -50,9 +51,8 @@ namespace ProjectWendigo
 
         public void UpdateCameraOptions()
         {
-            ColorGrading cg;
-            Camera.main.gameObject.GetComponent<PostProcessVolume>().profile.TryGetSettings(out cg);
-            cg.postExposure.value = this.Brightness;
+            if (this._volume.profile.TryGet(out ColorAdjustments cg))
+                cg.postExposure.value = this.Brightness;
             Singletons.Main.Camera.PlayerCamera.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_InvertInput = !this.InvertY;
         }
 

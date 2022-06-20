@@ -442,6 +442,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1825139813370570150, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825139813370570150, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 959
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825139813370570152, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825139813370570155, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825139813370570159, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825139813449878400, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: _volume
+      value: 
+      objectReference: {fileID: 1812873530}
     - target: {fileID: 3040920608181718938, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7015,6 +7039,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ab6dc88fc3b2844c968d0f1c7b7dab3, type: 3}
+--- !u!1 &1812873522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1825139813370570158, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+  m_PrefabInstance: {fileID: 276917887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812873530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812873522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 1
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 4d7434de133507e4cabcf6844cd12628, type: 2}
 --- !u!4 &1839612024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6804700554047057441, guid: 9e68e74ca8942654097eaf90eef6f48c, type: 3}
