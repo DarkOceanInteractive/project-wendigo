@@ -10,7 +10,7 @@ namespace ProjectWendigo
 
         public override void OnLookAt(GameObject target)
         {
-            Singletons.Main.Interface.OpenMessagePanel("- Press F to pick up -");
+            Singletons.Main.Interface.OpenMessagePanel($"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to pick up -");
         }
 
         public override void OnLookAway(GameObject target)

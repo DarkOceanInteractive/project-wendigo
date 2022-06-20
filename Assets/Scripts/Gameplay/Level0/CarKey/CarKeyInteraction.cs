@@ -6,7 +6,7 @@ namespace ProjectWendigo
     {
         public override void OnLookAt(GameObject target)
         {
-            Singletons.Main.Interface.OpenMessagePanel("- Press F to leave -");
+            Singletons.Main.Interface.OpenMessagePanel($"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to leave -");
         }
 
         public override void OnInteract(GameObject target)

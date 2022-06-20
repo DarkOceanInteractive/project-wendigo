@@ -21,6 +21,7 @@ namespace ProjectWendigo
             var adapterOptions = (MapsEntryAdapterOptions)options;
             element.GetComponent<Button>().onClick.AddListener(() =>
             {
+                Singletons.Main.Sound.Play("notebook_unfolding");
                 var entryView = page.transform.parent.parent.Find("MapsEntryView", true);
                 entryView.gameObject.SetActive(true);
                 var entryViewImage = entryView.GetComponentInChildren<Image>();

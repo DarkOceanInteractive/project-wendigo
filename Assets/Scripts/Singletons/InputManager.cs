@@ -47,6 +47,11 @@ namespace ProjectWendigo
         [SerializeField] private CursorSettings _defaultCursor;
         private CursorSettings _cursor;
 
+        public string GetBinding(string action)
+        {
+            return this._input.FindAction(action)?.GetBindingDisplayString();
+        }
+
         public CursorSettings GetCursor()
         {
             return this._cursor;

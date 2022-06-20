@@ -65,21 +65,31 @@ namespace ProjectWendigo
 
         public void Open()
         {
+            Singletons.Main.Sound.Play("notebook_open");
             this._notebookController.Open();
         }
 
         public void Close()
         {
+            Singletons.Main.Sound.Play("notebook_close");
             this._notebookController.Close();
+        }
+
+        private void OpenNewEntryPopup(string text)
+        {
+            Singletons.Main.Sound.Play("notebook_popup");
+            Singletons.Main.Interface.OpenMessagePanelForSeconds(10f, text, InterfaceManager.Location.TopRight);
         }
 
         public void AddArchiveEntryById(int id)
         {
-            this._archive.AddEntry(new ArchiveCollectedEntry { CollectionEntryId = id });
+            if (this._archive.AddEntry(new ArchiveCollectedEntry { CollectionEntryId = id }))
+                this.OpenNewEntryPopup($"A new lore entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.");
         }
         public void AddArchiveEntryByTitle(string title)
         {
-            this._archive.AddEntryByTitle(title);
+            if (this._archive.AddEntryByTitle(title))
+                this.OpenNewEntryPopup($"A new lore entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.");
         }
         public bool ArchiveHasEntry(int id)
         {
@@ -92,11 +102,13 @@ namespace ProjectWendigo
 
         public void AddJournalEntryById(int id)
         {
-            this._journal.AddEntry(new JournalCollectedEntry { CollectionEntryId = id });
+            if (this._journal.AddEntry(new JournalCollectedEntry { CollectionEntryId = id }))
+                this.OpenNewEntryPopup($"A new journal entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Journal")} to see.");
         }
         public void AddJournalEntryByTitle(string title)
         {
-            this._journal.AddEntryByTitle(title);
+            if (this._journal.AddEntryByTitle(title))
+                this.OpenNewEntryPopup($"A new journal entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Journal")} to see.");
         }
         public bool JournalHasEntry(int id)
         {
@@ -109,11 +121,13 @@ namespace ProjectWendigo
 
         public void AddMapsEntryById(int id)
         {
-            this._maps.AddEntry(new MapsCollectedEntry { CollectionEntryId = id });
+            if (this._maps.AddEntry(new MapsCollectedEntry { CollectionEntryId = id }))
+                this.OpenNewEntryPopup($"A new map was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Maps")} to see.");
         }
         public void AddMapsEntryByTitle(string title)
         {
-            this._maps.AddEntryByTitle(title);
+            if (this._maps.AddEntryByTitle(title))
+                this.OpenNewEntryPopup($"A new map was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Maps")} to see.");
         }
         public bool MapsHasEntry(int id)
         {

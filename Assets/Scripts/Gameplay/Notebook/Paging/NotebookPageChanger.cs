@@ -26,12 +26,14 @@ namespace ProjectWendigo
         {
             this._pagingScript.SetCurrentPageGroup(this._pagingScript.CurrentPageGroup - 1);
             this.UpdateControlsDisplay();
+            Singletons.Main.Sound.Play("notebook_swap_page");
         }
 
         public void GoToNextPage()
         {
             this._pagingScript.SetCurrentPageGroup(this._pagingScript.CurrentPageGroup + 1);
             this.UpdateControlsDisplay();
+            Singletons.Main.Sound.Play("notebook_swap_page");
         }
     }
 }
