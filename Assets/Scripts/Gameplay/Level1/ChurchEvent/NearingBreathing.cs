@@ -21,8 +21,9 @@ namespace ProjectWendigo
             this._spline.DrawGizmos(this.transform.position + Vector3.up - Vector3.right * 0.5f);
         }
 
-        public void Trigger()
+        public void Trigger(float time = 3f)
         {
+            this._time = time;
             Vector3 cameraDirection = Camera.main.transform.forward;
             this._startPosition = Singletons.Main.Player.PlayerBody.transform.position - cameraDirection * this._spawnDistance;
             this._startTime = Time.time;

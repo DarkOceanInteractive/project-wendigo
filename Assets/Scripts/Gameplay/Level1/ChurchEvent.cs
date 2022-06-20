@@ -5,24 +5,29 @@ namespace ProjectWendigo
 {
     public class ChurchEvent : MonoBehaviour
     {
+        [SerializeField] public float Duration = 3f;
+
         private void Awake()
         {
             Singletons.Main.Event.On("ChurchEvent", this.EnterEvent);
         }
 
+        void Start()
+        {
+            Singletons.Main.Event.Trigger("ChurchEvent");
+        }
+
         public void EnterEvent()
         {
+            var _initialSensitivity = Singletons.Main.Camera.PlayerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed;
             this.ChangeSensitivity();
+            this.GetComponent<NearingBreathing>().Trigger(this.Duration);
+            this.Invoke(nameof(this.ChangeSensitivity), this.Duration, _initialSensitivity);
         }
 
         public void ChangeSensitivity(float sensitivity = 0.005f)
-        { // make issue to remind self about better implementation in optionsmanager
-            // Call OptionsManager Sensitivity function once for each axis.
-
-            // Optionsmanager Sensitivity functions will look like the below...
-
-            // this.gameObject.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = sensitivity;
-            // this.gameObject.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = sensitivity;
+        {
+            Singletons.Main.Option.ChangeSensitivity(sensitivity, sensitivity);
         }
     }
 }
