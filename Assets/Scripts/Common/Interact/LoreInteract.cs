@@ -34,7 +34,7 @@ namespace ProjectWendigo
                 Singletons.Main.Notebook.AddArchiveEntryByTitle(this.ArchiveEntryTitle);
                 Singletons.Main.Interface.CloseMessagePanel();
                 Singletons.Main.Save.Save();
-                if (_openArchive)
+                if (this._openArchive)
                 {
                     Singletons.Main.Notebook.ToggleSection("Sections/Archive");
                 }
