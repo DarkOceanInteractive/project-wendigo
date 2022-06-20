@@ -13,7 +13,12 @@ namespace ProjectWendigo
         {
             if (!Singletons.Main.Notebook.ArchiveHasEntry(this.ArchiveEntryTitle))
             {
-                Singletons.Main.Interface.OpenMessagePanel($"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to examine -");
+                var options = new MessagePanelOptions
+                {
+                    Text = $"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to examine -",
+                    Location = MessagePanelLocation.BottomCenter
+                };
+                Singletons.Main.Interface.OpenMessagePanel(options);
             }
         }
 

@@ -6,7 +6,12 @@ namespace ProjectWendigo
     {
         public override void OnLookAt(GameObject target)
         {
-            Singletons.Main.Interface.OpenMessagePanel($"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to leave -");
+            var options = new MessagePanelOptions
+            {
+                Text = $"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to leave -",
+                Location = MessagePanelLocation.BottomCenter
+            };
+            Singletons.Main.Interface.OpenMessagePanel(options);
         }
 
         public override void OnInteract(GameObject target)

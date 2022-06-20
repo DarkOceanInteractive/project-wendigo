@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace ProjectWendigo
@@ -75,21 +76,32 @@ namespace ProjectWendigo
             this._notebookController.Close();
         }
 
-        private void OpenNewEntryPopup(string text)
+        private void OpenNewEntryPopup(string text, Func<bool> until = null)
         {
             Singletons.Main.Sound.Play("notebook_popup");
-            Singletons.Main.Interface.OpenMessagePanelForSeconds(10f, text, InterfaceManager.Location.TopRight);
+            var options = new MessagePanelOptions
+            {
+                Text = text,
+                Location = MessagePanelLocation.TopRight,
+                Timeout = 10f,
+                Until = until
+            };
+            Singletons.Main.Interface.OpenMessagePanel(options);
         }
 
         public void AddArchiveEntryById(int id)
         {
             if (this._archive.AddEntry(new ArchiveCollectedEntry { CollectionEntryId = id }))
-                this.OpenNewEntryPopup($"A new lore entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.");
+                this.OpenNewEntryPopup(
+                    $"A new lore entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.",
+                    () => Singletons.Main.Input.PlayerToggledNotebookArchive);
         }
         public void AddArchiveEntryByTitle(string title)
         {
             if (this._archive.AddEntryByTitle(title))
-                this.OpenNewEntryPopup($"A new lore entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.");
+                this.OpenNewEntryPopup(
+                    $"A new lore entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.",
+                    () => Singletons.Main.Input.PlayerToggledNotebookArchive);
         }
         public bool ArchiveHasEntry(int id)
         {
@@ -103,12 +115,16 @@ namespace ProjectWendigo
         public void AddJournalEntryById(int id)
         {
             if (this._journal.AddEntry(new JournalCollectedEntry { CollectionEntryId = id }))
-                this.OpenNewEntryPopup($"A new journal entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Journal")} to see.");
+                this.OpenNewEntryPopup(
+                    $"A new journal entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Journal")} to see.",
+                    () => Singletons.Main.Input.PlayerToggledNotebookJournal);
         }
         public void AddJournalEntryByTitle(string title)
         {
             if (this._journal.AddEntryByTitle(title))
-                this.OpenNewEntryPopup($"A new journal entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Journal")} to see.");
+                this.OpenNewEntryPopup(
+                    $"A new journal entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Journal")} to see.",
+                    () => Singletons.Main.Input.PlayerToggledNotebookJournal);
         }
         public bool JournalHasEntry(int id)
         {
@@ -122,12 +138,16 @@ namespace ProjectWendigo
         public void AddMapsEntryById(int id)
         {
             if (this._maps.AddEntry(new MapsCollectedEntry { CollectionEntryId = id }))
-                this.OpenNewEntryPopup($"A new map was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Maps")} to see.");
+                this.OpenNewEntryPopup(
+                    $"A new map was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Maps")} to see.",
+                    () => Singletons.Main.Input.PlayerToggledNotebookMaps);
         }
         public void AddMapsEntryByTitle(string title)
         {
             if (this._maps.AddEntryByTitle(title))
-                this.OpenNewEntryPopup($"A new map was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Maps")} to see.");
+                this.OpenNewEntryPopup(
+                    $"A new map was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Maps")} to see.",
+                    () => Singletons.Main.Input.PlayerToggledNotebookMaps);
         }
         public bool MapsHasEntry(int id)
         {

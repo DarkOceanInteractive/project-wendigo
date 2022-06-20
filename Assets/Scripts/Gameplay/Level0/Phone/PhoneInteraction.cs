@@ -10,7 +10,12 @@ namespace ProjectWendigo
         {
             if (this._phoneStateContext.IsInState<PhoneStates.Ringing>())
             {
-                Singletons.Main.Interface.OpenMessagePanel($"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to pick up -");
+                var options = new MessagePanelOptions
+                {
+                    Text = $"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to pick up -",
+                    Location = MessagePanelLocation.BottomCenter
+                };
+                Singletons.Main.Interface.OpenMessagePanel(options);
             }
         }
 
