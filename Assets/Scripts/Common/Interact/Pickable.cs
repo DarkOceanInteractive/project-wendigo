@@ -4,13 +4,18 @@ namespace ProjectWendigo
 {
     public class Pickable : AInteractable
     {
-        [SerializeField] private GameObject _inWorldItem;
-        [SerializeField] private GameObject _inHandItem;
-        [SerializeField] private string _onPickUpSoundName;
+        [SerializeField] protected GameObject _inWorldItem;
+        [SerializeField] protected GameObject _inHandItem;
+        [SerializeField] protected string _onPickUpSoundName;
 
         public override void OnLookAt(GameObject target)
         {
-            Singletons.Main.Interface.OpenMessagePanel($"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to pick up -");
+            var options = new MessagePanelOptions
+            {
+                Text = $"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to pick up -",
+                Location = MessagePanelLocation.BottomCenter
+            };
+            Singletons.Main.Interface.OpenMessagePanel(options);
         }
 
         public override void OnLookAway(GameObject target)
