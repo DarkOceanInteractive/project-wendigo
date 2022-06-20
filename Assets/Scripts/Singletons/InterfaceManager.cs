@@ -25,27 +25,23 @@ namespace ProjectWendigo
         [System.Serializable]
         class MessagePanel
         {
-            public GameObject GameObject;
             public MessagePanelLocation Location;
-            public string OnOpenSoundName;
-            public string OnCloseSoundName;
+            [SerializeField] private GameObject GameObject;
             private float _countDown = 0f;
             private bool _isOpen = false;
 
-            public void Open()
+            public void Open(string text = null)
             {
+                if (text != null)
+                    this.GameObject.GetComponentInChildren<Text>().text = text;
                 this.GameObject.SetActive(true);
                 this._isOpen = true;
-                if (this.OnOpenSoundName != "")
-                    Singletons.Main.Sound.Play(this.OnOpenSoundName);
             }
 
             public void Close()
             {
                 this.GameObject.SetActive(false);
                 this._isOpen = false;
-                if (this.OnCloseSoundName != "")
-                    Singletons.Main.Sound.Play(this.OnCloseSoundName);
             }
 
             public IEnumerator WaitForCountDown(float seconds, Action callback, Func<bool> orUntil = null)
@@ -90,9 +86,7 @@ namespace ProjectWendigo
             MessagePanel mp = this.GetMessagePanel(options.Location);
             if (mp == null)
                 return;
-            if (options.Text != null)
-                mp.GameObject.GetComponentInChildren<Text>().text = options.Text;
-            mp.Open();
+            mp.Open(options.Text);
             if (options.Timeout != 0f)
                 StartCoroutine(mp.WaitForCountDown(
                     options.Timeout,
