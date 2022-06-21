@@ -44,10 +44,12 @@ namespace ProjectWendigo
 
         public void ToggleSection(NotebookSection section)
         {
-            if (!this._notebook.activeSelf || this._notebookNavigation.GetActiveSection() != section.transform)
+            bool isNotebookOpen = this._notebook.activeSelf;
+            if (!isNotebookOpen || this._notebookNavigation.GetActiveSection() != section.transform)
             {
-                this.Open();
-                this._notebookNavigation.GoToSection(section.gameObject);
+                if (!isNotebookOpen)
+                    this.Open();
+                this._notebookNavigation.GoToSection(section.gameObject, isNotebookOpen);
             }
             else
             {
@@ -66,13 +68,11 @@ namespace ProjectWendigo
 
         public void Open()
         {
-            Singletons.Main.Sound.Play("notebook_open");
             this._notebookController.Open();
         }
 
         public void Close()
         {
-            Singletons.Main.Sound.Play("notebook_close");
             this._notebookController.Close();
         }
 
@@ -93,14 +93,14 @@ namespace ProjectWendigo
         {
             if (this._archive.AddEntry(new ArchiveCollectedEntry { CollectionEntryId = id }))
                 this.OpenNewEntryPopup(
-                    $"A new lore entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.",
+                    $"A new finding was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.",
                     () => Singletons.Main.Input.PlayerToggledNotebookArchive);
         }
         public void AddArchiveEntryByTitle(string title)
         {
             if (this._archive.AddEntryByTitle(title))
                 this.OpenNewEntryPopup(
-                    $"A new lore entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.",
+                    $"A new finding was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.",
                     () => Singletons.Main.Input.PlayerToggledNotebookArchive);
         }
         public bool ArchiveHasEntry(int id)
