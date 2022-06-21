@@ -1,19 +1,17 @@
-using UnityEngine;
 using UnityWeld.Binding;
 
 namespace ProjectWendigo
 {
     [Binding]
     public class InvertYSettingViewModel : ViewModel
-    {   
-        private bool _invertYSetting = false;
+    {
         [Binding]
         public bool InvertYSetting
         {
-            get { return this._invertYSetting; }
+            get { return GlobalOptions.Main.InvertY; }
             set
             {
-                this._invertYSetting = value;
+                GlobalOptions.Main.InvertY = value;
                 this.OnPropertyChanged("InvertYSetting");
             }
         }
