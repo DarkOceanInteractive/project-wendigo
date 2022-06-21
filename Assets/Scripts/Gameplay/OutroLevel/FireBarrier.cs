@@ -11,6 +11,7 @@ public class FireBarrier : MonoBehaviour
     private Vector3 impact = Vector3.zero;
     private CharacterController _characterController;
     public float force = 50f;
+    public Vector3 direction;
 
     void Start()
     {
@@ -30,11 +31,11 @@ public class FireBarrier : MonoBehaviour
     void OnParticleCollision(GameObject other)
     {
         if(other.tag == "Player")
-            AddImpact(new Vector3(-1f, 0, 0), force);
+            AddImpact(force);
 
     }
 
-    private void AddImpact(Vector3 direction, float force)
+    private void AddImpact(float force)
     {
         direction.Normalize();
         impact += direction.normalized * force / mass;

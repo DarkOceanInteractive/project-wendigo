@@ -10,28 +10,28 @@ namespace ProjectWendigo
         public ParticleSystem[] fireParticles;
         private ParticleSystem fireBarrier;
         private bool crystalDestroyed = true;
+        public GameObject portal;
 
-        // Start is called before the first frame update
         void Start()
         {
+            // Stop particles 
             for(int i = 0; i < fireParticles.Length; i++)
                 {
                     fireParticles[i].Stop();
                 }
+            // Start fire particle barrier
             fireBarrier = GetComponent<ParticleSystem>();
             fireBarrier.Play();
-            // particles.Stop();
         }
 
-        // Update is called once per frame
         void Update()
         {
             CheckCrystals();
             if(crystalDestroyed)
                 PlayFire();
-            
         }
 
+        // Method to check if all crystals are destroyed
         private void CheckCrystals()
         {
             for(int i = 0; i < crystals.Length; i++)
@@ -46,6 +46,7 @@ namespace ProjectWendigo
             }
         }
 
+        // Method to stop the firebarrier and start playing the fire particles
         private void PlayFire()
         {
             for(int i = 0; i < fireParticles.Length; i++)
