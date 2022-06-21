@@ -21,9 +21,11 @@ namespace ProjectWendigo
 
         private IEnumerator LoadScene(int sceneBuildIndex, Action callback)
         {
+            yield return Singletons.Main.Fade.WaitForFadeOutEffect();
             var asyncLoadScene = SceneManager.LoadSceneAsync(sceneBuildIndex, LoadSceneMode.Single);
             yield return new WaitUntil(() => asyncLoadScene.isDone);
             callback();
+            yield return Singletons.Main.Fade.WaitForFadeInEffect();
         }
 
         private void OnAfterSwitch()
