@@ -19650,28 +19650,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c0ca496efa147641b0e9623a76f915f, type: 3}
---- !u!1 &639846057 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4874778559962627684, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
-  m_PrefabInstance: {fileID: 1825139813920340172}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &639846059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639846057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1b00732d659dec4ebeddc3aae0adafd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerCamera: {fileID: 0}
-  Axes:
-    x: 1
-    y: 0
-    z: 0
 --- !u!1001 &663368702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21638,7 +21616,8 @@ MonoBehaviour:
   _tool: {fileID: 1986725075}
   _toolAnimator: {fileID: 1986725080}
   _toolAnimationTrigger: Hack
-  _onInteractSFX: pickaxe_hit_5
+  _onBreakSoundName: pickaxe_hit_5
+  _onBreakSoundVolume: 0.1
 --- !u!65 &1085687534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38780,6 +38759,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -22
       objectReference: {fileID: 0}
+    - target: {fileID: 4729473522604103713, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4945399433060747546, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_Name
       value: PersistentObjects
@@ -38795,10 +38778,6 @@ PrefabInstance:
     - target: {fileID: 6862516180390451327, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_LocalPosition.z
       value: -22
-      objectReference: {fileID: 0}
-    - target: {fileID: 8038680787069653082, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9098470778702971666, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_RootOrder

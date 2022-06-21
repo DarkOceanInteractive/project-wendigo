@@ -10,12 +10,20 @@ namespace ProjectWendigo
         [SerializeField] private Animator _toolAnimator;
         [SerializeField] private string _toolAnimationTrigger;
 
-        [SerializeField] private string _onInteractSFX;
+        [SerializeField] private string _onBreakSoundName;
+        [SerializeField] private float _onBreakSoundVolume = 0.1f;
 
         public override void OnLookAt(GameObject target)
         {
             if (this._tool.activeSelf || this._tool == null)
-                Singletons.Main.Interface.OpenMessagePanel("- Press F to break -");
+            {
+                var options = new MessagePanelOptions
+                {
+                    Text = $"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to break -",
+                    Location = MessagePanelLocation.BottomCenter
+                };
+                Singletons.Main.Interface.OpenMessagePanel(options);
+            }
         }
 
         public override void OnLookAway(GameObject target)
@@ -31,8 +39,12 @@ namespace ProjectWendigo
                     this._toolAnimator.SetTrigger(this._toolAnimationTrigger);
                 if (this._obstacle.activeSelf)
                     this._obstacle.SetActive(false);
-                if (this._onInteractSFX != "")
-                    Singletons.Main.Sound.Play(this._onInteractSFX);
+                if (this._onBreakSoundName != "")
+                {
+                    AudioSource audio = Singletons.Main.Sound.GetAudio(this._onBreakSoundName);
+                    audio.volume *= this._onBreakSoundVolume;
+                    audio.Play();
+                }
             }
         }
     }
