@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3fb8598f484dce9b6fc69a438ff221, type: 3}
   m_Name: MapsCollectedTable
   m_EditorClassIdentifier: 
-  _entries:
-  - CollectionEntryId: 0
-  - CollectionEntryId: 1
+  _entries: []

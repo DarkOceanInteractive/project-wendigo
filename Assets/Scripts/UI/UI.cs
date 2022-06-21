@@ -8,6 +8,7 @@ namespace ProjectWendigo
 
         public void Awake()
         {
+            Debug.Log("UI");
             if (Main != null)
             {
                 Destroy(this.gameObject);

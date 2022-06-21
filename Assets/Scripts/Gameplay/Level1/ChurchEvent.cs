@@ -27,7 +27,7 @@ namespace ProjectWendigo
 
         public void ChangeSensitivity(float sensitivity = 0.005f)
         {
-            Singletons.Main.Option.ChangeSensitivity(sensitivity, sensitivity);
+            Singletons.Main.Camera.SetSensitivity(sensitivity);
         }
     }
 }

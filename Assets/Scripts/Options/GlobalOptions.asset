@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd2668fa261d44468d30714a7f74457, type: 3}
-  m_Name: JournalCollectedTable
+  m_Script: {fileID: 11500000, guid: 9154812b72bf555458e3d27cb7b95b95, type: 3}
+  m_Name: GlobalOptions
   m_EditorClassIdentifier: 
-  _entries: []
+  Volume: 15
+  Brightness: 0
+  Headbobbing: 1
+  InvertY: 0

@@ -1,3 +1,5 @@
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine;
 using Cinemachine;
 
@@ -5,6 +7,7 @@ namespace ProjectWendigo
 {
     public class CameraManager : MonoBehaviour
     {
+        public Camera Main => Camera.main;
         public CinemachineBrain Brain;
         public CinemachineVirtualCamera PlayerCamera;
         public CinemachineVirtualCamera PlayerFocusCamera;
@@ -46,6 +49,27 @@ namespace ProjectWendigo
         public void FocusOnTarget(GameObject target)
         {
             this._focus.FocusCameraOnTarget(target, null);
+        }
+
+        public void SetBrightness(float brightness)
+        {
+            if (this.Main.GetComponent<Volume>().profile.TryGet(out ColorAdjustments cg))
+                cg.postExposure.value = brightness;
+        }
+
+        public void SetInvertYAxis(bool invert = true)
+        {
+            this.PlayerCamera.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_InvertInput = !invert;
+        }
+
+        public void SetSensitivity(float verticalAxis, float horizontalAxis)
+        {
+            this.PlayerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = verticalAxis;
+            this.PlayerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = horizontalAxis;
+        }
+        public void SetSensitivity(float sensitivity)
+        {
+            this.SetSensitivity(sensitivity, sensitivity);
         }
     }
 }

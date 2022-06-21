@@ -1,8 +1,6 @@
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.Rendering;
 using Cinemachine;
 
 namespace ProjectWendigo
@@ -11,13 +9,12 @@ namespace ProjectWendigo
     {
         public UnityEvent<float> OnVolumeChanged;
         public UnityEvent<float> OnBrightnessChanged;
-        [SerializeField] private Volume _volume;
+        public UnityEvent<bool> OnInvertYChanged;
+        public UnityEvent<bool> OnHeadbobbingChanged;
         [SerializeField] private SoundSettingViewModel _soundSettingViewModel;
         [SerializeField] private BrightnessSettingViewModel _brightnessSettingViewModel;
         [SerializeField] private HeadbobbingSettingViewModel _headbobbingSettingViewModel;
         [SerializeField] private InvertYSettingViewModel _invertYSettingViewModel;
-
-        [SerializeField] private GameObject _cinemachineVirtualCamera;
 
         public float Volume
         {
@@ -32,41 +29,37 @@ namespace ProjectWendigo
         public bool Headbobbing => this._headbobbingSettingViewModel.HeadbobbingSetting;
         public bool InvertY => this._invertYSettingViewModel.InvertYSetting;
 
-        public void Awake()
+        public void Start()
         {
             this._soundSettingViewModel.PropertyChanged += (object sender, PropertyChangedEventArgs e) =>
             {
                 if (e.PropertyName == nameof(this._soundSettingViewModel.VolumeSetting))
                     this.OnVolumeChanged?.Invoke(this._soundSettingViewModel.VolumeSetting);
             };
+            this.OnVolumeChanged?.Invoke(this._soundSettingViewModel.VolumeSetting);
             this._brightnessSettingViewModel.PropertyChanged += (object sender, PropertyChangedEventArgs e) =>
             {
                 if (e.PropertyName == nameof(this._brightnessSettingViewModel.BrightnessSetting))
                     this.OnBrightnessChanged?.Invoke(this._brightnessSettingViewModel.BrightnessSetting);
             };
-        }
-
-        public void OnEnable()
-        {
-            this.Volume = Singletons.Main.Sound.GetMasterVolume();
-        }
-
-        public void UpdateCameraOptions()
-        {
-            if (this._volume.profile.TryGet(out ColorAdjustments cg))
-                cg.postExposure.value = this.Brightness;
-            Singletons.Main.Camera.PlayerCamera.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_InvertInput = !this.InvertY;
+            this.OnBrightnessChanged?.Invoke(this._brightnessSettingViewModel.BrightnessSetting);
+            this._headbobbingSettingViewModel.PropertyChanged += (object sender, PropertyChangedEventArgs e) =>
+            {
+                if (e.PropertyName == nameof(this._headbobbingSettingViewModel.HeadbobbingSetting))
+                    this.OnHeadbobbingChanged?.Invoke(this._headbobbingSettingViewModel.HeadbobbingSetting);
+            };
+            this.OnHeadbobbingChanged?.Invoke(this._headbobbingSettingViewModel.HeadbobbingSetting);
+            this._invertYSettingViewModel.PropertyChanged += (object sender, PropertyChangedEventArgs e) =>
+            {
+                if (e.PropertyName == nameof(this._invertYSettingViewModel.InvertYSetting))
+                    this.OnInvertYChanged?.Invoke(this._invertYSettingViewModel.InvertYSetting);
+            };
+            this.OnInvertYChanged?.Invoke(this._invertYSettingViewModel.InvertYSetting);
         }
 
         public void EnablePauseMenu(bool enabled = true)
         {
             this.GetComponent<PauseMenu>().enabled = enabled;
-        }
-
-        public void ChangeSensitivity(float VerticalAxis, float HorizontalAxis)
-        {
-            Singletons.Main.Camera.PlayerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = VerticalAxis;
-            Singletons.Main.Camera.PlayerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = HorizontalAxis;
         }
     }
 }

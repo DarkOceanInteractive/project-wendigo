@@ -1,19 +1,17 @@
-using UnityEngine;
 using UnityWeld.Binding;
 
 namespace ProjectWendigo
 {
     [Binding]
     public class HeadbobbingSettingViewModel : ViewModel
-    {   
-        private bool _headbobbingSetting = true;
+    {
         [Binding]
         public bool HeadbobbingSetting
         {
-            get { return this._headbobbingSetting; }
+            get { return GlobalOptions.Main.Headbobbing; }
             set
             {
-                this._headbobbingSetting = value;
+                GlobalOptions.Main.Headbobbing = value;
                 this.OnPropertyChanged("HeadbobbingSetting");
             }
         }
