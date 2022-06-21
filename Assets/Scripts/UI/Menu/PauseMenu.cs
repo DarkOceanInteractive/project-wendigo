@@ -6,6 +6,7 @@ namespace ProjectWendigo
     {
         [SerializeField] private GameObject _menu;
         [SerializeField] private GameObject _mainMenu;
+        [SerializeField] private GameObject _mainMenuBackground;
         [SerializeField] private GameObject _optionsMenu;
         [SerializeField] private GameObject _optionsMenuBackButton;
         [SerializeField] private GameObject _PlayerCamera;
@@ -48,6 +49,7 @@ namespace ProjectWendigo
         {
             this._menu.SetActive(visible);
             this._mainMenu.SetActive(!visible);
+            this._mainMenuBackground.SetActive(!visible);
             this._optionsMenu.SetActive(visible);
             this._optionsMenuBackButton.SetActive(!visible);
             this._isOpen = visible;
