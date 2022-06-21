@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectWendigo
 {
     public class SpawnFireEvent : MonoBehaviour
     {
+        [SerializeField] private GameObject[] _crystals;
         [SerializeField] private ParticleSystem[] _fireParticles;
         [SerializeField] private ParticleSystem _fireBarrier;
 
@@ -18,6 +17,8 @@ namespace ProjectWendigo
             }
             // Start fire particle barrier
             this._fireBarrier.Play();
+            foreach (GameObject crystal in this._crystals)
+                crystal.SetInteractable();
         }
 
         // Method to stop the firebarrier and start playing the fire particles
