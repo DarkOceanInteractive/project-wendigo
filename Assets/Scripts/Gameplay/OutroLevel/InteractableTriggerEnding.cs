@@ -14,10 +14,10 @@ namespace ProjectWendigo
         public float minBlendTime = 7f;
         public float maxBlendTime = 10f;
 
-        public GameObject blackOutSquare;
-        public float fadeSpeed = 15f;
-        private float fadeAmount;
-        private Color objectColor;
+        // public GameObject blackOutSquare;
+        // public float fadeSpeed = 15f;
+        // private float fadeAmount;
+        // private Color objectColor;
 
         public ParticleSystem portal;
 
@@ -49,10 +49,13 @@ namespace ProjectWendigo
 
         public override void OnInteract(GameObject target)
         {
+            StartCoroutine(FadeBlackOutSquare());
+
             screenParticles.Play();
+            ChangePortal();
             Singletons.Main.Camera.LockCamera();
             Singletons.Main.Camera.FocusOnTarget(focusObject, minBlendTime, maxBlendTime);
-            StartCoroutine(FadeBlackOutSquare());
+
 
         }
 
@@ -68,19 +71,8 @@ namespace ProjectWendigo
 
         public IEnumerator FadeBlackOutSquare(bool fadeToBlack = true)
         {
-            objectColor = blackOutSquare.GetComponent<Image>().color;
-
-            if (fadeToBlack)
-            {
-                while (objectColor.a < 1)
-                {
-                    fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
-
-                    objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-                    blackOutSquare.GetComponent<Image>().color = objectColor;
-                    yield return null;
-                }
-            }
+            yield return new WaitForSecondsRealtime(5);
+            Singletons.Main.Fade.FadeOutEffect();
         }
     }
 }

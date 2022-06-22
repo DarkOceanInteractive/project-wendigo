@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1214,25 +1214,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Daughter
       objectReference: {fileID: 0}
-    - target: {fileID: 2374535943157781479, guid: 5d9f533f45ad9104bb333181c09b58ba, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d67dddfdfd8475748955c3732f973e09, type: 2}
     - target: {fileID: 7992998045706759006, guid: 5d9f533f45ad9104bb333181c09b58ba, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7992998045706759006, guid: 5d9f533f45ad9104bb333181c09b58ba, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.058872253
-      objectReference: {fileID: 0}
-    - target: {fileID: 7992998045706759006, guid: 5d9f533f45ad9104bb333181c09b58ba, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.058872253
-      objectReference: {fileID: 0}
-    - target: {fileID: 7992998045706759006, guid: 5d9f533f45ad9104bb333181c09b58ba, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.058872253
       objectReference: {fileID: 0}
     - target: {fileID: 7992998045706759006, guid: 5d9f533f45ad9104bb333181c09b58ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1272,10 +1256,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7992998045706759006, guid: 5d9f533f45ad9104bb333181c09b58ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162337483378127448, guid: 5d9f533f45ad9104bb333181c09b58ba, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9053,10 +9033,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3077043607924120045, guid: c5d44dd0287f98a43b93c4f94294854d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8852233399985005852, guid: c5d44dd0287f98a43b93c4f94294854d, type: 3}
       propertyPath: m_Name
       value: Samodiva
@@ -9064,18 +9040,6 @@ PrefabInstance:
     - target: {fileID: 8870372482566790266, guid: c5d44dd0287f98a43b93c4f94294854d, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870372482566790266, guid: c5d44dd0287f98a43b93c4f94294854d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.82586
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870372482566790266, guid: c5d44dd0287f98a43b93c4f94294854d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.82586
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870372482566790266, guid: c5d44dd0287f98a43b93c4f94294854d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.82586
       objectReference: {fileID: 0}
     - target: {fileID: 8870372482566790266, guid: c5d44dd0287f98a43b93c4f94294854d, type: 3}
       propertyPath: m_LocalPosition.x
