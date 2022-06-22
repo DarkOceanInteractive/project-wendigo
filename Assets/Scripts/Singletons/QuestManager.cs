@@ -10,7 +10,12 @@ namespace ProjectWendigo
         public class Quest
         {
             public string Name;
-            public int Progress { get; private set; }
+            [SerializeField, ReadOnly] private int _progress;
+            public int Progress
+            {
+                get => this._progress;
+                private set => this._progress = value;
+            }
             public int Total;
             [SerializeField, ReadOnly] private bool _isStarted = false;
 
@@ -62,6 +67,10 @@ namespace ProjectWendigo
             quest.Start();
             return true;
         }
+        public void StartQuest(string name)
+        {
+            this.TryStartQuest(name);
+        }
 
         public bool TryUpdateQuestProgress(string name, int increment)
         {
@@ -70,6 +79,10 @@ namespace ProjectWendigo
                 return false;
             quest.UpdateProgress(increment);
             return true;
+        }
+        public void IncrementQuestProgress(string name)
+        {
+            this.TryUpdateQuestProgress(name, 1);
         }
 
         public bool TryGetQuestProgress(string name, out int progress)

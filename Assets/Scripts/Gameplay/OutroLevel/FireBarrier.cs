@@ -1,50 +1,46 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBarrier : MonoBehaviour
+namespace ProjectWendigo
 {
-    private ParticleSystem particles;
-    private GameObject player;
-
-    public float mass = 3.0f;
-    private Vector3 impact = Vector3.zero;
-    private CharacterController _characterController;
-    public float force = 50f;
-    public Vector3 direction;
-
-    void Start()
+    public class FireBarrier : MonoBehaviour
     {
-        particles = GetComponent<ParticleSystem>();
-        var collision = particles.collision;
-        collision.enabled = true;
-        collision.type = ParticleSystemCollisionType.World;
-        collision.mode = ParticleSystemCollisionMode.Collision3D;
-        collision.sendCollisionMessages = true;
+        private ParticleSystem _particles;
 
+        [SerializeField] public float _mass = 3.0f;
+        [SerializeField] private float _force = 50f;
+        [SerializeField] private Vector3 _direction;
+        private Vector3 _impact = Vector3.zero;
+        private CharacterController _characterController;
 
-        player = GameObject.FindGameObjectWithTag("Player");
-        _characterController = player.GetComponent<CharacterController>();
-        Debug.Log(particles);
-    }
+        void Start()
+        {
+            this._particles = this.GetComponent<ParticleSystem>();
+            var collision = this._particles.collision;
+            collision.enabled = true;
+            collision.type = ParticleSystemCollisionType.World;
+            collision.mode = ParticleSystemCollisionMode.Collision3D;
+            collision.sendCollisionMessages = true;
+            this._characterController = Singletons.Main.Player.PlayerBody.GetComponent<CharacterController>();
+        }
 
-    void OnParticleCollision(GameObject other)
-    {
-        if(other.tag == "Player")
-            AddImpact(force);
+        void OnParticleCollision(GameObject other)
+        {
+            if (other.tag == "Player")
+                this.AddImpact(this._force);
+        }
 
-    }
+        private void AddImpact(float force)
+        {
+            this._direction.Normalize();
+            this._impact += this._direction.normalized * force / this._mass;
+        }
 
-    private void AddImpact(float force)
-    {
-        direction.Normalize();
-        impact += direction.normalized * force / mass;
-    }
-
-    void Update()
-    {
-        if(impact.magnitude > 0.2)
-            _characterController.Move(impact * Time.deltaTime);
-            impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
+        private void FixedUpdate()
+        {
+            if (this._impact.magnitude > 0.2)
+                this._characterController.Move(this._impact * Time.deltaTime);
+            this._impact = Vector3.Lerp(this._impact, Vector3.zero, 5 * Time.deltaTime);
+        }
     }
 }
