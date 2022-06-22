@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Reflection;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine;
@@ -12,11 +14,13 @@ namespace ProjectWendigo
         public CinemachineVirtualCamera PlayerCamera;
         public CinemachineVirtualCamera PlayerFocusCamera;
         private CameraFocus _focus;
+        private Volume _postProcessVolume;
 
         private void Awake()
         {
             Debug.Assert(this.Brain != null || Camera.main.TryGetComponent(out this.Brain));
             Debug.Assert(this._focus != null || this.TryGetComponent(out this._focus));
+            Debug.Assert(this.Main.TryGetComponent(out this._postProcessVolume));
         }
 
         public void LockCamera()
@@ -51,12 +55,45 @@ namespace ProjectWendigo
             this._focus.FocusCameraOnTarget(target, null);
         }
 
-        public void SetBrightness(float brightness)
+        private Effect GetPostProcessEffect<Effect>()
+            where Effect : VolumeComponent
         {
-            if (this.Main.GetComponent<Volume>().profile.TryGet(out ColorAdjustments cg))
-                cg.postExposure.value = brightness;
-            else
-                Debug.LogWarning("No color adjustment settings found");
+            if (this._postProcessVolume.profile.TryGet(out Effect effect))
+                return effect;
+            Debug.LogWarning($"No {typeof(Effect).Name} component found in the main camera profile");
+            return null;
+        }
+
+        private IEnumerator BlendEffect(PropertyInfo property, float targetValue, float time)
+        {
+            float baseValue = (float)property.GetValue(this);
+            float elapsedTime = 0f;
+            while (elapsedTime < time)
+            {
+                property.SetValue(this, Mathf.Lerp(baseValue, targetValue, elapsedTime / time));
+                yield return new WaitForEndOfFrame();
+                elapsedTime += Time.deltaTime;
+            }
+        }
+
+        public float Brightness
+        {
+            get => this.GetPostProcessEffect<ColorAdjustments>().postExposure.value;
+            set => this.GetPostProcessEffect<ColorAdjustments>().postExposure.value = value;
+        }
+        public void BlendBrightness(float targetValue, float time)
+        {
+            StartCoroutine(this.BlendEffect(typeof(CameraManager).GetProperty(nameof(this.Brightness)), targetValue, time));
+        }
+
+        public float Vignette
+        {
+            get => this.GetPostProcessEffect<Vignette>().intensity.value;
+            set => this.GetPostProcessEffect<Vignette>().intensity.value = value;
+        }
+        public void BlendVignette(float targetValue, float time)
+        {
+            StartCoroutine(this.BlendEffect(typeof(CameraManager).GetProperty(nameof(this.Vignette)), targetValue, time));
         }
 
         public void SetInvertYAxis(bool invert = true)
