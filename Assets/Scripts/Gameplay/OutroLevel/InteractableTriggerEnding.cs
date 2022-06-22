@@ -19,6 +19,8 @@ namespace ProjectWendigo
         private float fadeAmount;
         private Color objectColor;
 
+        public ParticleSystem portal;
+
         void Start()
         {
             screenParticles.Stop();
@@ -28,9 +30,20 @@ namespace ProjectWendigo
         {
             if(character == Characters.Daughter)
             {
-                Singletons.Main.Interface.OpenMessagePanel("- Press F to save daughter -");
+                var options = new MessagePanelOptions
+                {
+                    Text = $"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to save daughter -",
+                    Location = MessagePanelLocation.BottomCenter
+                };
+                Singletons.Main.Interface.OpenMessagePanel(options);
+
             }else {
-                Singletons.Main.Interface.OpenMessagePanel("- Press F to attack Samodiva -");
+                var options = new MessagePanelOptions
+                {
+                    Text = $"- Press {Singletons.Main.Input.GetBinding("Player/Interact")} to attack Samodiva -",
+                    Location = MessagePanelLocation.BottomCenter
+                };
+                Singletons.Main.Interface.OpenMessagePanel(options);
             }
         }
 
@@ -41,6 +54,16 @@ namespace ProjectWendigo
             Singletons.Main.Camera.FocusOnTarget(focusObject, minBlendTime, maxBlendTime);
             StartCoroutine(FadeBlackOutSquare());
 
+        }
+
+        private void ChangePortal()
+        {
+            var size = portal.sizeOverLifetime;
+            size.enabled = true;
+            AnimationCurve curve = new AnimationCurve();
+            curve.AddKey(0.0f, 0.0f);
+            curve.AddKey(1.0f, 1.0f);
+            size.size = new ParticleSystem.MinMaxCurve(1.5f, curve);
         }
 
         public IEnumerator FadeBlackOutSquare(bool fadeToBlack = true)
