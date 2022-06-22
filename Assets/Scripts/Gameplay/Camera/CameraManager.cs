@@ -55,6 +55,8 @@ namespace ProjectWendigo
         {
             if (this.Main.GetComponent<Volume>().profile.TryGet(out ColorAdjustments cg))
                 cg.postExposure.value = brightness;
+            else
+                Debug.LogWarning("No color adjustment settings found");
         }
 
         public void SetInvertYAxis(bool invert = true)
