@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: ArchiveCategoryTable
   m_EditorClassIdentifier: 
   _entries:
-  - Title: The Cabin
+  - Title: Easter Eggs
     <Id>k__BackingField: 0
-  - Title: The Village
+  - Title: The Cabin
     <Id>k__BackingField: 1
-  - Title: The Mine
+  - Title: The Village
     <Id>k__BackingField: 2
+  - Title: The Mine
+    <Id>k__BackingField: 3

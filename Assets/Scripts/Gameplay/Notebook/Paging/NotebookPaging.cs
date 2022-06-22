@@ -35,11 +35,14 @@ namespace ProjectWendigo
             GameObject lastPage = this.QueryLastPage();
             PageAdapterInfo pageAdapterInfo = this._pagesAdapters[this._currentPageAdapterIndex];
             pageAdapterInfo.adapter.AddChild(lastPage, element, value, pageAdapterInfo.options);
+            bool sectionActiveState = this.transform.parent.gameObject.activeSelf;
+            this.transform.parent.gameObject.SetActive(true);
             if (!this.ElementAdapter.ElementFits(element, lastPage))
             {
                 lastPage = this.CreateNewPage();
                 pageAdapterInfo.adapter.AddChild(lastPage, element, value, pageAdapterInfo.options);
             }
+            this.transform.parent.gameObject.SetActive(sectionActiveState);
             this.ElementAdapter.OnAfterInsert(element, value, lastPage, this.ElementAdapterOptions);
 
         }

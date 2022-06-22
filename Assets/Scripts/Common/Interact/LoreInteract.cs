@@ -32,18 +32,18 @@ namespace ProjectWendigo
 
         public override void OnInteract(GameObject target)
         {
-            if (!Singletons.Main.Notebook.ArchiveHasEntry(this.ArchiveEntryTitle))
+            //if (!Singletons.Main.Notebook.ArchiveHasEntry(this.ArchiveEntryTitle))
+            //{
+            if (this.RelatedQuestName != "")
+                Singletons.Main.Quest.TryUpdateQuestProgress(this.RelatedQuestName, 1);
+            Singletons.Main.Notebook.AddArchiveEntryByTitle(this.ArchiveEntryTitle);
+            Singletons.Main.Interface.CloseMessagePanel();
+            //Singletons.Main.Save.Save();
+            if (this._openArchive)
             {
-                if (this.RelatedQuestName != "")
-                    Singletons.Main.Quest.TryUpdateQuestProgress(this.RelatedQuestName, 1);
-                Singletons.Main.Notebook.AddArchiveEntryByTitle(this.ArchiveEntryTitle);
-                Singletons.Main.Interface.CloseMessagePanel();
-                Singletons.Main.Save.Save();
-                if (this._openArchive)
-                {
-                    Singletons.Main.Notebook.ToggleSection("Sections/Archive");
-                }
+                Singletons.Main.Notebook.ToggleSection("Sections/Archive");
             }
+            //}
         }
     }
 }

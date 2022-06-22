@@ -5,6 +5,7 @@ namespace ProjectWendigo
 {
     public class DwightInteraction : Pickable
     {
+        [SerializeField] private string _archiveEntryTitle;
         [SerializeField] private Transform _baseTransform;
         [SerializeField] private Transform _targetTransform;
         [SerializeField] private Vector2Spline _spline = Vector2Spline.Linear(Vector2.zero, Vector2.one);
@@ -46,6 +47,12 @@ namespace ProjectWendigo
             this._isLookedAt = false;
             if (!this._isAnimating && this.isActiveAndEnabled)
                 StartCoroutine(this.RotateAnimation());
+        }
+
+        public override void OnInteract(GameObject target)
+        {
+            base.OnInteract(target);
+            Singletons.Main.Notebook.AddArchiveEntryByTitle(this._archiveEntryTitle);
         }
     }
 }

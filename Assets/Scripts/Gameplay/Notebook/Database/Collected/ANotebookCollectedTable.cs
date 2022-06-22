@@ -11,7 +11,8 @@ namespace ProjectWendigo
             var uniqueIdPlugin = ScriptableObject.CreateInstance<DatabaseTablePluginUniqueField>();
             uniqueIdPlugin.FieldName = "CollectionEntryId";
 
-            this.Plugins = new List<ADatabaseTablePlugin> {
+            this.Plugins = new List<ADatabaseTablePlugin>
+            {
                 uniqueIdPlugin
             };
         }

@@ -24,3 +24,21 @@ MonoBehaviour:
     <Id>k__BackingField: 2
     Content: After seeing all the hidden messages, I feel uncomfortable. I should
       leave the mine.
+  - Title: Mine Writings 1/6
+    <Id>k__BackingField: 3
+    Content: I collected 1 writing. 5 more to go.
+  - Title: Mine Writings 2/6
+    <Id>k__BackingField: 4
+    Content: I collected 2 writings. 4 more to go.
+  - Title: Mine Writings 3/6
+    <Id>k__BackingField: 5
+    Content: I collected 3 writings. 3 more to go.
+  - Title: Mine Writings 4/6
+    <Id>k__BackingField: 6
+    Content: I collected 4 writings. 2 more to go.
+  - Title: Mine Writings 5/6
+    <Id>k__BackingField: 7
+    Content: I collected 5 writings. 1 more to go.
+  - Title: Mine Writings 6/6
+    <Id>k__BackingField: 8
+    Content: I collected 6 writings. That's all of them!

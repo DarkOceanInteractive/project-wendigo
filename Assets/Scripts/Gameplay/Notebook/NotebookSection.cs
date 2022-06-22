@@ -11,14 +11,22 @@ namespace ProjectWendigo
         public UnityEvent OnSave;
         public UnityEvent OnClear;
         public UnityEvent<ANotebookCollectionEntry> OnAddElement;
+        public UnityEvent<ANotebookCollectionEntry> OnRemoveElement;
 
         [SerializeField] private DatabaseTable _collection;
         [SerializeField] private DatabaseTable _collected;
 
-        private void Start()
+        public void Load()
         {
             this.Clear();
             this._collected.Load();
+            foreach (ANotebookCollectedEntry entry in this._collected.GetAll())
+                this.OnAddElement?.Invoke(this.GetCollectionEntry(entry));
+        }
+
+        private void Redraw()
+        {
+            this.OnClear?.Invoke();
             foreach (ANotebookCollectedEntry entry in this._collected.GetAll())
                 this.OnAddElement?.Invoke(this.GetCollectionEntry(entry));
         }
@@ -76,6 +84,28 @@ namespace ProjectWendigo
                 return true;
             }
             return false;
+        }
+
+        public bool RemoveEntry(ANotebookCollectedEntry entry)
+        {
+            ANotebookCollectionEntry collectionEntry = this.GetCollectionEntry(entry);
+            if (this._collected.RemoveOne(it => ((ANotebookCollectedEntry)it).CollectionEntryId == entry.CollectionEntryId))
+            {
+                this.Redraw();
+                this.OnRemoveElement?.Invoke(collectionEntry);
+                return true;
+            }
+            return false;
+        }
+
+        public bool RemoveEntryByTitle(string title)
+        {
+            ANotebookCollectionEntry collectionEntry = this.GetCollectionEntryByTitle(title);
+            if (collectionEntry == null)
+                return false;
+            ANotebookCollectedEntry entry = (ANotebookCollectedEntry)Activator.CreateInstance(this._collected.EntryType);
+            entry.CollectionEntryId = collectionEntry.Id;
+            return this.RemoveEntry(entry);
         }
 
         public bool HasEntry(int id)

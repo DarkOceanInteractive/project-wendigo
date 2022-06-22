@@ -8,6 +8,7 @@ namespace ProjectWendigo
         {
             base.OnInteract(target);
             LevelMineStateContext.Instance.EnterLanternEvent();
+            Singletons.Main.Event.Trigger("LanternEvent");
         }
     }
 }
