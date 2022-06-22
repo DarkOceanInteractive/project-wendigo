@@ -5,7 +5,7 @@ namespace ProjectWendigo
 {
     public class NotebookManager : MonoBehaviour
     {
-        [SerializeField] private GameObject _notebook;
+        public GameObject Notebook;
         private NotebookController _notebookController;
         private NotebookNavigation _notebookNavigation;
         private NotebookSection _journal;
@@ -14,13 +14,17 @@ namespace ProjectWendigo
 
         private void Awake()
         {
-            Debug.Assert(this._notebook != null);
-            Debug.Assert(this._notebook.TryGetComponent(out this._notebookController));
-            Debug.Assert(this._notebook.TryGetComponent(out this._notebookNavigation));
-            this._journal = this._notebook.transform.Find("Sections/Journal")?.GetComponentInChildren<NotebookSection>();
-            this._maps = this._notebook.transform.Find("Sections/Maps")?.GetComponentInChildren<NotebookSection>();
-            this._archive = this._notebook.transform.Find("Sections/Archive")?.GetComponentInChildren<NotebookSection>();
-            this._notebook.SetActive(false);
+            Debug.Assert(this.Notebook != null);
+            Debug.Assert(this.Notebook.TryGetComponent(out this._notebookController));
+            Debug.Assert(this.Notebook.TryGetComponent(out this._notebookNavigation));
+            this.Notebook.SetActive(true);
+            this._journal = this.Notebook.transform.Find("Sections/Journal")?.GetComponentInChildren<NotebookSection>();
+            this._journal.Load();
+            this._maps = this.Notebook.transform.Find("Sections/Maps")?.GetComponentInChildren<NotebookSection>();
+            this._maps.Load();
+            this._archive = this.Notebook.transform.Find("Sections/Archive")?.GetComponentInChildren<NotebookSection>();
+            this._archive.Load();
+            this.Notebook.SetActive(false);
         }
 
         private void Update()
@@ -31,7 +35,7 @@ namespace ProjectWendigo
                 this.ToggleSection(this._maps);
             if (Singletons.Main.Input.PlayerToggledNotebookArchive)
                 this.ToggleSection(this._archive);
-            if (this._notebook.activeSelf && Singletons.Main.Input.PlayerExittedUI)
+            if (this.Notebook.activeSelf && Singletons.Main.Input.PlayerExittedUI)
                 this.Close();
         }
 
@@ -44,7 +48,7 @@ namespace ProjectWendigo
 
         public void ToggleSection(NotebookSection section)
         {
-            bool isNotebookOpen = this._notebook.activeSelf;
+            bool isNotebookOpen = this.Notebook.activeSelf;
             if (!isNotebookOpen || this._notebookNavigation.GetActiveSection() != section.transform)
             {
                 if (!isNotebookOpen)
@@ -59,7 +63,7 @@ namespace ProjectWendigo
 
         public void ToggleSection(string name)
         {
-            var sectionGameObject = this._notebook.transform.Find(name);
+            var sectionGameObject = this.Notebook.transform.Find(name);
             Debug.Assert(sectionGameObject != null, $"No section named {sectionGameObject}");
             Debug.Assert(sectionGameObject.TryGetComponent(out NotebookSection section),
                 $"Object {sectionGameObject} does not contain a {typeof(NotebookSection).Name} component");
@@ -92,16 +96,36 @@ namespace ProjectWendigo
         public void AddArchiveEntryById(int id)
         {
             if (this._archive.AddEntry(new ArchiveCollectedEntry { CollectionEntryId = id }))
+            {
                 this.OpenNewEntryPopup(
                     $"A new finding was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.",
                     () => Singletons.Main.Input.PlayerToggledNotebookArchive);
+            }
+            else
+            {
+                Debug.LogWarning($"No archive entry found with id `{id}`");
+            }
         }
         public void AddArchiveEntryByTitle(string title)
         {
             if (this._archive.AddEntryByTitle(title))
+            {
                 this.OpenNewEntryPopup(
                     $"A new finding was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Findings")} to see.",
                     () => Singletons.Main.Input.PlayerToggledNotebookArchive);
+            }
+            else
+            {
+                Debug.LogWarning($"No archive entry found with title `{title}`");
+            }
+        }
+        public void RemoveArchiveEntryById(int id)
+        {
+            this._archive.RemoveEntry(new ArchiveCollectedEntry { CollectionEntryId = id });
+        }
+        public void RemoveArchiveEntryByTitle(string title)
+        {
+            this._archive.RemoveEntryByTitle(title);
         }
         public bool ArchiveHasEntry(int id)
         {
@@ -115,17 +139,38 @@ namespace ProjectWendigo
         public void AddJournalEntryById(int id)
         {
             if (this._journal.AddEntry(new JournalCollectedEntry { CollectionEntryId = id }))
+            {
                 this.OpenNewEntryPopup(
                     $"A new journal entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Journal")} to see.",
                     () => Singletons.Main.Input.PlayerToggledNotebookJournal);
+            }
+            else
+            {
+                Debug.LogWarning($"No journal entry found with id `{id}`");
+            }
         }
         public void AddJournalEntryByTitle(string title)
         {
             if (this._journal.AddEntryByTitle(title))
+            {
                 this.OpenNewEntryPopup(
                     $"A new journal entry was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Journal")} to see.",
                     () => Singletons.Main.Input.PlayerToggledNotebookJournal);
+            }
+            else
+            {
+                Debug.LogWarning($"No journal entry found with title `{title}`");
+            }
         }
+        public void RemoveJournalEntryById(int id)
+        {
+            this._journal.RemoveEntry(new JournalCollectedEntry { CollectionEntryId = id });
+        }
+        public void RemoveJournalEntryByTitle(string title)
+        {
+            this._journal.RemoveEntryByTitle(title);
+        }
+
         public bool JournalHasEntry(int id)
         {
             return this._journal.HasEntry(id);
@@ -138,16 +183,36 @@ namespace ProjectWendigo
         public void AddMapsEntryById(int id)
         {
             if (this._maps.AddEntry(new MapsCollectedEntry { CollectionEntryId = id }))
+            {
                 this.OpenNewEntryPopup(
                     $"A new map was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Maps")} to see.",
                     () => Singletons.Main.Input.PlayerToggledNotebookMaps);
+            }
+            else
+            {
+                Debug.LogWarning($"No maps entry found with id `{id}`");
+            }
         }
         public void AddMapsEntryByTitle(string title)
         {
             if (this._maps.AddEntryByTitle(title))
+            {
                 this.OpenNewEntryPopup(
                     $"A new map was added to the notebook. Press {Singletons.Main.Input.GetBinding("Player/Toggle Notebook Maps")} to see.",
                     () => Singletons.Main.Input.PlayerToggledNotebookMaps);
+            }
+            else
+            {
+                Debug.LogWarning($"No maps entry found with title `{title}`");
+            }
+        }
+        public void RemoveMapsEntryById(int id)
+        {
+            this._maps.RemoveEntry(new MapsCollectedEntry { CollectionEntryId = id });
+        }
+        public void RemoveMapsEntryByTitle(string title)
+        {
+            this._maps.RemoveEntryByTitle(title);
         }
         public bool MapsHasEntry(int id)
         {

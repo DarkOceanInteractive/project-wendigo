@@ -6150,10 +6150,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4982946101747619461, guid: e8771d61b20b73d4ba49e402f7c8a521, type: 3}
+      propertyPath: _archiveEntryTitle
+      value: Dwight
+      objectReference: {fileID: 0}
     - target: {fileID: 4982946101747619463, guid: e8771d61b20b73d4ba49e402f7c8a521, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5181590878597674156, guid: e8771d61b20b73d4ba49e402f7c8a521, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9da152cd86609e4098393a4fc8ed2ac, type: 2}
     - target: {fileID: 5325386462242589625, guid: e8771d61b20b73d4ba49e402f7c8a521, type: 3}
       propertyPath: m_Name
       value: EasterEgg_Dwight
