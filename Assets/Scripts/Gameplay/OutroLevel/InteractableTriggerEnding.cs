@@ -21,6 +21,8 @@ namespace ProjectWendigo
 
         public ParticleSystem portal;
 
+        public ParticleSystem portal;
+
         void Start()
         {
             screenParticles.Stop();
