@@ -12,6 +12,7 @@ namespace ProjectWendigo
 
         [SerializeField] private string _onBreakSoundName;
         [SerializeField] private float _onBreakSoundVolume = 0.1f;
+        public string RelatedQuestName;
 
         public override void OnLookAt(GameObject target)
         {
@@ -35,6 +36,8 @@ namespace ProjectWendigo
         {
             if (this._tool.activeSelf || this._tool == null)
             {
+                if (this.RelatedQuestName != "")
+                    Singletons.Main.Quest.TryUpdateQuestProgress(this.RelatedQuestName, 1);
                 if (this._toolAnimator != null && this._toolAnimationTrigger != null)
                     this._toolAnimator.SetTrigger(this._toolAnimationTrigger);
                 if (this._obstacle.activeSelf)

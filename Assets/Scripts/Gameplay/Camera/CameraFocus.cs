@@ -41,11 +41,16 @@ namespace ProjectWendigo
             this.Invoke(nameof(this.UnfocusTarget), time, target);
         }
 
+        public void FocusCameraOnTarget(GameObject target)
+        {
+            this.FocusCameraOnTarget(target, null, null);
+        }
+
         public void UnfocusTarget(GameObject target)
         {
             // Make player camera look at the target after the camera blending
             Singletons.Main.Camera.PlayerCamera.ForceCameraPosition(Singletons.Main.Camera.PlayerCamera.transform.position, this.CalculateLookAtRotation(target));
-            Singletons.Main.Camera.BlendToCamera(Singletons.Main.Camera.PlayerCamera, 0);
+            Singletons.Main.Camera.BlendToCamera(Singletons.Main.Camera.PlayerCamera, 0.1f);
         }
     }
 }
