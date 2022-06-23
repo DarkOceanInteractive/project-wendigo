@@ -21,7 +21,7 @@ MonoBehaviour:
   - Title: Framed Picture
     <Id>k__BackingField: 1
     CategoryTitle: The Cabin
-    Image: {fileID: 0}
+    Image: {fileID: 21300000, guid: 8e70deae3ead2b048ac73ca5f4fb8a30, type: 3}
     Description: Our photo from the trip we made to Croatia. The road was rough,
       but it was worth it in the end. They look so happy here...
   - Title: Trophy
