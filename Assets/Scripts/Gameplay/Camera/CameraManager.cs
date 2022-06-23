@@ -96,6 +96,26 @@ namespace ProjectWendigo
             StartCoroutine(this.BlendEffect(typeof(CameraManager).GetProperty(nameof(this.Vignette)), targetValue, time));
         }
 
+        public float Grain
+        {
+            get => this.GetPostProcessEffect<FilmGrain>().intensity.value;
+            set => this.GetPostProcessEffect<FilmGrain>().intensity.value = value;
+        }
+        public void BlendGrain(float targetValue, float time)
+        {
+            StartCoroutine(this.BlendEffect(typeof(CameraManager).GetProperty(nameof(this.Grain)), targetValue, time));
+        }
+
+        public float ChromaticAberration
+        {
+            get => this.GetPostProcessEffect<ChromaticAberration>().intensity.value;
+            set => this.GetPostProcessEffect<ChromaticAberration>().intensity.value = value;
+        }
+        public void BlendChromaticAberration(float targetValue, float time)
+        {
+            StartCoroutine(this.BlendEffect(typeof(CameraManager).GetProperty(nameof(this.ChromaticAberration)), targetValue, time));
+        }
+
         public void SetInvertYAxis(bool invert = true)
         {
             this.PlayerCamera.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_InvertInput = !invert;

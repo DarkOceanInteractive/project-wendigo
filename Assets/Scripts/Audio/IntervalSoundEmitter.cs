@@ -26,7 +26,8 @@ namespace ProjectWendigo
             this._countDown -= Time.deltaTime;
             if (this._countDown <= 0)
             {
-                this._audioSource.Play();
+                if (this._audioSource != null)
+                    this._audioSource.Play();
                 this.ResetCountDown();
             }
         }

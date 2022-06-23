@@ -1,0 +1,20 @@
+using UnityEngine;
+
+namespace ProjectWendigo
+{
+    public class EarthquakeEvent : MonoBehaviour
+    {
+        [SerializeField] private GameObject _exitRocks;
+
+        private void Awake()
+        {
+            Singletons.Main.Event.On("EarthquakeEvent", this.StartEvent);
+        }
+
+        private void StartEvent()
+        {
+            LevelMineStateContext.Instance.EnterEarthquakeEvent();
+            this._exitRocks.SetActive(false);
+        }
+    }
+}

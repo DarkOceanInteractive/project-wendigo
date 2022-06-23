@@ -24,6 +24,7 @@ namespace ProjectWendigo
                 item.SetActive(true);
                 item.SetInteractable();
             }
+            LevelMineStateContext.Instance.EnterLanternEvent();
         }
 
         public void UpdateNotebookQuest(QuestManager.Quest quest)
