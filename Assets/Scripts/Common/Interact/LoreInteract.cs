@@ -7,6 +7,9 @@ namespace ProjectWendigo
         public string ArchiveEntryTitle;
         public string RelatedQuestName;
 
+        [SerializeField] private string _onInteractSoundName;
+        [SerializeField] private float _onInteractSoundVolume = 0.1f;
+
         [SerializeField] private bool _openArchive;
 
         public override void OnLookAt(GameObject target)
@@ -32,18 +35,20 @@ namespace ProjectWendigo
 
         public override void OnInteract(GameObject target)
         {
-            //if (!Singletons.Main.Notebook.ArchiveHasEntry(this.ArchiveEntryTitle))
-            //{
             if (this.RelatedQuestName != "")
                 Singletons.Main.Quest.TryUpdateQuestProgress(this.RelatedQuestName, 1);
             Singletons.Main.Notebook.AddArchiveEntryByTitle(this.ArchiveEntryTitle);
             Singletons.Main.Interface.CloseMessagePanel();
-            //Singletons.Main.Save.Save();
             if (this._openArchive)
             {
                 Singletons.Main.Notebook.ToggleSection("Sections/Archive");
             }
-            //}
+            if (this._onInteractSoundName != "")
+                {
+                    AudioSource audio = Singletons.Main.Sound.GetAudio(this._onInteractSoundName);
+                    audio.volume *= this._onInteractSoundVolume;
+                    audio.Play();
+                }
         }
     }
 }
