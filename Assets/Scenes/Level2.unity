@@ -4389,6 +4389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Cave Art 4/6
   RelatedQuestName: Mine_CollectWritings
+  _onInteractSoundName: 
+  _onInteractSoundVolume: 0.1
   _openArchive: 0
 --- !u!1001 &326173141
 PrefabInstance:
@@ -6640,6 +6642,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Cave Art 1/6
   RelatedQuestName: Mine_CollectWritings
+  _onInteractSoundName: 
+  _onInteractSoundVolume: 0.1
   _openArchive: 0
 --- !u!1001 &466407313
 PrefabInstance:
@@ -11205,6 +11209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Cave Art 2/6
   RelatedQuestName: Mine_CollectWritings
+  _onInteractSoundName: 
+  _onInteractSoundVolume: 0.1
   _openArchive: 0
 --- !u!1 &811295398
 GameObject:
@@ -22328,6 +22334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Cave Art 6/6
   RelatedQuestName: Mine_CollectWritings
+  _onInteractSoundName: 
+  _onInteractSoundVolume: 0.1
   _openArchive: 0
 --- !u!1001 &1569298441
 PrefabInstance:
@@ -22619,6 +22627,30 @@ PrefabInstance:
     - target: {fileID: 8432130726345181273, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: LayerMask.m_Bits
       value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.size
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[57].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8fa3b64afec51f04fbf9068ea952e98b, type: 3}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[57].Name
+      value: mine_ambience
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[57].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[57].Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[57].IsLooping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9098470778702971666, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_RootOrder
@@ -24194,6 +24226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Cave Art 5/6
   RelatedQuestName: Mine_CollectWritings
+  _onInteractSoundName: 
+  _onInteractSoundVolume: 0.1
   _openArchive: 0
 --- !u!1001 &1656438518
 PrefabInstance:
@@ -25986,6 +26020,8 @@ MonoBehaviour:
   _flashlightDropTrigger: Drop
   _drainDelay: 1
   _journalEntryTitle: Flashlight broke
+  _ambientSoundEffectName: mine_ambience
+  _ambientSoundEffectVolume: 0.2
 --- !u!1001 &1758889793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29461,6 +29497,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Cave Art 3/6
   RelatedQuestName: Mine_CollectWritings
+  _onInteractSoundName: 
+  _onInteractSoundVolume: 0.1
   _openArchive: 0
 --- !u!1001 &1977639058
 PrefabInstance:

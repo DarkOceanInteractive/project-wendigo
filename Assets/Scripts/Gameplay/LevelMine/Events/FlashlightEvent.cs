@@ -12,6 +12,9 @@ namespace ProjectWendigo
         [SerializeField] private float _drainDelay = 1.0f;
         [SerializeField] private string _journalEntryTitle;
 
+        [SerializeField] private string _ambientSoundEffectName;
+        [SerializeField] private float _ambientSoundEffectVolume = 0.2f;
+
         private void Awake()
         {
             Singletons.Main.Event.On("FlashlightEvent", this.EnterFlashlightEvent);
@@ -19,6 +22,12 @@ namespace ProjectWendigo
 
         private void Start()
         {
+            if (this._ambientSoundEffectName != "")
+                {
+                    AudioSource audio = Singletons.Main.Sound.GetAudio(this._ambientSoundEffectName);
+                    audio.volume *= this._ambientSoundEffectVolume;
+                    audio.Play();
+                }
             Singletons.Main.Event.Trigger("FlashlightEvent");
         }
 

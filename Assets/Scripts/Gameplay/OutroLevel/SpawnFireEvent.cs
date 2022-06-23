@@ -8,8 +8,17 @@ namespace ProjectWendigo
         [SerializeField] private ParticleSystem[] _fireParticles;
         [SerializeField] private ParticleSystem _fireBarrier;
 
+        [SerializeField] private string _ambientSoundEffectName;
+        [SerializeField] private float _ambientSoundEffectVolume = 0.2f;
+
         private void Start()
         {
+            if (this._ambientSoundEffectName != "")
+                {
+                    AudioSource audio = Singletons.Main.Sound.GetAudio(this._ambientSoundEffectName);
+                    audio.volume *= this._ambientSoundEffectVolume;
+                    audio.Play();
+                }
             // Stop particles 
             for (int i = 0; i < this._fireParticles.Length; i++)
             {

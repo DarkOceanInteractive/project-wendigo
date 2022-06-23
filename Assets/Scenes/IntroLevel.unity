@@ -314,6 +314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: An old doll
   RelatedQuestName: Intro_CollectLoreItems
+  _onInteractSoundName: squeeky_toy
+  _onInteractSoundVolume: 0.1
   _openArchive: 0
 --- !u!4 &156916228 stripped
 Transform:
@@ -671,6 +673,42 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.size
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[57].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8245d8dfe8c06c4498f7e9ed274f6cbe, type: 3}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[57].Name
+      value: squeeky_toy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[58].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f00bb9ba4892434c8c0838243eee7e9, type: 3}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[58].Name
+      value: leave_cabin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[57].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[58].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[57].Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[58].Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 9058821936876570431, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -987,6 +1025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rope
       objectReference: {fileID: 0}
+    - target: {fileID: 4045383631357877282, guid: 5d7dff6f818914b4397692416a57738c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d7dff6f818914b4397692416a57738c, type: 3}
 --- !u!4 &453689930 stripped
@@ -1016,6 +1058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3942af6f7abb434a9f9c2905b6ed14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onInteractSoundName: leave_cabin
+  _onInteractSoundVolume: 1
 --- !u!4 &568457791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3689755322571063947, guid: 99f689c1c6a793c498fd4b14ec427c22, type: 3}
@@ -6876,6 +6920,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Trophy
   RelatedQuestName: Intro_CollectLoreItems
+  _onInteractSoundName: 
+  _onInteractSoundVolume: 0.1
   _openArchive: 0
 --- !u!1 &1662190982 stripped
 GameObject:
@@ -7401,6 +7447,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArchiveEntryTitle: Framed Picture
   RelatedQuestName: Intro_CollectLoreItems
+  _onInteractSoundName: 
+  _onInteractSoundVolume: 0.1
   _openArchive: 0
 --- !u!1 &2040008918
 GameObject:

@@ -7,6 +7,10 @@ namespace ProjectWendigo
     {
         [SerializeField] public float Duration = 3f;
 
+        [SerializeField] private GameObject _churchStatue;
+        [SerializeField] private string _ambientSoundEffectName;
+        [SerializeField] private float _ambientSoundEffectVolume = 0.1f;
+
         private void Awake()
         {
             Singletons.Main.Event.On("ChurchEvent", this.EnterEvent);
@@ -14,6 +18,12 @@ namespace ProjectWendigo
 
         void Start()
         {
+            if (this._ambientSoundEffectName != "")
+                {
+                    AudioSource audio = Singletons.Main.Sound.GetAudioAt(this._ambientSoundEffectName, this._churchStatue.transform.position);
+                    audio.volume *= this._ambientSoundEffectVolume;
+                    audio.Play();
+                }
             Singletons.Main.Event.Trigger("ChurchEvent");
         }
 
