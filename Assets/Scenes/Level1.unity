@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.004851823, g: 0.07731662, b: 0.13633096, a: 1}
+  m_IndirectSpecularColor: {r: 0.17388824, g: 0.25289038, b: 0.30301183, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6633,7 +6633,7 @@ GameObject:
   - component: {fileID: 1684157752}
   - component: {fileID: 1684157751}
   m_Layer: 0
-  m_Name: Box Volume
+  m_Name: Blockage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6677,8 +6677,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684157750}
   m_LocalRotation: {x: -0, y: -0.21861897, z: -0, w: 0.9758103}
-  m_LocalPosition: {x: 43.122192, y: 114.03058, z: 30.210228}
-  m_LocalScale: {x: 45.56, y: 32.4, z: 1}
+  m_LocalPosition: {x: 43.122192, y: 137.04, z: 30.210228}
+  m_LocalScale: {x: 64.92756, y: 41.135044, z: 1}
   m_Children: []
   m_Father: {fileID: 931047650}
   m_RootOrder: 14
