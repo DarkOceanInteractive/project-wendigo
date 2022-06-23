@@ -88,6 +88,7 @@ jobs:
           buildName: ${{ steps.build-name.outputs.build_name }}
           unityVersion: ${{ matrix.UnityVersion }}
           targetPlatform: ${{ matrix.TargetPlatform }}
+          customParameters: -Development
       - name: Zip build assets
         run: |
           ln -s ./build/${{ matrix.TargetPlatform }} ./${{ steps.build-name.outputs.build_name }}

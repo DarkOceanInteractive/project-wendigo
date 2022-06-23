@@ -16,7 +16,7 @@ namespace ProjectWendigo
 
         public override void OnInteract(GameObject target)
         {
-            Debug.Log("Leave");
+            Singletons.Main.Scene.GoToNextScene();
         }
     }
 }
