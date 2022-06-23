@@ -64,9 +64,16 @@ namespace ProjectWendigo
         public void ToggleSection(string name)
         {
             var sectionGameObject = this.Notebook.transform.Find(name);
-            Debug.Assert(sectionGameObject != null, $"No section named {sectionGameObject}");
-            Debug.Assert(sectionGameObject.TryGetComponent(out NotebookSection section),
-                $"Object {sectionGameObject} does not contain a {typeof(NotebookSection).Name} component");
+            if (sectionGameObject == null)
+            {
+                Debug.LogWarning($"No section named {sectionGameObject}");
+                return;
+            }
+            if (!sectionGameObject.TryGetComponent(out NotebookSection section))
+            {
+                Debug.LogWarning($"Object {sectionGameObject} does not contain a {typeof(NotebookSection).Name} component");
+                return;
+            }
             this.ToggleSection(section);
         }
 
