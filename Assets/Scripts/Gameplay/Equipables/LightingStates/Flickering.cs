@@ -9,6 +9,7 @@ namespace ProjectWendigo.LightingStates
 
         public override void Enter()
         {
+            this.context.GetComponent<Light>().enabled =  true;
             GenerateTimer();
         }
 
