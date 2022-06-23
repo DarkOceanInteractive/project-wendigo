@@ -19,12 +19,11 @@ namespace ProjectWendigo
         void Start()
         {
             if (this._ambientSoundEffectName != "")
-                {
-                    AudioSource audio = Singletons.Main.Sound.GetAudioAt(this._ambientSoundEffectName, this._churchStatue.transform.position);
-                    audio.volume *= this._ambientSoundEffectVolume;
-                    audio.Play();
-                }
-            Singletons.Main.Event.Trigger("ChurchEvent");
+            {
+                AudioSource audio = Singletons.Main.Sound.GetAudioAt(this._ambientSoundEffectName, this._churchStatue.transform.position);
+                audio.volume *= this._ambientSoundEffectVolume;
+                audio.Play();
+            }
         }
 
         public void EnterEvent()
