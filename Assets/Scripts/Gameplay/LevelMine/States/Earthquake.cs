@@ -6,16 +6,9 @@ namespace ProjectWendigo.LevelMineStates
     {
         public override void Enter()
         {
-            GameObject playerBody = GameObject.Find("Player Body");
-            SoundsSpawner soundsSpawner = playerBody.GetComponent<SoundsSpawner>();
-            DarkenCamera darkenCameraScript = playerBody.GetComponent<DarkenCamera>();
+            SoundsSpawner soundsSpawner = Singletons.Main.Player.PlayerBody.GetComponent<SoundsSpawner>();
+            DarkenCamera darkenCameraScript = Singletons.Main.Player.PlayerBody.GetComponent<DarkenCamera>();
 
-            // Disable the darkness effect
-            Object.Destroy(darkenCameraScript);
-            // Deactivate all sounds ambiences
-            soundsSpawner.DeactivateAmbience("Light");
-            soundsSpawner.DeactivateAmbience("Dark");
-            soundsSpawner.DeactivateAmbience("General");
             // Activate the earthquake sound ambience
             soundsSpawner.ActivateAmbience("Earthquake");
             ref SoundsSpawner.SoundAmbience pickaxeAmbience = ref soundsSpawner.FindAmbience("PickaxeHits");

@@ -7,13 +7,13 @@ namespace ProjectWendigo
         public void OnLightEnter(Collider collider)
         {
             if (!LevelMineStateContext.Instance.IsInState<LevelMineStates.Earthquake>())
-                collider.gameObject.BroadcastMessage("OnLightEnter", collider, SendMessageOptions.DontRequireReceiver);
+                collider.gameObject.BroadcastMessage("OnLightEnter", SendMessageOptions.DontRequireReceiver);
         }
 
         public void OnLightExit(Collider collider)
         {
             if (!LevelMineStateContext.Instance.IsInState<LevelMineStates.Earthquake>())
-                collider.gameObject.BroadcastMessage("OnLightExit", collider, SendMessageOptions.DontRequireReceiver);
+                collider.gameObject.BroadcastMessage("OnLightExit", SendMessageOptions.DontRequireReceiver);
         }
     }
 }

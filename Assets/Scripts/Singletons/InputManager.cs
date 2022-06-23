@@ -18,9 +18,9 @@ namespace ProjectWendigo
         public bool PlayerIsMoving => this.PlayerMovement != Vector2.zero;
         // public bool PlayerJumped => this._input.Player.Jump.WasPressedThisFrame();
         public bool PlayerStartedCrouching => this._input.Player.Crouch.WasPressedThisFrame();
-        // public bool PlayerStartedSprinting => this._input.Player.Sprint.WasPressedThisFrame();
+        public bool PlayerStartedSprinting => this._input.Player.Sprint.WasPressedThisFrame();
         public bool PlayerStoppedCrouching => this._input.Player.Crouch.WasReleasedThisFrame();
-        // public bool PlayerStoppedSprinting => this._input.Player.Sprint.WasReleasedThisFrame();
+        public bool PlayerStoppedSprinting => this._input.Player.Sprint.WasReleasedThisFrame();
         // public bool PlayerToggledInventory => this._input.Player.Toggleinventory.WasPressedThisFrame();
         public bool PlayerSavedInventory => this._input.Player.Saveinventory.WasPressedThisFrame();
         public bool PlayerLoadedInventory => this._input.Player.Loadinventory.WasPressedThisFrame();
@@ -37,8 +37,6 @@ namespace ProjectWendigo
         public bool PlayerPaused => this._input.UI.Pause.WasPressedThisFrame();
 
         public bool PlayerJumped => false;
-        public bool PlayerStartedSprinting => false;
-        public bool PlayerStoppedSprinting => false;
         public bool PlayerToggledInventory => false;
 
         // Lighting input helpers
