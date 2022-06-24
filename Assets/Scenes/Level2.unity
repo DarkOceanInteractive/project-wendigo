@@ -9076,6 +9076,7 @@ MonoBehaviour:
   SoundName: ranger_heavybreathing
   PlayInterval: {x: 1, y: 3}
   _countDown: 0
+  StartOnAwake: 0
 --- !u!1001 &629930195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23330,6 +23331,26 @@ PrefabInstance:
     - target: {fileID: 8432130726345181273, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: LayerMask.m_Bits
       value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.size
+      value: 68
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[67].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a907869701a40a478b8fecd559ed2ea, type: 3}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[67].Name
+      value: ranger_heavybreathing
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[67].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[67].Volume
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9098470778702971666, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_RootOrder
