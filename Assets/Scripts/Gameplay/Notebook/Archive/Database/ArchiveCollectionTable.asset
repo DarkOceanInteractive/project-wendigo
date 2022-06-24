@@ -59,12 +59,14 @@ MonoBehaviour:
     CategoryTitle: The Village
     Image: {fileID: 0}
     Description: A folktale about the Samodiva
-  - Title: Dead Person Journal
+  - Title: Dead Miner Diary
     <Id>k__BackingField: 7
     CategoryTitle: The Mine
     Image: {fileID: 21300000, guid: bb44394114cd9784d9efa9630519adf4, type: 3}
-    Description: This journal says "I am now locked in this mine alone. My fellow
-      miners died from hunger in the last few days. I feel my body giving up on me."
+    Description: "A diary, it reads: \"Everyone is dead after she attacked our village.
+      I am alone and I haven't been able to escape this hellhole. I ran out of food,
+      I will soon starve to death. I can already feel my body giving up. This is
+      it.\"\r"
   - Title: Cave Art 1/6
     <Id>k__BackingField: 8
     CategoryTitle: The Mine
