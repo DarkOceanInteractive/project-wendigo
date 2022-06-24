@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd2668fa261d44468d30714a7f74457, type: 3}
   m_Name: JournalCollectedTable
   m_EditorClassIdentifier: 
-  _entries:
-  - CollectionEntryId: 0
-  - CollectionEntryId: 1
-  - CollectionEntryId: 3
+  _entries: []

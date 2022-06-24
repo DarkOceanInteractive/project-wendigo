@@ -104,9 +104,9 @@ MonoBehaviour:
     Image: {fileID: 21300000, guid: 81d53ee0a6f113c43ab4b2651571a8ab, type: 3}
     Description: It looks like the woman in red decided to punish and kill all those
       people. I think I should leave this place. I am starting to feel uncomfortable.
-  - Title: Miner Menifesto
+  - Title: Miner Manifesto
     <Id>k__BackingField: 14
     CategoryTitle: The Village
     Image: {fileID: 21300000, guid: c4b2c7d210be14a4c89eefc1e2435647, type: 3}
-    Description: This seems be a miner's menifesto... Does that mean there is a mine
-      nearby?
+    Description: This seems to be a miner's manifesto... Does that mean there is
+      a mine nearby?

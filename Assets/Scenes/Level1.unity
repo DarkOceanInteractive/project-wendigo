@@ -8851,7 +8851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e8b891f6d15414fb9b50288ab0cc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ArchiveEntryTitle: Miner Menifesto
+  ArchiveEntryTitle: Miner Manifesto
   RelatedQuestName: 
   _onInteractSoundName: 
   _onInteractSoundVolume: 0.1
