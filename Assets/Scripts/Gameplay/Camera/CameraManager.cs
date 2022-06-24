@@ -15,12 +15,14 @@ namespace ProjectWendigo
         public CinemachineVirtualCamera PlayerFocusCamera;
         private CameraFocus _focus;
         private Volume _postProcessVolume;
+        private CinemachinePOV _cinemachinePOV;
 
         private void Awake()
         {
             Debug.Assert(this.Brain != null || Camera.main.TryGetComponent(out this.Brain));
             Debug.Assert(this._focus != null || this.TryGetComponent(out this._focus));
             Debug.Assert(this.Main.TryGetComponent(out this._postProcessVolume));
+            this._cinemachinePOV = this.PlayerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
         }
 
         public void LockCamera()
@@ -121,14 +123,19 @@ namespace ProjectWendigo
             this.PlayerCamera.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_InvertInput = !invert;
         }
 
-        public void SetSensitivity(float verticalAxis, float horizontalAxis)
+        public void SetAxesSensitivity(float verticalAxis, float horizontalAxis)
         {
-            this.PlayerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = verticalAxis;
-            this.PlayerCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = horizontalAxis;
+            this._cinemachinePOV.m_VerticalAxis.m_MaxSpeed = verticalAxis;
+            this._cinemachinePOV.m_HorizontalAxis.m_MaxSpeed = horizontalAxis;
         }
         public void SetSensitivity(float sensitivity)
         {
-            this.SetSensitivity(sensitivity, sensitivity);
+            this.SetAxesSensitivity(sensitivity, sensitivity);
+        }
+        public Vector2 Sensitivity
+        {
+            get => new Vector2(this._cinemachinePOV.m_HorizontalAxis.m_MaxSpeed, this._cinemachinePOV.m_VerticalAxis.m_MaxSpeed);
+            set => this.SetAxesSensitivity(value.x, value.y);
         }
     }
 }

@@ -19,6 +19,12 @@ namespace ProjectWendigo
             set => this._store.Brightness = value;
         }
 
+        public float Sensitivity
+        {
+            get => this._store.Sensitivity;
+            set => this._store.Sensitivity = value;
+        }
+
         public bool Headbobbing
         {
             get => this._store.Headbobbing;

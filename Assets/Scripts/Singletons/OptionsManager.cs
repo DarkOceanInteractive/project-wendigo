@@ -1,7 +1,6 @@
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
-using Cinemachine;
 
 namespace ProjectWendigo
 {
@@ -9,10 +8,12 @@ namespace ProjectWendigo
     {
         public UnityEvent<float> OnVolumeChanged;
         public UnityEvent<float> OnBrightnessChanged;
+        public UnityEvent<float> OnSensitivityChanged;
         public UnityEvent<bool> OnInvertYChanged;
         public UnityEvent<bool> OnHeadbobbingChanged;
         [SerializeField] private SoundSettingViewModel _soundSettingViewModel;
         [SerializeField] private BrightnessSettingViewModel _brightnessSettingViewModel;
+        [SerializeField] private SensitivitySettingViewModel _sensitivitySettingViewModel;
         [SerializeField] private HeadbobbingSettingViewModel _headbobbingSettingViewModel;
         [SerializeField] private InvertYSettingViewModel _invertYSettingViewModel;
 
@@ -25,6 +26,11 @@ namespace ProjectWendigo
         {
             get => this._brightnessSettingViewModel.BrightnessSetting;
             set => this._brightnessSettingViewModel.BrightnessSetting = value;
+        }
+        public float Sensitivity
+        {
+            get => this._sensitivitySettingViewModel.SensitivitySetting;
+            set => this._sensitivitySettingViewModel.SensitivitySetting = value;
         }
         public bool Headbobbing => this._headbobbingSettingViewModel.HeadbobbingSetting;
         public bool InvertY => this._invertYSettingViewModel.InvertYSetting;
@@ -43,6 +49,12 @@ namespace ProjectWendigo
                     this.OnBrightnessChanged?.Invoke(this._brightnessSettingViewModel.BrightnessSetting);
             };
             this.OnBrightnessChanged?.Invoke(this._brightnessSettingViewModel.BrightnessSetting);
+            this._sensitivitySettingViewModel.PropertyChanged += (object sender, PropertyChangedEventArgs e) =>
+            {
+                if (e.PropertyName == nameof(this._sensitivitySettingViewModel.SensitivitySetting))
+                    this.OnSensitivityChanged?.Invoke(this._sensitivitySettingViewModel.SensitivitySetting);
+            };
+            this.OnSensitivityChanged?.Invoke(this._sensitivitySettingViewModel.SensitivitySetting);
             this._headbobbingSettingViewModel.PropertyChanged += (object sender, PropertyChangedEventArgs e) =>
             {
                 if (e.PropertyName == nameof(this._headbobbingSettingViewModel.HeadbobbingSetting))

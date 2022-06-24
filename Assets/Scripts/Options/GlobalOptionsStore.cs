@@ -10,6 +10,7 @@ namespace ProjectWendigo
     {
         public float Volume = 0.5f;
         public float Brightness = 0f;
+        public float Sensitivity = 0.3f;
         public bool Headbobbing = true;
         public bool InvertY = false;
 
@@ -18,6 +19,7 @@ namespace ProjectWendigo
         {
             public float Volume;
             public float Brightness;
+            public float Sensitivity;
             public bool Headbobbing;
             public bool InvertY;
         }
@@ -28,6 +30,7 @@ namespace ProjectWendigo
             {
                 Volume = this.Volume,
                 Brightness = this.Brightness,
+                Sensitivity = this.Sensitivity,
                 Headbobbing = this.Headbobbing,
                 InvertY = this.InvertY
             };
@@ -37,6 +40,7 @@ namespace ProjectWendigo
         {
             this.Volume = options.Volume;
             this.Brightness = options.Brightness;
+            this.Sensitivity = options.Sensitivity;
             this.Headbobbing = options.Headbobbing;
             this.InvertY = options.InvertY;
         }
