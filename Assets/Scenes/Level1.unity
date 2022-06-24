@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17388824, g: 0.25289038, b: 0.30301183, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.078493915, b: 0.13852462, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5171,6 +5171,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 478861899170175447, guid: d68bf3ee776b56f4f8727d5df957b66b, type: 3}
   m_PrefabInstance: {fileID: 236640038}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &314280986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314280987}
+  - component: {fileID: 314280988}
+  m_Layer: 0
+  m_Name: Barrier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &314280987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314280986}
+  m_LocalRotation: {x: -0, y: -0.22441998, z: -0, w: 0.97449255}
+  m_LocalPosition: {x: 48.17, y: 135.16, z: 30.96}
+  m_LocalScale: {x: 68.87616, y: 25.833885, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1283360866}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -25.938, z: 0}
+--- !u!65 &314280988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314280986}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &315537292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 629261933001951873, guid: 55caf974cce69474b8207f406cc039d5, type: 3}
@@ -5399,7 +5443,7 @@ MonoBehaviour:
   SoundName: truck_idle
   PlayOnAwake: 1
   PlayAfterDelay: 0
-  Volume: 0.1
+  Volume: 0.4
 --- !u!1001 &589194083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6689,6 +6733,7 @@ Transform:
   - {fileID: 989435747}
   - {fileID: 524150572}
   - {fileID: 1458375085}
+  - {fileID: 314280987}
   m_Father: {fileID: 931047650}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
