@@ -12,9 +12,7 @@ namespace ProjectWendigo
         [SerializeField] private float _transitionDuration;
         private bool _isInLight = true;
         [SerializeField] private Vector2Spline _animationCurve = new Vector2Spline();
-        private bool _hasVisitedEntrance = false;
         private SoundsSpawner _soundsSpawner;
-        //private SoundsSpawner.SoundAmbience _darkSoundAmbience;
         [SerializeField] private float _darknessMinimumVolume = 0.5f;
 
         public void OnLightEnter()
