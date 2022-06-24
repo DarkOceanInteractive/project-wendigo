@@ -7043,6 +7043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _phoneStateContext: {fileID: 1972079157}
+  _journalEntry: Phone Call
 --- !u!1001 &1663566991
 PrefabInstance:
   m_ObjectHideFlags: 0

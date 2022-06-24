@@ -19,6 +19,7 @@ namespace ProjectWendigo
         public override void OnInteract(GameObject target)
         {
             Singletons.Main.Event.Trigger("ChurchEvent");
+            target.SetActive(false);
         }
     }
 }
