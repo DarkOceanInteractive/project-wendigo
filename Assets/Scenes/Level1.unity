@@ -5993,17 +5993,13 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1825139813370570150, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
-      propertyPath: m_VolumeLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1825139813370570155, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1825139813370570155, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: far clip plane
       value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825139813370570158, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2359642140095831284, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8213,7 +8209,15 @@ PrefabInstance:
     m_TransformParent: {fileID: 2004130598}
     m_Modifications:
     - target: {fileID: 1289169689214297382, guid: f1a2e9fe71109f34d99d5fc2a582f8fa, type: 3}
+      propertyPath: OnTriggerBoxExitOnce.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289169689214297382, guid: f1a2e9fe71109f34d99d5fc2a582f8fa, type: 3}
       propertyPath: OnTriggerBoxEnterOnce.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289169689214297382, guid: f1a2e9fe71109f34d99d5fc2a582f8fa, type: 3}
+      propertyPath: OnTriggerBoxExitOnce.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1289169689214297382, guid: f1a2e9fe71109f34d99d5fc2a582f8fa, type: 3}
@@ -8221,9 +8225,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1289169689214297382, guid: f1a2e9fe71109f34d99d5fc2a582f8fa, type: 3}
+      propertyPath: OnTriggerBoxExitOnce.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 931047649}
+    - target: {fileID: 1289169689214297382, guid: f1a2e9fe71109f34d99d5fc2a582f8fa, type: 3}
       propertyPath: OnTriggerBoxEnterOnce.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 931047651}
+    - target: {fileID: 1289169689214297382, guid: f1a2e9fe71109f34d99d5fc2a582f8fa, type: 3}
+      propertyPath: OnTriggerBoxExitOnce.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1289169689214297382, guid: f1a2e9fe71109f34d99d5fc2a582f8fa, type: 3}
       propertyPath: OnTriggerBoxEnterOnce.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -8262,7 +8274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4515243128449650121, guid: f1a2e9fe71109f34d99d5fc2a582f8fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.111
+      value: -3.334
       objectReference: {fileID: 0}
     - target: {fileID: 4515243128449650121, guid: f1a2e9fe71109f34d99d5fc2a582f8fa, type: 3}
       propertyPath: m_LocalRotation.w
