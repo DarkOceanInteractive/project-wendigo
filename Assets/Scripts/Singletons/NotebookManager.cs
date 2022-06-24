@@ -46,6 +46,13 @@ namespace ProjectWendigo
             this._archive.Save();
         }
 
+        public void Clear()
+        {
+            this._journal.Clear();
+            this._maps.Clear();
+            this._archive.Clear();
+        }
+
         public void ToggleSection(NotebookSection section)
         {
             bool isNotebookOpen = this.Notebook.activeSelf;
