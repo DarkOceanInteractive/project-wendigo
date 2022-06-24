@@ -362,6 +362,30 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.size
+      value: 68
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[67].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 202c8061acd8c8b428a56a948e9c92eb, type: 3}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[67].Name
+      value: menu_music
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[67].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[67].Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996772556658380983, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+      propertyPath: Sounds.Array.data[67].IsLooping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9098470778702971666, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -413,6 +437,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1825139815365599194, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
   m_PrefabInstance: {fileID: 728302022}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1350385562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1350385563}
+  - component: {fileID: 1350385564}
+  m_Layer: 0
+  m_Name: BackgroundMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1350385563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350385562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 493.37967, y: 292.8281, z: 885.73083}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1350385564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350385562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269953ca537bd9245ac36aa929c5fa39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backgroundMusicName: menu_music
 --- !u!1001 &3064318287127851645
 PrefabInstance:
   m_ObjectHideFlags: 0
