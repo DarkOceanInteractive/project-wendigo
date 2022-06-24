@@ -15,6 +15,8 @@ namespace ProjectWendigo
         {
             this._player.SetActive(true);
             Singletons.Main.Option.gameObject.GetComponent<PauseMenu>().enabled = true;
+            Singletons.Main.Notebook.Clear();
+            Singletons.Main.Notebook.Save();
             GlobalOptions.Main.Save();
             Singletons.Main.Scene.GoToNextScene();
         }
