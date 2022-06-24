@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.078493915, b: 0.13852462, a: 1}
+  m_IndirectSpecularColor: {r: 0.17388824, g: 0.25289038, b: 0.30301183, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6402,6 +6402,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 721d8fe802e3a7b419f90abf4e3323c9, type: 3}
+--- !u!1 &1184639945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1849864476069686866, guid: 40490f67e4e35b847b37ac7ae2532f4f, type: 3}
+  m_PrefabInstance: {fileID: 1389726968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1184639947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184639945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0c2563648502e4daa9e7001bce9fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: birds_firewoosh
+  PlayOnAwake: 0
+  PlayAfterDelay: 0
+  Volume: 1
+--- !u!114 &1184639948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184639945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0c2563648502e4daa9e7001bce9fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: samodiva_laugh
+  PlayOnAwake: 0
+  PlayAfterDelay: 0
+  Volume: 1
+--- !u!114 &1184639954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184639945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0c2563648502e4daa9e7001bce9fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: rock_falling
+  PlayOnAwake: 0
+  PlayAfterDelay: 0
+  Volume: 1
 --- !u!4 &1208914767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4866443077471884, guid: 5a67dee3a6f335040bb05d9d284074f9, type: 3}
@@ -6684,11 +6737,11 @@ PrefabInstance:
     - target: {fileID: 596732380784345004, guid: 40490f67e4e35b847b37ac7ae2532f4f, type: 3}
       propertyPath: OnTriggerBoxEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1492403973}
+      objectReference: {fileID: 1184639947}
     - target: {fileID: 596732380784345004, guid: 40490f67e4e35b847b37ac7ae2532f4f, type: 3}
       propertyPath: OnTriggerBoxEnter.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1492403975}
+      objectReference: {fileID: 1184639948}
     - target: {fileID: 596732380784345004, guid: 40490f67e4e35b847b37ac7ae2532f4f, type: 3}
       propertyPath: OnTriggerBoxEnter.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -6744,7 +6797,7 @@ PrefabInstance:
     - target: {fileID: 596732381315319517, guid: 40490f67e4e35b847b37ac7ae2532f4f, type: 3}
       propertyPath: OnTriggerBoxEnter.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1492403974}
+      objectReference: {fileID: 1184639954}
     - target: {fileID: 596732381315319517, guid: 40490f67e4e35b847b37ac7ae2532f4f, type: 3}
       propertyPath: OnTriggerBoxEnter.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -7142,38 +7195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundName: samodiva_laugh
-  PlayOnAwake: 0
-  PlayAfterDelay: 0
-  Volume: 1
---- !u!114 &1492403974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0c2563648502e4daa9e7001bce9fcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SoundName: rock_falling
-  PlayOnAwake: 0
-  PlayAfterDelay: 0
-  Volume: 1
---- !u!114 &1492403975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0c2563648502e4daa9e7001bce9fcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SoundName: birds_firewoosh
   PlayOnAwake: 0
   PlayAfterDelay: 0
   Volume: 1
