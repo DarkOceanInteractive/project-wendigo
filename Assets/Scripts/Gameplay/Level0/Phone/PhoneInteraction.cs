@@ -5,6 +5,7 @@ namespace ProjectWendigo
     public class PhoneInteraction : AInteractable
     {
         [SerializeField] private PhoneStateContext _phoneStateContext;
+        [SerializeField] private string _journalEntry;
 
         public override void OnLookAt(GameObject target)
         {
@@ -32,6 +33,7 @@ namespace ProjectWendigo
             if (this._phoneStateContext.IsInState<PhoneStates.Ringing>())
             {
                 target.transform.parent.GetComponent<PhoneStateContext>().GoToCalling();
+                Singletons.Main.Notebook.AddJournalEntryByTitle(this._journalEntry);
             }
         }
     }
